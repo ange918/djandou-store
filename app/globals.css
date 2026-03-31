@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: #0A0F1E;
+  --color-bg-surface: #0F172A;
+  --color-bg-alt: #080D18;
+  --color-accent-cyan: #00C9FF;
+  --color-accent-blue: #0066FF;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-danger: #EF4444;
+  --color-success: #10B981;
+  --font-unbounded: 'Unbounded', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #0A0F1E;
+  --foreground: #F8FAFC;
+  --accent-cyan: #00C9FF;
+  --accent-blue: #0066FF;
+  --surface: #0F172A;
+  --border-subtle: rgba(255,255,255,0.06);
 }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0A0F1E;
+  color: #F8FAFC;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0F1E; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00C9FF, #0066FF);
+  border-radius: 3px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00C9FF, #0066FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.font-unbounded { font-family: 'Unbounded', sans-serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+
+@keyframes pulse-kidney {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,201,255,0.1); }
+  50% { box-shadow: 0 0 40px rgba(0,201,255,0.3); }
+}
+
+.animate-pulse-kidney { animation: pulse-kidney 3s ease-in-out infinite; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
