@@ -152,11 +152,14 @@ export default function Home() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-6 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 py-28 lg:py-40 relative z-10 w-full">
+
+          {/* Full-width heading */}
           <motion.div
             variants={stagger}
             initial="hidden"
             animate="visible"
+            className="mb-12 lg:mb-16"
           >
             <motion.span
               variants={fadeInUp}
@@ -176,8 +179,8 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                 fontWeight: 900,
-                fontSize: "clamp(2rem, 6vw, 4.5rem)",
-                lineHeight: 1.1,
+                fontSize: "clamp(2.2rem, 7vw, 6.5rem)",
+                lineHeight: 1.05,
                 color: "#F8FAFC",
               }}
             >
@@ -193,10 +196,18 @@ export default function Home() {
                 Protégez votre vie.
               </span>
             </motion.h1>
+          </motion.div>
 
+          {/* Two-column row: description + buttons | SVG */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
+          >
             <motion.p
               variants={fadeInUp}
-              className="mt-8 max-w-md"
+              className="mt-0 max-w-md"
               style={{
                 fontFamily: "var(--font-poppins, Poppins, sans-serif)",
                 fontWeight: 300,
@@ -291,6 +302,7 @@ export default function Home() {
               </svg>
             </div>
           </motion.div>
+          </div>{/* end two-column grid */}
         </div>
       </section>
 
