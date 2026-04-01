@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Unbounded, Poppins } from "next/font/google";
+import { Unbounded, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -19,6 +19,13 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["600"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "ReinSanté — Santé Rénale",
   description:
@@ -31,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${unbounded.variable} ${poppins.variable}`}>
+    <html lang="fr" className={`${unbounded.variable} ${poppins.variable} ${montserrat.variable}`}>
       <body className="bg-[#0A0F1E] text-[#F8FAFC] font-poppins antialiased">
         <ScrollProgress />
         <Navbar />

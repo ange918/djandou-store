@@ -51,10 +51,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium transition-colors duration-200"
+              className="text-sm transition-colors duration-200"
               style={{
-                fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                fontWeight: 500,
+                fontFamily: "var(--font-montserrat, Montserrat, sans-serif)",
+                fontWeight: 600,
                 color: "#94A3B8",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#F8FAFC")}
@@ -65,12 +65,12 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200"
+            className="px-5 py-2 rounded-full text-sm transition-all duration-200"
             style={{
               background: "linear-gradient(135deg, #00C9FF, #0066FF)",
               color: "#fff",
-              fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-              fontWeight: 500,
+              fontFamily: "var(--font-montserrat, Montserrat, sans-serif)",
+              fontWeight: 600,
             }}
           >
             Contact
@@ -112,8 +112,8 @@ export default function Navbar() {
                 className="text-base py-2"
                 style={{
                   color: "#94A3B8",
-                  fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                  fontWeight: 500,
+                  fontFamily: "var(--font-montserrat, Montserrat, sans-serif)",
+                  fontWeight: 600,
                 }}
               >
                 {link.label}
@@ -122,10 +122,12 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="px-5 py-3 rounded-full text-sm font-medium text-center mt-2"
+              className="px-5 py-3 rounded-full text-sm text-center mt-2"
               style={{
                 background: "linear-gradient(135deg, #00C9FF, #0066FF)",
                 color: "#fff",
+                fontFamily: "var(--font-montserrat, Montserrat, sans-serif)",
+                fontWeight: 600,
               }}
             >
               Contact
