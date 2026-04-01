@@ -1,0 +1,53 @@
+11:16:15.227 Running build in Washington, D.C., USA (East) – iad1
+11:16:15.227 Build machine configuration: 2 cores, 8 GB
+11:16:15.345 Cloning github.com/ange918/djandou-store (Branch: main, Commit: adb4d8a)
+11:16:15.346 Previous build caches not available.
+11:16:15.740 Cloning completed: 395.000ms
+11:16:16.195 Running "vercel build"
+11:16:16.864 Vercel CLI 50.37.3
+11:16:17.159 Installing dependencies...
+11:16:29.955 
+11:16:29.955 added 368 packages in 13s
+11:16:29.960 
+11:16:29.961 145 packages are looking for funding
+11:16:29.961   run `npm fund` for details
+11:16:30.032 Detected Next.js version: 16.1.1
+11:16:30.037 Running "npm run build"
+11:16:30.141 
+11:16:30.142 > djjj@0.1.0 build
+11:16:30.142 > next build
+11:16:30.142 
+11:16:30.905 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+11:16:30.906 This information is used to shape Next.js' roadmap and prioritize features.
+11:16:30.906 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+11:16:30.907 https://nextjs.org/telemetry
+11:16:30.907 
+11:16:30.922 ▲ Next.js 16.1.1 (Turbopack)
+11:16:30.923 
+11:16:30.961   Creating an optimized production build ...
+11:16:40.906 ✓ Compiled successfully in 9.4s
+11:16:40.906   Running TypeScript ...
+11:16:46.324 Failed to compile.
+11:16:46.325 
+11:16:46.325 ./components/ui/SectionHeader.tsx:44:9
+11:16:46.326 Type error: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+11:16:46.326   Property 'visible' is incompatible with index signature.
+11:16:46.326     Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+11:16:46.327       Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+11:16:46.327         Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+11:16:46.327           Types of property 'transition' are incompatible.
+11:16:46.328             Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+11:16:46.328               Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+11:16:46.328                 Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+11:16:46.329                   Types of property 'ease' are incompatible.
+11:16:46.329                     Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+11:16:46.329 
+11:16:46.329 [0m [90m 42 |[39m     [33m>[39m
+11:16:46.329  [90m 43 |[39m       [33m<[39m[33mmotion[39m[33m.[39mspan
+11:16:46.330 [31m[1m>[22m[39m[90m 44 |[39m         variants[33m=[39m{fadeInUp}
+11:16:46.330  [90m    |[39m         [31m[1m^[22m[39m
+11:16:46.330  [90m 45 |[39m         className[33m=[39m[32m"inline-block mb-4 px-4 py-1.5 rounded-full text-xs font-medium tracking-[0.2em] uppercase"[39m
+11:16:46.331  [90m 46 |[39m         style[33m=[39m{{
+11:16:46.331  [90m 47 |[39m           color[33m:[39m [32m"#00C9FF"[39m[33m,[39m[0m
+11:16:46.368 Next.js build worker exited with code: 1 and signal: null
+11:16:46.405 Error: Command "npm run build" exited with 1
