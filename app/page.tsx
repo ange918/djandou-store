@@ -152,14 +152,11 @@ export default function Home() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-6 py-28 lg:py-40 relative z-10 w-full">
-
-          {/* Full-width heading */}
+        <div className="max-w-7xl mx-auto px-6 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center relative z-10 w-full">
           <motion.div
             variants={stagger}
             initial="hidden"
             animate="visible"
-            className="mb-4 lg:mb-6"
           >
             <motion.span
               variants={fadeInUp}
@@ -179,7 +176,7 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                 fontWeight: 900,
-                fontSize: "clamp(2rem, 4.5vw, 4rem)",
+                fontSize: "clamp(2rem, 6vw, 4.5rem)",
                 lineHeight: 1.1,
                 color: "#F8FAFC",
               }}
@@ -196,16 +193,57 @@ export default function Home() {
                 Protégez votre vie.
               </span>
             </motion.h1>
+
+            <motion.p
+              variants={fadeInUp}
+              className="mt-8 max-w-md"
+              style={{
+                fontFamily: "var(--font-poppins, Poppins, sans-serif)",
+                fontWeight: 300,
+                fontSize: "1.1rem",
+                lineHeight: 1.8,
+                color: "#94A3B8",
+              }}
+            >
+              Les reins filtrent 1 700 litres de sang chaque jour. Découvrez comment les comprendre,
+              les protéger et détecter les signaux d&apos;alerte.
+            </motion.p>
+
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mt-12">
+              <Link
+                href="/outils"
+                className="px-8 py-4 rounded-full font-medium text-white transition-all duration-200 hover:scale-105"
+                style={{
+                  background: "linear-gradient(135deg, #00C9FF, #0066FF)",
+                  fontFamily: "var(--font-poppins, Poppins, sans-serif)",
+                  fontWeight: 500,
+                }}
+              >
+                Tester mon risque
+              </Link>
+              <Link
+                href="/comprendre"
+                className="px-8 py-4 rounded-full font-medium transition-all duration-200 hover:bg-white/5"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  color: "#F8FAFC",
+                  fontFamily: "var(--font-poppins, Poppins, sans-serif)",
+                  fontWeight: 500,
+                }}
+              >
+                Comprendre les reins
+              </Link>
+            </motion.div>
           </motion.div>
 
-          {/* Kidney illustration — centered below heading */}
+          {/* Kidney illustration */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex justify-center items-center mb-12"
+            className="flex justify-center items-center mt-6 lg:mt-0"
           >
-            <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+            <div className="w-full max-w-xs sm:max-w-sm lg:max-w-md">
               <svg viewBox="0 0 520 440" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Left kidney */}
                 <g opacity="0.9">
@@ -252,58 +290,6 @@ export default function Home() {
                 </g>
               </svg>
             </div>
-          </motion.div>
-
-          {/* Text and buttons — below the kidneys */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-center text-center"
-          >
-            <motion.p
-              variants={fadeInUp}
-              className="max-w-xl"
-              style={{
-                fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                fontWeight: 300,
-                fontSize: "1.1rem",
-                lineHeight: 1.8,
-                color: "#94A3B8",
-              }}
-            >
-              Les reins filtrent 1 700 litres de sang chaque jour. Découvrez comment les comprendre,
-              les protéger et détecter les signaux d&apos;alerte.
-            </motion.p>
-
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3 mt-8">
-              <Link
-                href="/outils"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-                style={{
-                  background: "linear-gradient(135deg, #00C9FF, #0066FF)",
-                  fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                  fontWeight: 500,
-                }}
-              >
-                <ShieldCheckIcon className="w-4 h-4" />
-                Tester mon risque
-              </Link>
-              <Link
-                href="/comprendre"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:bg-white/5"
-                style={{
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  color: "#94A3B8",
-                  fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                  fontWeight: 400,
-                }}
-              >
-                <BeakerIcon className="w-4 h-4" />
-                Comprendre les reins
-                <ArrowRightIcon className="w-3.5 h-3.5 opacity-60" />
-              </Link>
-            </motion.div>
           </motion.div>
         </div>
       </section>
