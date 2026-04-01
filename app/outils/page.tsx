@@ -2,15 +2,20 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  BeakerIcon,
+  ShieldCheckIcon,
+  ClipboardDocumentListIcon,
+} from "@heroicons/react/24/outline";
 import WaterCalculator from "@/components/tools/WaterCalculator";
 import RiskQuiz from "@/components/tools/RiskQuiz";
 import HabitTracker from "@/components/tools/HabitTracker";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const tools = [
-  { id: "eau", label: "Hydratation", emoji: "💧", desc: "Calculer mon besoin en eau" },
-  { id: "quiz", label: "Quiz risque", emoji: "🔍", desc: "Évaluer mon risque rénal" },
-  { id: "habitudes", label: "Habitudes", emoji: "📋", desc: "Suivre mes habitudes" },
+  { id: "eau", label: "Hydratation", icon: BeakerIcon, desc: "Calculer mon besoin en eau" },
+  { id: "quiz", label: "Quiz risque", icon: ShieldCheckIcon, desc: "Évaluer mon risque rénal" },
+  { id: "habitudes", label: "Habitudes", icon: ClipboardDocumentListIcon, desc: "Suivre mes habitudes" },
 ];
 
 export default function OutilsPage() {
@@ -40,23 +45,29 @@ export default function OutilsPage() {
       <section className="py-16 md:py-24 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-3 mb-12 md:mb-16">
-            {tools.map((tool) => (
-              <button
-                key={tool.id}
-                onClick={() => setActiveTool(tool.id)}
-                className="flex-1 flex flex-col items-center gap-2 py-5 px-4 rounded-2xl transition-all duration-200"
-                style={{
-                  background: activeTool === tool.id ? "rgba(0,201,255,0.1)" : "rgba(255,255,255,0.02)",
-                  border: `1px solid ${activeTool === tool.id ? "rgba(0,201,255,0.4)" : "rgba(255,255,255,0.06)"}`,
-                }}
-              >
-                <span className="text-2xl">{tool.emoji}</span>
-                <span className="text-sm font-medium" style={{ color: activeTool === tool.id ? "#00C9FF" : "#94A3B8" }}>
-                  {tool.label}
-                </span>
-                <span className="text-xs" style={{ color: "#64748B" }}>{tool.desc}</span>
-              </button>
-            ))}
+            {tools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <button
+                  key={tool.id}
+                  onClick={() => setActiveTool(tool.id)}
+                  className="flex-1 flex flex-col items-center gap-2 py-5 px-4 rounded-2xl transition-all duration-200"
+                  style={{
+                    background: activeTool === tool.id ? "rgba(0,201,255,0.1)" : "rgba(255,255,255,0.02)",
+                    border: `1px solid ${activeTool === tool.id ? "rgba(0,201,255,0.4)" : "rgba(255,255,255,0.06)"}`,
+                  }}
+                >
+                  <Icon
+                    className="w-6 h-6"
+                    style={{ color: activeTool === tool.id ? "#00C9FF" : "#64748B" }}
+                  />
+                  <span className="text-sm font-medium" style={{ color: activeTool === tool.id ? "#00C9FF" : "#94A3B8" }}>
+                    {tool.label}
+                  </span>
+                  <span className="text-xs" style={{ color: "#64748B" }}>{tool.desc}</span>
+                </button>
+              );
+            })}
           </div>
 
           <motion.div

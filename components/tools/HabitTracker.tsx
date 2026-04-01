@@ -2,12 +2,18 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  BeakerIcon,
+  ScaleIcon,
+  BoltIcon,
+  HeartIcon,
+} from "@heroicons/react/24/outline";
 
 const habits = [
-  { id: "eau", label: "Boire 2L d'eau", icon: "💧" },
-  { id: "sel", label: "Limiter le sel", icon: "🧂" },
-  { id: "sport", label: "30 min activité physique", icon: "🏃" },
-  { id: "medicament", label: "Prendre mes médicaments", icon: "💊" },
+  { id: "eau", label: "Boire 2L d'eau", icon: BeakerIcon },
+  { id: "sel", label: "Limiter le sel", icon: ScaleIcon },
+  { id: "sport", label: "30 min activité physique", icon: BoltIcon },
+  { id: "medicament", label: "Prendre mes médicaments", icon: HeartIcon },
 ];
 
 const days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
@@ -66,34 +72,37 @@ export default function HabitTracker() {
             </tr>
           </thead>
           <tbody>
-            {habits.map((habit) => (
-              <tr key={habit.id}>
-                <td className="py-3 pr-6">
-                  <div className="flex items-center gap-2">
-                    <span>{habit.icon}</span>
-                    <span className="text-sm" style={{ color: "#94A3B8", fontWeight: 300 }}>{habit.label}</span>
-                  </div>
-                </td>
-                {tracker[habit.id].map((checked, day) => (
-                  <td key={day} className="py-3 text-center">
-                    <button
-                      onClick={() => toggle(habit.id, day)}
-                      className="w-7 h-7 rounded-lg mx-auto flex items-center justify-center transition-all duration-200"
-                      style={{
-                        background: checked ? "rgba(0,201,255,0.15)" : "rgba(255,255,255,0.03)",
-                        border: `1px solid ${checked ? "rgba(0,201,255,0.4)" : "rgba(255,255,255,0.08)"}`,
-                      }}
-                    >
-                      {checked && (
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="#00C9FF" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </button>
+            {habits.map((habit) => {
+              const Icon = habit.icon;
+              return (
+                <tr key={habit.id}>
+                  <td className="py-3 pr-6">
+                    <div className="flex items-center gap-2">
+                      <Icon className="w-4 h-4 flex-shrink-0" style={{ color: "#00C9FF" }} />
+                      <span className="text-sm" style={{ color: "#94A3B8", fontWeight: 300 }}>{habit.label}</span>
+                    </div>
                   </td>
-                ))}
-              </tr>
-            ))}
+                  {tracker[habit.id].map((checked, day) => (
+                    <td key={day} className="py-3 text-center">
+                      <button
+                        onClick={() => toggle(habit.id, day)}
+                        className="w-7 h-7 rounded-lg mx-auto flex items-center justify-center transition-all duration-200"
+                        style={{
+                          background: checked ? "rgba(0,201,255,0.15)" : "rgba(255,255,255,0.03)",
+                          border: `1px solid ${checked ? "rgba(0,201,255,0.4)" : "rgba(255,255,255,0.08)"}`,
+                        }}
+                      >
+                        {checked && (
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="#00C9FF" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </button>
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
