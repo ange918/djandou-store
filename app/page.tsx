@@ -101,7 +101,7 @@ const maladies = [
 ];
 
 const stats = [
-  { chiffre: "91 875", label: "patients en IRC terminale en France" },
+  { chiffre: "850M", label: "personnes atteintes de maladie rénale dans le monde" },
   { chiffre: "50%", label: "des cas liés au diabète et à l'hypertension" },
   { chiffre: "1/1000", label: "personnes atteintes de polykystose rénale" },
 ];
