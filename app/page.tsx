@@ -179,8 +179,8 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                 fontWeight: 900,
-                fontSize: "clamp(2.2rem, 7vw, 6.5rem)",
-                lineHeight: 1.05,
+                fontSize: "clamp(2rem, 4.5vw, 4rem)",
+                lineHeight: 1.1,
                 color: "#F8FAFC",
               }}
             >
@@ -276,29 +276,32 @@ export default function Home() {
               les protéger et détecter les signaux d&apos;alerte.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4 mt-10">
+            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3 mt-8">
               <Link
                 href="/outils"
-                className="px-8 py-4 rounded-full font-medium text-white transition-all duration-200 hover:scale-105"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
                 style={{
                   background: "linear-gradient(135deg, #00C9FF, #0066FF)",
                   fontFamily: "var(--font-poppins, Poppins, sans-serif)",
                   fontWeight: 500,
                 }}
               >
+                <ShieldCheckIcon className="w-4 h-4" />
                 Tester mon risque
               </Link>
               <Link
                 href="/comprendre"
-                className="px-8 py-4 rounded-full font-medium transition-all duration-200 hover:bg-white/5"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:bg-white/5"
                 style={{
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  color: "#F8FAFC",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  color: "#94A3B8",
                   fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                  fontWeight: 500,
+                  fontWeight: 400,
                 }}
               >
+                <BeakerIcon className="w-4 h-4" />
                 Comprendre les reins
+                <ArrowRightIcon className="w-3.5 h-3.5 opacity-60" />
               </Link>
             </motion.div>
           </motion.div>
