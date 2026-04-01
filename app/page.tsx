@@ -159,7 +159,7 @@ export default function Home() {
             variants={stagger}
             initial="hidden"
             animate="visible"
-            className="mb-12 lg:mb-16"
+            className="mb-4 lg:mb-6"
           >
             <motion.span
               variants={fadeInUp}
