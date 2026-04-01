@@ -74,7 +74,7 @@ export default function NephropathieHypertensivePage() {
         badge="COMPLICATION HTA"
         urgencyLabel="Surveillance rénale"
         title="Néphropathie hypertensive"
-        definition="La néphropathie hypertensive désigne les lésions rénales induites par une hypertension artérielle chronique mal contrôlée. Elle est la 2e cause d'IRC terminale en France et souvent silencieuse pendant des années."
+        definition="La néphropathie hypertensive désigne les lésions rénales induites par une hypertension artérielle chronique mal contrôlée. Elle est la 2e cause d'IRC terminale dans le monde et souvent silencieuse pendant des années."
         gradientFrom="rgba(127,29,29,0.5)"
         illustration={<Illustration />}
       />
@@ -84,7 +84,7 @@ export default function NephropathieHypertensivePage() {
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><UsersIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Prévalence</span></div>
             <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#EF4444" }}>25%</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>des IRC terminales en France. Parmi les 15 millions d'hypertendus français, environ 10% développent une néphropathie.</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>des IRC terminales dans le monde. Parmi les 1,28 milliard d&apos;hypertendus mondiaux, environ 10% développent une néphropathie.</p>
           </GlowCard>
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ExclamationTriangleIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Mécanismes</span></div>
@@ -97,7 +97,7 @@ export default function NephropathieHypertensivePage() {
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ArrowTrendingDownIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Pronostic</span></div>
             <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F97316" }}>Contrôlable</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>Un contrôle tensionnel optimal (PA < 130/80) réduit de 30% la progression vers l'IRC terminale.</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>Un contrôle tensionnel optimal (PA &lt; 130/80 mmHg) réduit de 30% la progression vers l&apos;IRC terminale.</p>
           </GlowCard>
         </div>
       </section>

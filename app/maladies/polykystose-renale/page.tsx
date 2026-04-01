@@ -87,7 +87,7 @@ export default function PolykystoseRenalePage() {
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><UsersIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widests uppercase" style={{ color: "#64748B" }}>Prévalence</span></div>
             <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#06B6D4" }}>1/1000</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>personnes en France. Environ 70 000 patients. 5-10% des IRC terminales sont liées à la polykystose.</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>personnes dans le monde — environ 12 millions de patients. 5-10% des IRC terminales mondiales sont liées à la polykystose.</p>
           </GlowCard>
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ExclamationTriangleIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Génétique</span></div>

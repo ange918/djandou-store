@@ -65,7 +65,7 @@ export default function AProposPage() {
             Rendre l&apos;information rénale accessible à tous
           </p>
           <p className="text-center mb-4 max-w-2xl mx-auto" style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.9 }}>
-            En France, plus de 3 millions de personnes souffrent d'insuffisance rénale chronique. Beaucoup l'ignorent jusqu'à un stade avancé. La sensibilisation précoce sauve des vies.
+            Dans le monde, plus de 850 millions de personnes souffrent d'insuffisance rénale chronique. Beaucoup l'ignorent jusqu'à un stade avancé. La sensibilisation précoce sauve des vies.
           </p>
           <p className="text-center max-w-2xl mx-auto" style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.9 }}>
             ReinSanté propose des informations médicalement validées, des outils pratiques et des ressources pédagogiques — le tout gratuitement et sans inscription.

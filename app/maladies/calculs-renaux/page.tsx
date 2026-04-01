@@ -75,7 +75,7 @@ export default function CalculsRenauxPage() {
         badge="MALADIE UROLOGIQUE"
         urgencyLabel="Douleur aiguë possible"
         title="Calculs rénaux"
-        definition="Les calculs rénaux (lithiase urinaire) sont des dépôts minéraux cristallisés formés dans les reins à partir de substances dissoutes dans l'urine. Ils touchent 10% de la population française et provoquent la redoutable colique néphrétique."
+        definition="Les calculs rénaux (lithiase urinaire) sont des dépôts minéraux cristallisés formés dans les reins à partir de substances dissoutes dans l'urine. Ils touchent 10 à 12% de la population mondiale et provoquent la redoutable colique néphrétique."
         gradientFrom="rgba(76,29,149,0.5)"
         illustration={<IllustrationCalculs />}
       />
@@ -85,7 +85,7 @@ export default function CalculsRenauxPage() {
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><UsersIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Prévalence</span></div>
             <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#8B5CF6" }}>10%</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>de la population française. Récidive dans 50% des cas à 10 ans. Incidence en hausse liée aux habitudes alimentaires.</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>de la population mondiale touchée. Récidive dans 50% des cas à 10 ans. Incidence en hausse liée aux habitudes alimentaires.</p>
           </GlowCard>
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ExclamationTriangleIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Compositions</span></div>

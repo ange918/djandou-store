@@ -80,7 +80,7 @@ export default function InfectionsUrinairesPage() {
         badge="INFECTION BACTÉRIENNE"
         urgencyLabel="Traitement urgent si fièvre"
         title="Infections urinaires"
-        definition="Les infections urinaires (IU) sont causées par des bactéries colonisant les voies urinaires. De la cystite simple (bas) à la pyélonéphrite aiguë (rein), elles représentent la 2e cause d'infection bactérienne en France avec 3 millions de cas annuels."
+        definition="Les infections urinaires (IU) sont causées par des bactéries colonisant les voies urinaires. De la cystite simple (bas) à la pyélonéphrite aiguë (rein), elles représentent l'une des infections bactériennes les plus fréquentes avec 150 millions de cas annuels dans le monde."
         gradientFrom="rgba(6,78,59,0.5)"
         illustration={<Illustration />}
       />
@@ -89,8 +89,8 @@ export default function InfectionsUrinairesPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><UsersIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Prévalence</span></div>
-            <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#10B981" }}>3M/an</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>en France. 1 femme sur 3 a une IU avant 24 ans. Récidives fréquentes : 25% des femmes ont 2+ épisodes/an.</p>
+            <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#10B981" }}>150M/an</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>de cas dans le monde chaque année. 1 femme sur 3 a une IU avant 24 ans. Récidives fréquentes : 25% ont 2+ épisodes/an.</p>
           </GlowCard>
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ExclamationTriangleIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Germes fréquents</span></div>

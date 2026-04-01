@@ -100,7 +100,7 @@ export default function IRCPage() {
         badge="MALADIE CHRONIQUE"
         urgencyLabel="Suivi nécessaire"
         title="Insuffisance rénale chronique"
-        definition="L'IRC est une diminution progressive et irréversible du DFG (< 60 mL/min/1,73m²) pendant plus de 3 mois, touchant 3 millions de Français. Elle évolue silencieusement vers l'IRC terminale nécessitant dialyse ou greffe."
+        definition="L'IRC est une diminution progressive et irréversible du DFG (&lt; 60 mL/min/1,73m²) pendant plus de 3 mois, touchant 850 millions de personnes dans le monde. Elle évolue silencieusement vers l'IRC terminale nécessitant dialyse ou greffe."
         gradientFrom="rgba(154,52,18,0.5)"
         illustration={<IllustrationIRC />}
       />
@@ -109,8 +109,8 @@ export default function IRCPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><UsersIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Prévalence</span></div>
-            <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F97316" }}>3M</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>de Français atteints d'IRC. 91 875 patients en IRC terminale (dialyse ou greffe) selon le registre REIN 2022.</p>
+            <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F97316" }}>850M</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>de personnes atteintes d&apos;IRC dans le monde. Plus de 4 millions sont en IRC terminale (dialyse ou greffe).</p>
           </GlowCard>
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ExclamationTriangleIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Causes</span></div>
@@ -138,7 +138,7 @@ export default function IRCPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               { href: "/maladies/insuffisance-renale-aigue", titre: "Insuffisance rénale aiguë", desc: "L'IRA peut évoluer en IRC si non traitée." },
-              { href: "/maladies/nephropathie-diabetique", titre: "Néphropathie diabétique", desc: "1re cause d'IRC terminale en France." },
+              { href: "/maladies/nephropathie-diabetique", titre: "Néphropathie diabétique", desc: "1re cause d'IRC terminale dans le monde." },
               { href: "/maladies/nephropathie-hypertensive", titre: "Néphropathie hypertensive", desc: "2e cause d'IRC terminale." },
             ].map((m, i) => (
               <GlowCard key={i} href={m.href}>

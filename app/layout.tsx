@@ -20,7 +20,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ReinSanté — Santé Rénale en France",
+  title: "ReinSanté — Santé Rénale",
   description:
     "Informations complètes sur la santé rénale, les maladies des reins, la prévention et les outils de dépistage en français.",
 };

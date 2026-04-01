@@ -73,7 +73,7 @@ export default function NephropathieDiabetiquePage() {
         badge="COMPLICATION DU DIABÈTE"
         urgencyLabel="Surveillance annuelle"
         title="Néphropathie diabétique"
-        definition="La néphropathie diabétique est la première cause d'insuffisance rénale chronique terminale en France. Elle résulte des effets délétères de l'hyperglycémie chronique sur les glomérules et les petits vaisseaux rénaux."
+        definition="La néphropathie diabétique est la première cause d'insuffisance rénale chronique terminale dans le monde. Elle résulte des effets délétères de l'hyperglycémie chronique sur les glomérules et les petits vaisseaux rénaux."
         gradientFrom="rgba(120,53,15,0.5)"
         illustration={<Illustration />}
       />
@@ -83,7 +83,7 @@ export default function NephropathieDiabetiquePage() {
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><UsersIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Prévalence</span></div>
             <p className="text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F59E0B" }}>30-40%</p>
-            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>des diabétiques développent une néphropathie. Représente 25-30% des IRC terminales en France.</p>
+            <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem" }}>des diabétiques développent une néphropathie. Représente 30-40% des IRC terminales dans le monde.</p>
           </GlowCard>
           <GlowCard>
             <div className="mb-4 flex items-center gap-3"><ExclamationTriangleIcon className="w-6 h-6" style={{ color: "#00C9FF" }} /><span className="text-xs tracking-widest uppercase" style={{ color: "#64748B" }}>Mécanismes</span></div>
