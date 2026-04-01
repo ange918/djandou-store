@@ -1,0 +1,543 @@
+Tu es un développeur senior Next.js. Le projet MediSens existe déjà avec :
+- app/page.tsx (accueil MediSens)
+- app/reins/ (site reins complet)
+
+Ta mission : créer UNIQUEMENT le volet app/coeur/ avec ses 4 maladies. Ne touche à rien d'autre.
+
+Stack : Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, GSAP (ScrollTrigger), @heroicons/react, Unbounded + Poppins.
+
+---
+
+🎨 DESIGN SYSTEM CŒUR
+
+Même base que MediSens MAIS couleur dominante rouge :
+- Accent cœur : #EF4444 (rouge)
+- Gradient cœur : linear-gradient(135deg, #EF4444, #B91C1C)
+- Background : #050810
+- Surface : #0A0F1E
+- Cards : #0D1526
+- Border : rgba(255,255,255,0.06)
+- Texte principal : #F8FAFC
+- Texte secondaire : #64748B
+
+Typographie :
+- Titres : Unbounded, weights 700/900
+- Corps : Poppins, weights 300/400/500
+- line-height corps : 1.8
+- Taille minimum corps : 16px
+
+AÉRATION MAXIMALE :
+- py-32 minimum par section
+- p-10 minimum dans les cards
+- max-w-2xl sur les paragraphes
+- gap-8 minimum entre cards
+- Sections alternées : #050810 / #080D18
+
+---
+
+📁 STRUCTURE À CRÉER
+
+app/coeur/
+├── layout.tsx
+├── page.tsx                            ← Hub cœur
+└── maladies/
+    ├── hypertension/page.tsx
+    ├── infarctus/page.tsx
+    ├── insuffisance-cardiaque/page.tsx
+    └── avc/page.tsx
+
+components/coeur/
+├── CoeurNav.tsx
+├── MaladieCard.tsx
+└── template/
+    ├── MaladieHero.tsx
+    ├── MaladieSymptomes.tsx
+    ├── MaladieIllustration.tsx
+    ├── MaladieTraitement.tsx
+    ├── MaladiePrevention.tsx
+    └── MaladiePronostic.tsx
+
+---
+
+📄 LAYOUT CŒUR (app/coeur/layout.tsx)
+
+Navbar propre au volet cœur (CoeurNav.tsx) :
+- Logo "MediSens / Cœur" avec Heroicon HeartIcon rouge
+- Liens : Vue d'ensemble | HTA | Infarctus | Insuffisance cardiaque | AVC
+- Bouton "← MediSens" → / (retour accueil)
+- Accent rouge #EF4444
+- Sticky backdrop-blur-xl bg-black/50 au scroll
+- Hauteur h-20
+- Hamburger Framer Motion sur mobile
+
+---
+
+📄 PAGE HUB CŒUR (app/coeur/page.tsx)
+
+HERO (min-h-[70vh]) :
+- Fond : radial-gradient(ellipse at 30% 50%, #2D0A0A 0%, #050810 65%)
+- Badge "VOLET CŒUR" rouge uppercase
+- H1 Unbounded 900 : "Maladies cardiovasculaires"
+- Sous-titre Poppins 300 max-w-xl :
+  "Le cœur et les vaisseaux sont au centre de nombreuses pathologies graves. Comprendre pour prévenir."
+- SVG cœur animé qui bat (keyframe heartbeat CSS)
+- Stat en dessous : "17M d'hypertendus en France · 80 000 infarctus par an · 190 000 AVC par an"
+- GSAP entrée stagger y:40 opacity:0
+
+STATS RAPIDES (py-32, bg #080D18) :
+3 cards horizontales très aérées :
+- "1,4 milliard" → Hypertendus dans le monde
+- "64 millions" → Personnes atteintes d'IC dans le monde
+- "2e cause" → De mortalité mondiale (AVC)
+Framer Motion whileInView stagger
+
+GRID 4 MALADIES (py-32) :
+SectionHeader :
+- Badge "NOS PATHOLOGIES"
+- H2 : "4 maladies cardiovasculaires"
+- Sous-titre : "Choisissez une pathologie pour tout comprendre."
+
+4 GlowCards p-10, grid 2 colonnes desktop :
+
+1. Hypertension artérielle → /coeur/maladies/hypertension
+   Heroicon : ArrowTrendingUpIcon rouge
+   Badge "CHRONIQUE" orange
+   "Élévation persistante de la pression sanguine ≥140/90 mmHg. Touche 17M de Français. Souvent silencieuse."
+   CTA "Découvrir →" rouge
+
+2. Infarctus du myocarde → /coeur/maladies/infarctus
+   Heroicon : BoltIcon rouge
+   Badge "URGENCE" rouge
+   "Obstruction aiguë d'une artère coronaire. 80 000 cas par an en France. Urgence absolue."
+   CTA "Découvrir →" rouge
+
+3. Insuffisance cardiaque → /coeur/maladies/insuffisance-cardiaque
+   Heroicon : HeartIcon rouge
+   Badge "CHRONIQUE" orange
+   "Incapacité du cœur à pomper suffisamment. 1,38M de Français. Évolution progressive."
+   CTA "Découvrir →" rouge
+
+4. AVC → /coeur/maladies/avc
+   Heroicon : ExclamationTriangleIcon rouge
+   Badge "URGENCE" rouge
+   "Interruption brutale de la circulation cérébrale. 190 000 cas par an. Chaque minute compte."
+   CTA "Découvrir →" rouge
+
+Hover card : border rouge glow + translateY(-4px)
+Framer Motion whileInView stagger 0.1s
+
+---
+
+🫀 TEMPLATE UNIVERSEL — CHAQUE PAGE MALADIE
+
+SECTION 1 — HERO (min-h-[70vh])
+- Gradient propre à chaque maladie (voir couleurs ci-dessous)
+- Layout 2 colonnes : texte gauche / SVG droite
+- Badge type + H1 Unbounded + définition Poppins 300
+- Illustration SVG animée spécifique
+- GSAP : gsap.from() stagger 0.15s, y:40, opacity:0
+
+SECTION 2 — VUE D'ENSEMBLE (py-32, bg #080D18)
+3 cards horizontales p-10 :
+- Card 1 : Prévalence (Heroicon UsersIcon)
+- Card 2 : Causes principales (Heroicon ExclamationTriangleIcon)
+- Card 3 : Pronostic (Heroicon ArrowTrendingDownIcon)
+Framer Motion whileInView stagger
+
+SECTION 3 — ILLUSTRATION INTERACTIVE (py-32)
+- SVG large 700x450 avec zones hoverable
+- Tooltips Framer Motion AnimatePresence
+- GSAP ScrollTrigger animation au scroll
+- Légende détaillée sous le SVG
+
+SECTION 4 — SYMPTÔMES (py-32, bg #080D18)
+SectionHeader : "Reconnaître les symptômes"
+Grid 3 colonnes gap-6 :
+Chaque card p-8 :
+- Heroicon 32px couleur selon urgence
+- Nom symptôme Unbounded 700
+- Explication Poppins 300
+- Badge : 🔴 Urgent | 🟠 Modéré | 🔵 À surveiller
+Framer Motion whileInView stagger 0.1s
+
+SECTION 5 — CAUSES & FACTEURS DE RISQUE (py-32)
+2 colonnes :
+- Gauche : Causes directes (Heroicon CheckCircleIcon)
+- Droite : Facteurs de risque (Heroicon ExclamationCircleIcon)
+Badge fréquence sur chaque item : Très fréquent / Fréquent / Rare
+
+SECTION 6 — DIAGNOSTIC (py-32, bg #080D18)
+Timeline verticale avec line centrale rouge :
+- Chaque étape : cercle numéroté + examen + valeurs normales + anomalie cherchée
+- GSAP ScrollTrigger : la ligne se trace au scroll
+
+SECTION 7 — TRAITEMENTS (py-32)
+Steps numérotés, grand chiffre Unbounded rouge en fond :
+- Titre + description + badge : Médicament / Urgence / Hygiène de vie / Dispositif
+
+SECTION 8 — PRÉVENTION (py-32, bg #080D18)
+SectionHeader : "Prévenir [nom maladie]"
+Checklist interactive useState :
+- Checkbox custom animée Framer Motion (scale + color)
+- Score X/N avec barre de progression rouge
+- Encadré "Populations à risque" Heroicon ShieldExclamationIcon
+
+SECTION 9 — PRONOSTIC (py-32)
+- Jauge animée : Bon / Modéré / Sévère
+- Grid complications (cards rouges/oranges)
+- Encadré rouge : "Quand appeler le 15 ?"
+
+SECTION 10 — VOIR AUSSI (py-24, bg #080D18)
+- 3 cards autres maladies du volet cœur
+- Bouton "← Retour au volet Cœur" → /coeur
+- CTA "Faire le test de risque" → /coeur (section outils)
+
+---
+
+🎨 COULEURS HERO PAR MALADIE
+
+1. HTA → radial-gradient(ellipse at 30% 50%, #3B0000 0%, #050810 65%)
+2. Infarctus → radial-gradient(ellipse at 30% 50%, #2D0A0A 0%, #050810 65%)
+3. Insuffisance cardiaque → radial-gradient(ellipse at 30% 50%, #431407 0%, #050810 65%)
+4. AVC → radial-gradient(ellipse at 30% 50%, #1E0000 0%, #050810 65%)
+
+---
+
+🫀 ILLUSTRATIONS SVG PAR MALADIE
+
+1. HYPERTENSION (HTA)
+- SVG : artère en coupe avec paroi épaissie + jauge de pression
+- Animation : jauge qui monte de 120/80 → 180/110 en boucle (GSAP)
+- Zones hoverable : paroi artérielle (tooltip "Rigidité artérielle"), cœur (tooltip "Hypertrophie VG"), rein (tooltip "Atteinte rénale")
+- Flèches de pression animées
+
+2. INFARCTUS
+- SVG : cœur avec artère coronaire obstruée + zone de nécrose rouge foncé
+- Animation : battement cœur normal → ralentissement → stop sur zone nécrose
+- Zones hoverable : plaque athérome, thrombus, zone infarcie IVA/coronaire droite
+- Timer visible "door-to-balloon : 90 min idéal"
+
+3. INSUFFISANCE CARDIAQUE
+- SVG : cœur normal (gauche) vs cœur dilaté (droite) + flèches flux diminués
+- Animation GSAP ScrollTrigger : cœur qui se dilate progressivement
+- Zones hoverable : ventricule gauche dilaté, oreillette, valves, poumons congestifs
+- Courbe FEVG animée : 60% → 40% → 25%
+
+4. AVC
+- SVG : cerveau de profil avec zone ischémique qui s'assombrit
+- Animation : zone qui s'assombrit progressivement + timer "1,9M neurones/minute"
+- Zones hoverable : artère cérébrale (thrombose), zone pénombre (sauvable), zone nécrose
+- Test FAST illustré en bas (Face/Arm/Speech/Time)
+
+---
+
+📋 CONTENU COMPLET PAR MALADIE
+
+━━━ PAGE HTA (app/coeur/maladies/hypertension/page.tsx) ━━━
+
+metadata :
+title: "Hypertension Artérielle — Causes, Symptômes et Traitements | MediSens"
+description: "Tout comprendre sur l'hypertension artérielle : définition, causes, symptômes, médicaments et prévention. 17 millions de Français touchés."
+
+Vue d'ensemble :
+- Prévalence : 17M en France, 1,4 milliard dans le monde
+- Cause principale : HTA essentielle >90% des cas
+- Pronostic : Bon si contrôlé, grave si ignoré
+
+Symptômes :
+🔴 Urgent : Céphalées intenses matinales | Vision trouble soudaine | Douleur thoracique | PA >180 mmHg
+🟠 Modéré : Acouphènes | Saignements de nez fréquents | Vertiges
+🔵 À surveiller : Fatigue chronique | Palpitations | Essoufflement effort
+
+Causes directes :
+- HTA essentielle : génétique + mode de vie (>90%)
+- HTA secondaire : maladies rénales, surrénales, médicaments (AINS, pilule)
+
+Facteurs de risque :
+- Très fréquents : Sel excessif | Obésité | Sédentarité
+- Fréquents : Tabac | Alcool | Stress chronique
+- Non modifiables : Âge >65 ans | Hérédité | Sexe masculin avant ménopause
+
+Diagnostic (timeline) :
+1. Mesure PA ≥140/90 sur 3 consultations
+2. Grade 1 : 140-159/90-99 | Grade 2 : 160-179 | Grade 3 : ≥180/110
+3. ECG (hypertrophie VG)
+4. Biologie : créatinine, lipides, glycémie, kaliémie
+5. Fond d'œil (rétinopathie)
+6. Écho cardiaque si doute
+
+Traitements :
+1. Hygiène de vie (toujours en premier)
+   Sel <5g/j | Régime DASH | Exercice 30min/j | Sevrage tabac | Poids normal
+2. IEC — Ramipril 5-10mg/j
+   Médicament → Diabète, IC, post-IDM
+3. ARA2 — Losartan 50-100mg/j
+   Médicament → Intolérance IEC, protéinurie
+4. Diurétiques — Indapamide 1.5mg/j
+   Médicament → Surcharge hydrique
+5. Bêtabloquants — Bisoprolol 2.5-10mg/j
+   Médicament → Angor, IC associée
+6. Inhibiteurs calciques — Amlodipine 5-10mg/j
+   Médicament → Sujet âgé
+7. HTA résistante — Spironolactone 25-50mg/j
+   Médicament → Hyperaldostéronisme
+
+Prévention checklist :
+✅ Mesurer sa PA régulièrement (automesure)
+✅ Sel <5g/j dans l'alimentation
+✅ Activité physique 30min/jour minimum
+✅ Maintenir un poids normal (IMC <25)
+✅ Arrêt total du tabac
+✅ Alcool modéré (<2 verres/jour)
+✅ Gestion du stress (relaxation, sommeil)
+✅ Suivi médical annuel si facteurs de risque
+
+Pronostic : Modéré sans traitement | Bon si contrôlé
+Complications : AVC | Infarctus | IRC | Insuffisance cardiaque | Rétinopathie hypertensive
+
+Timeline progression :
+- 10 ans → HTA grade 1 silencieuse (140-159/90-99)
+- 20 ans → Hypertrophie VG, microalbuminurie
+- 30 ans → Complications CV possibles (AVC, IDM)
+- 40 ans → IRC terminale ou IC si jamais traitée
+
+━━━ PAGE INFARCTUS (app/coeur/maladies/infarctus/page.tsx) ━━━
+
+metadata :
+title: "Infarctus du Myocarde — Urgence, Symptômes et Prise en Charge | MediSens"
+description: "Comprendre l'infarctus du myocarde : symptômes d'alerte, conduite à tenir, traitements et prévention. 80 000 cas par an en France."
+
+Vue d'ensemble :
+- Prévalence : 80 000 IDM/an en France, 10% mortels <1h
+- Cause : Thrombose coronaire sur rupture de plaque
+- Pronostic : Excellent si angioplastie <90min, grave si retard
+
+Symptômes :
+🔴 Urgent (appeler le 15 IMMÉDIATEMENT) :
+Douleur thoracique constrictive >20min | Irradiation bras gauche/mâchoire/épaule | Sueurs froides | Dyspnée | Nausées/vomissements | Sentiment de mort imminente
+🟠 Modéré : Palpitations | Vertiges | Fatigue intense soudaine
+🔵 Atypique (femme/diabétique) : Douleur épigastrique | Fatigue isolée | Dyspnée sans douleur
+
+Causes directes :
+- Rupture plaque athérome → thrombus coronaire (STEMI)
+- Athérosclérose diffuse progressive
+
+Facteurs de risque :
+- Très fréquents : Tabac | Hypercholestérolémie | HTA
+- Fréquents : Diabète | Obésité | Sédentarité
+- Non modifiables : Âge >55 ans | Sexe masculin | Hérédité
+
+Diagnostic (timeline urgence) :
+1. ECG 12 dérivations <10min : sus-décalage ST (STEMI) ou non (NSTEMI)
+2. Troponines I ou T : élévation dès 2h, pic 12-24h
+3. Coronarographie : confirme occlusion + angioplastie
+4. Écho cardiaque : hypokinésie segmentaire VG
+5. Bilan complet : lipides, HbA1c, NFS, ionogramme
+
+Traitements :
+1. URGENCE — Appeler le 15 immédiatement
+   Urgence → Ne pas attendre, ne pas conduire seul
+2. Aspirine 160-300mg PO
+   Médicament → Inhibe agrégation plaquettaire
+3. Anticoagulant IV (Héparine)
+   Médicament → Empêche extension thrombus
+4. STEMI — Angioplastie <90min + Stent
+   Urgence → Door-to-balloon idéalement <90min
+5. NSTEMI — Stabilisation + Coronarographie 24-72h
+   Médicament → Selon score GRACE/TIMI
+6. Fond — Bêtabloquants + IEC + Statines 80mg + Double antiagrégation 12 mois
+   Médicament → Prévention secondaire obligatoire
+
+Prévention checklist :
+✅ Arrêt total et définitif du tabac
+✅ LDL cholestérol <1g/L (statines si nécessaire)
+✅ HTA contrôlée <130/80 mmHg
+✅ HbA1c <7% si diabétique
+✅ Activité physique régulière adaptée
+✅ Poids normal, alimentation méditerranéenne
+✅ Suivi cardiologique après 55 ans
+✅ Connaître les symptômes d'alerte
+
+Pronostic : Excellent si <90min | Grave si retard >3h
+Complications : Choc cardiogénique | Arythmies ventriculaires | IC chronique | Récidive
+
+Timeline IDM :
+- 0min → Douleur thoracique brutale
+- 10min → ECG pré-hospitalier SAMU
+- 60min → Aspirine + anticoagulation
+- 90min → Angioplastie coronarienne idéale
+- 3-7j → Soins intensifs cardiologiques
+- 1 mois → Réadaptation cardiaque
+
+━━━ PAGE INSUFFISANCE CARDIAQUE (app/coeur/maladies/insuffisance-cardiaque/page.tsx) ━━━
+
+metadata :
+title: "Insuffisance Cardiaque — Stades, Symptômes et Traitements | MediSens"
+description: "Comprendre l'insuffisance cardiaque : stades NYHA, causes, traitements (SGLT2, IEC, bêtabloquants) et suivi. 1,38 million de Français touchés."
+
+Vue d'ensemble :
+- Prévalence : 1,38M en France, 64M dans le monde
+- Cause : IDM (1re cause), HTA, cardiomyopathies
+- Pronostic : Sévère, mortalité 30-40% à 1 an
+
+Symptômes :
+🔴 Urgent : Dyspnée au repos | Orthopnée sévère (ne peut pas s'allonger) | OAP (mousse rose) | Confusion
+🟠 Modéré : Dyspnée d'effort progressive | Œdèmes chevilles/jambes | Fatigue intense | Prise de poids >2kg/semaine
+🔵 À surveiller : Nycturie | Toux nocturne | Palpitations | Ballonnements
+
+Causes :
+- Cardiopathie ischémique post-IDM (1re cause)
+- HTA prolongée (cardiomyopathie hypertensive)
+- Cardiomyopathie dilatée (virale, alcool, idiopathique)
+- Valvulopathies (RAo, IM)
+- Arythmies (FA rapide)
+
+Facteurs de risque :
+- Très fréquents : Antécédent IDM | HTA mal contrôlée
+- Fréquents : Diabète | Obésité | Alcool excessif
+- Rares : Myocardite | Chimio cardiotoxique | Amylose
+
+Diagnostic (timeline) :
+1. Échocardiographie Doppler : FEVG (<40% = HFrEF, préservée = HFpEF)
+2. BNP/NT-proBNP : élevés (NT-proBNP >300 pg/mL)
+3. ECG : arythmies, hypertrophie, ischémie
+4. Radio thorax : cardiomégalie, congestion pulmonaire
+5. Créatinine + ionogramme : surveillance rénale
+
+Classification NYHA :
+- I : Aucune limitation d'activité
+- II : Dyspnée effort modéré (marche rapide)
+- III : Dyspnée effort léger (marche normale)
+- IV : Dyspnée au repos ou effort minimal
+
+Traitements :
+1. IC aiguë — Diurétiques IV Furosémide 40-80mg + Oxygène
+   Urgence → Hospitalisation en USIC
+2. IEC — Ramipril 2.5-10mg/j
+   Médicament → Réduction mortalité HFrEF
+3. Bêtabloquants — Bisoprolol 2.5-10mg/j
+   Médicament → Introduire progressivement
+4. SGLT2 — Dapagliflozine 10mg/j
+   Médicament → Nouveau, très efficace HFrEF et HFpEF
+5. Spironolactone 25-50mg/j
+   Médicament → Anti-remodelage
+6. CRT — Resynchronisation biventriculaire
+   Dispositif → FEVG <35% + QRS large
+7. ICD — Défibrillateur implantable
+   Dispositif → Prévention mort subite FEVG <35%
+
+Prévention checklist :
+✅ Traiter HTA et diabète précocement
+✅ Ne pas fumer (facteur majeur IDM → IC)
+✅ Activité physique adaptée quotidienne
+✅ Peser chaque matin (alerte si +2kg/semaine)
+✅ Sel <5g/j, alcool limité
+✅ Vaccinations grippe + pneumocoque annuelles
+✅ Suivi cardiologique régulier (écho tous les 6-12 mois)
+✅ Ne jamais arrêter les médicaments sans avis médical
+
+Pronostic : Sévère | Mortalité 30-40% à 1 an
+Complications : Mort subite | Anémie | IRC (syndrome cardiorénal) | Arythmies | Cachexie
+
+Timeline IC :
+- Apparition → Facteur déclenchant (IDM, HTA)
+- 1 an → Remodelage ventriculaire, symptômes modérés
+- 5 ans → IC NYHA II-III stabilisée sous traitement
+- 10 ans → IC avancée NYHA III-IV, complications multiples
+
+━━━ PAGE AVC (app/coeur/maladies/avc/page.tsx) ━━━
+
+metadata :
+title: "AVC — Reconnaître, Agir, Prévenir | MediSens"
+description: "Tout sur l'AVC : test FAST, symptômes d'urgence, thrombolyse, prévention. 190 000 AVC par an en France. Chaque minute compte."
+
+Vue d'ensemble :
+- Prévalence : 190 000/an France, 101M dans le monde (2019)
+- Cause : Ischémie (85%) ou hémorragie (15%)
+- Pronostic : 10-20% décès à 1 an, 50% séquelles
+
+Symptômes — TEST FAST :
+🔴 Urgent (appeler le 15 IMMÉDIATEMENT) :
+F — Face : sourire asymétrique, bouche déviée
+A — Arms : un bras tombe quand on lève les deux
+S — Speech : discours incompréhensible, aphasie
+T — Time : appeler le 15 immédiatement
++ Céphalées violentes soudaines "coup de tonnerre" | Perte de vision | Perte d'équilibre soudaine
+🟠 Modéré : Engourdissement unilatéral | Vertiges isolés
+🔵 À surveiller : AIT (symptômes <24h réversibles) — urgence quand même, risque récidive élevé
+
+Causes :
+- AVC ischémique : Thrombose athéromateuse | Embolie d'origine cardiaque (FA)
+- AVC hémorragique : Rupture d'anévrisme | HTA chronique sévère
+
+Facteurs de risque :
+- Très fréquents : HTA (principal FDR) | Fibrillation atriale
+- Fréquents : Tabac | Diabète | Hypercholestérolémie
+- Modérés : Obésité | Alcool excessif | Migraine avec aura
+- Non modifiables : Âge | ATCD personnels/familiaux AVC
+
+Diagnostic (timeline urgence) :
+1. Scanner cérébral sans injection URGENCE : ischémie vs hémorragie
+2. IRM cérébrale diffusion : plus sensible, petits infarctus
+3. ECG : recherche FA (cause embolique)
+4. Écho Doppler carotidien : sténose carotidienne
+5. Holter ECG si FA paroxystique suspectée
+6. Bilan biologique : glycémie, NFS, INR, plaquettes, lipides
+
+Traitements :
+1. URGENCE — Appeler le 15 immédiatement
+   Urgence → Ne pas attendre, transport UNV
+2. AVC ischémique <4,5h — Thrombolyse IV Alteplase 0.9mg/kg (max 90mg)
+   Urgence → 10% en bolus, 90% en perfusion 60min
+3. Occlusion proximale <24h — Thrombectomie mécanique
+   Urgence → Extraction endovasculaire du caillot
+4. AVC hémorragique — Contrôle TA urgent + neurochirurgie
+   Urgence → Labetalol ou Nicardipine IV
+5. Prévention secondaire — Aspirine 75-100mg + Statines + Anticoagulant si FA
+   Médicament → Rivaroxaban 20mg/j si FA
+
+Prévention checklist :
+✅ Contrôler sa tension artérielle (<130/80)
+✅ Traiter la fibrillation atriale (anticoagulants)
+✅ Arrêter le tabac définitivement
+✅ Activité physique régulière
+✅ Alimentation méditerranéenne, sel limité
+✅ Glycémie contrôlée si diabétique
+✅ Apprendre le test FAST
+✅ Appeler le 15 sans attendre au moindre doute
+
+Pronostic : Variable | 10-20% décès à 1 an | 50% séquelles persistantes
+Complications : Hémiplégie | Aphasie | Dépression (30%) | Épilepsie post-AVC | Récidive 10%/an
+
+Timeline AVC ischémique :
+- 0min → Symptômes soudains (FAST positif)
+- 30min → Appel 15, transport UNV code AVC
+- 60min → Scanner cérébral en urgence
+- 90min → Thrombolyse IV si éligible
+- 24h → Stabilisation, rééducation précoce
+- 3 mois → Rééducation intensive (kiné, orthophonie)
+
+---
+
+⚙️ CONFIGURATION
+
+Ne pas recréer ce qui existe déjà. Ajouter uniquement :
+- Dans globals.css : keyframe heartbeat (scale 1→1.08→1, 0.8s infinite)
+- Réutiliser lib/gsap.ts déjà configuré
+
+---
+
+🚀 INSTRUCTIONS FINALES
+
+1. Ne toucher NI à app/page.tsx NI à app/reins/ — strictement interdit
+2. Créer uniquement app/coeur/ et components/coeur/
+3. "use client" sur chaque composant interactif
+4. GSAP : useEffect + cleanup ctx.revert() systématique
+5. Framer Motion : const variants: Variants = {}
+6. Toutes les données 100% inline dans les composants
+7. Site 100% en français
+8. Mobile-first responsive obligatoire
+9. Aération maximale : py-32 sections, p-10 cards, max-w-2xl textes
+10. Chaque page maladie totalement autonome : hero coloré unique, SVG propre, symptômes dédiés, checklist spécifique
+11. Bouton "← Retour au volet Cœur" sur chaque page maladie
+12. Bouton "← MediSens" dans la navbar CoeurNav

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Unbounded, Poppins } from "next/font/google";
 import "./globals.css";
-import NavbarMediSens from "@/components/layout/NavbarMediSens";
+import NavbarWrapper from "@/components/NavbarWrapper";
 import FooterMediSens from "@/components/layout/FooterMediSens";
 
 const unbounded = Unbounded({
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${unbounded.variable} ${poppins.variable}`}>
       <body className="bg-[#050810] text-[#F8FAFC] font-poppins antialiased">
-        <NavbarMediSens />
+        <NavbarWrapper />
         <main className="pt-20">{children}</main>
         <FooterMediSens />
       </body>

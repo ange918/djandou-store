@@ -73,3 +73,13 @@ body {
 .animate-pulse-kidney { animation: pulse-kidney 3s ease-in-out infinite; }
 .animate-float { animation: float 4s ease-in-out infinite; }
 .animate-glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.08); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.05); }
+  70% { transform: scale(1); }
+}
+
+.animate-heartbeat { animation: heartbeat 0.8s ease-in-out infinite; }
