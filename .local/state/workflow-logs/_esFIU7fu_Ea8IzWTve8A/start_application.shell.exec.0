@@ -1,0 +1,37 @@
+
+> djjj@0.1.0 dev
+> next dev -p 5000 -H 0.0.0.0
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 710ms
+[33m[1m⚠[22m[39m Cross origin request detected from 6b96602c-bf93-4ade-9688-ca8a5f3efcb3-00-32s1bubezu8in.picard.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / [32m200[39m in 2.1s[2m (compile: 1809ms, render: 255ms)[22m
+ GET /maladies/insuffisance-renale-aigue [32m200[39m in 1366ms[2m (compile: 1088ms, render: 278ms)[22m
+ GET / [32m200[39m in 589ms[2m (compile: 253ms, render: 337ms)[22m
+ GET / [32m200[39m in 46ms[2m (compile: 3ms, render: 43ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 4ms, render: 15ms)[22m
+ GET / [32m200[39m in 55ms[2m (compile: 4ms, render: 51ms)[22m
+ GET /maladies [32m200[39m in 91ms[2m (compile: 32ms, render: 59ms)[22m
+ GET /contact [32m200[39m in 693ms[2m (compile: 631ms, render: 63ms)[22m
+[32m[1m✓[22m[39m Compiled in 70ms
+ GET /maladies/infections-urinaires [32m200[39m in 457ms[2m (compile: 390ms, render: 68ms)[22m
+ GET / [32m200[39m in 242ms[2m (compile: 70ms, render: 172ms)[22m
+ GET /maladies [32m200[39m in 22ms[2m (compile: 5ms, render: 17ms)[22m
+ GET /maladies/insuffisance-renale-chronique [32m200[39m in 391ms[2m (compile: 373ms, render: 18ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 3ms, render: 13ms)[22m
+[32m[1m✓[22m[39m Compiled in 121ms
+[32m[1m✓[22m[39m Compiled in 77ms
+[33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+[33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ GET / [32m200[39m in 279ms[2m (compile: 214ms, render: 64ms)[22m
+ GET / [32m200[39m in 284ms[2m (compile: 66ms, render: 218ms)[22m
+[33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ GET / [32m200[39m in 143ms[2m (compile: 93ms, render: 49ms)[22m
+ GET /maladies [32m200[39m in 22ms[2m (compile: 7ms, render: 14ms)[22m
+ GET /maladies/insuffisance-renale-aigue [32m200[39m in 119ms[2m (compile: 81ms, render: 38ms)[22m
+[32m[1m✓[22m[39m Compiled in 119ms
