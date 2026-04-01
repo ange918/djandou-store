@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 interface MaladieHeroProps {
@@ -29,13 +28,13 @@ export default function MaladieHero({
     >
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
 
-      <div className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10 w-full">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-8 flex-wrap"
           >
             <span
               className="px-4 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase"
@@ -67,7 +66,7 @@ export default function MaladieHero({
             style={{
               fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
               fontWeight: 900,
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              fontSize: "clamp(1.75rem, 5vw, 3.5rem)",
               lineHeight: 1.1,
               color: "#F8FAFC",
             }}
@@ -96,7 +95,7 @@ export default function MaladieHero({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="flex items-center justify-center"
+          className="hidden lg:flex items-center justify-center"
         >
           {illustration}
         </motion.div>

@@ -114,7 +114,7 @@ export default function IRAPage() {
       />
 
       {/* Vue d'ensemble */}
-      <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlowCard>
             <div className="mb-4 flex items-center gap-3">
@@ -153,7 +153,7 @@ export default function IRAPage() {
       <MaladiePrevention items={preventionItems} populations={populations} maladie="l'insuffisance rénale aiguë" />
 
       {/* Voir aussi */}
-      <section className="py-24 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-24 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="VOIR AUSSI" title="Maladies liées" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">

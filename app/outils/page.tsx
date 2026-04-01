@@ -19,7 +19,7 @@ export default function OutilsPage() {
   return (
     <>
       <section
-        className="relative pt-40 pb-24 px-6 text-center"
+        className="relative pt-32 md:pt-40 pb-16 md:pb-24 px-6 text-center"
         style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,201,255,0.07) 0%, #0A0F1E 60%)" }}
       >
         <div className="max-w-3xl mx-auto">
@@ -37,9 +37,9 @@ export default function OutilsPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-24 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-3xl mx-auto">
-          <div className="flex flex-col sm:flex-row gap-3 mb-16">
+          <div className="flex flex-col sm:flex-row gap-3 mb-12 md:mb-16">
             {tools.map((tool) => (
               <button
                 key={tool.id}
@@ -72,10 +72,10 @@ export default function OutilsPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6" style={{ background: "#080D18" }}>
+      <section className="py-16 md:py-24 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p
-            className="text-2xl font-bold mb-6"
+            className="text-xl sm:text-2xl font-bold mb-6"
             style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}
           >
             Un résultat préoccupant ?

@@ -63,7 +63,7 @@ export default function ComprendrePage() {
   return (
     <>
       <section
-        className="relative pt-40 pb-24 px-6 text-center"
+        className="relative pt-32 md:pt-40 pb-16 md:pb-24 px-6 text-center"
         style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,201,255,0.06) 0%, #0A0F1E 60%)" }}
       >
         <div className="max-w-3xl mx-auto">
@@ -87,7 +87,7 @@ export default function ComprendrePage() {
       </section>
 
       {/* Compteurs */}
-      <section ref={countersRef} className="py-24 px-6" style={{ background: "#080D18" }}>
+      <section ref={countersRef} className="py-14 md:py-24 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-0">
           {[
             { n: 1700, unit: "L", label: "de sang filtré par jour" },
@@ -95,8 +95,13 @@ export default function ComprendrePage() {
             { n: 180, unit: "L", label: "de filtrat glomérulaire/jour" },
             { n: 25, unit: "%", label: "du débit cardiaque reçu" },
           ].map((item, i) => (
-            <div key={i} className={`text-center px-8 py-6 ${i < 3 ? "border-r border-white/[0.06]" : ""}`}>
-              <p className="text-4xl font-bold gradient-text counter-value" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)" }}>
+            <div key={i} className={`text-center px-4 py-6 md:px-8 ${
+              i === 0 ? "border-r border-white/[0.06]" :
+              i === 1 ? "border-r-0 border-b border-white/[0.06] md:border-b-0 md:border-r md:border-white/[0.06]" :
+              i === 2 ? "border-r border-white/[0.06]" :
+              ""
+            }`}>
+              <p className="text-3xl sm:text-4xl font-bold gradient-text counter-value" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)" }}>
                 {item.n}{item.unit}
               </p>
               <p className="text-xs mt-2" style={{ color: "#64748B", lineHeight: 1.6 }}>{item.label}</p>
@@ -106,13 +111,13 @@ export default function ComprendrePage() {
       </section>
 
       {/* SVG Anatomique interactif */}
-      <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="ANATOMIE" title="Structure anatomique" subtitle="Survolez les différentes zones pour découvrir le rôle de chaque structure rénale." />
 
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="relative flex-shrink-0">
-              <svg width="380" height="480" viewBox="0 0 380 480" fill="none">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+            <div className="relative flex-shrink-0 w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0">
+              <svg viewBox="0 0 380 480" className="w-full h-auto" fill="none">
                 {/* Kidney outline */}
                 <path d="M160 60 C100 60 50 110 50 175 C50 310 110 420 165 420 C195 420 205 385 200 345 C198 325 182 310 177 285 C170 250 185 225 180 195 C172 160 175 60 160 60Z"
                   fill="rgba(0,201,255,0.03)" stroke="#00C9FF" strokeWidth="2" />
@@ -150,6 +155,7 @@ export default function ComprendrePage() {
                     className="cursor-pointer"
                     onMouseEnter={() => setActiveTooltip(spot.id)}
                     onMouseLeave={() => setActiveTooltip(null)}
+                    onClick={() => setActiveTooltip(activeTooltip === spot.id ? null : spot.id)}
                   >
                     <circle cx={spot.x} cy={spot.y} r="14" fill={activeTooltip === spot.id ? "rgba(0,201,255,0.2)" : "rgba(0,201,255,0.08)"} stroke="#00C9FF" strokeWidth="1.5" />
                     <circle cx={spot.x} cy={spot.y} r="4" fill="#00C9FF" />
@@ -159,11 +165,11 @@ export default function ComprendrePage() {
               </svg>
             </div>
 
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 space-y-4 w-full">
               {Object.entries(tooltips).map(([key, desc]) => (
                 <motion.div
                   key={key}
-                  className="p-6 rounded-xl transition-all duration-200"
+                  className="p-5 sm:p-6 rounded-xl transition-all duration-200"
                   style={{
                     background: activeTooltip === key ? "rgba(0,201,255,0.08)" : "rgba(255,255,255,0.02)",
                     border: `1px solid ${activeTooltip === key ? "rgba(0,201,255,0.3)" : "rgba(255,255,255,0.06)"}`,
@@ -183,7 +189,7 @@ export default function ComprendrePage() {
       </section>
 
       {/* Fonctions */}
-      <section className="py-32 px-6" style={{ background: "#080D18" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="PHYSIOLOGIE" title="6 fonctions vitales" subtitle="Les reins sont des organes multifonctions essentiels à l'homéostasie de l'organisme." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

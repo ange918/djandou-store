@@ -45,7 +45,7 @@ export default function AlimentationPage() {
   return (
     <>
       <section
-        className="relative pt-40 pb-24 px-6 text-center"
+        className="relative pt-32 md:pt-40 pb-16 md:pb-24 px-6 text-center"
         style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.05) 0%, #0A0F1E 60%)" }}
       >
         <div className="max-w-3xl mx-auto">
@@ -63,7 +63,7 @@ export default function AlimentationPage() {
         </div>
       </section>
 
-      <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="NUTRITION" title="À table avec les reins" subtitle="Deux listes essentielles : ce que vos reins apprécient, et ce qui les fragilise." />
 
@@ -83,7 +83,7 @@ export default function AlimentationPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.06 }}
-                    className="flex gap-4 p-5 rounded-xl"
+                    className="flex gap-4 p-4 sm:p-5 rounded-xl"
                     style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.15)" }}
                   >
                     <CheckCircleIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#10B981" }} />
@@ -111,7 +111,7 @@ export default function AlimentationPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.06 }}
-                    className="flex gap-4 p-5 rounded-xl"
+                    className="flex gap-4 p-4 sm:p-5 rounded-xl"
                     style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)" }}
                   >
                     <XCircleIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#EF4444" }} />
@@ -127,12 +127,12 @@ export default function AlimentationPage() {
         </div>
       </section>
 
-      <section className="py-32 px-6" style={{ background: "#080D18" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="PATHOLOGIES" title="Conseils par pathologie" subtitle="Les recommandations nutritionnelles varient selon votre maladie rénale." />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pathologies.map((p, i) => (
-              <div key={i} className="rounded-[20px] p-10" style={{ background: "#0F172A", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div key={i} className="rounded-[20px] p-6 sm:p-10" style={{ background: "#0F172A", border: "1px solid rgba(255,255,255,0.06)" }}>
                 <h4 className="text-lg font-bold mb-6" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#00C9FF" }}>{p.titre}</h4>
                 <ul className="space-y-3">
                   {p.conseils.map((c, j) => (

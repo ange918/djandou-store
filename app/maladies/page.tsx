@@ -152,7 +152,7 @@ export default function MaladiesHub() {
   return (
     <>
       <section
-        className="relative pt-40 pb-24 px-6 text-center"
+        className="relative pt-32 md:pt-40 pb-16 md:pb-24 px-6 text-center"
         style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,201,255,0.06) 0%, #0A0F1E 60%)" }}
       >
         <div className="max-w-3xl mx-auto">
@@ -178,10 +178,10 @@ export default function MaladiesHub() {
             Retrouvez des informations complètes sur les 10 principales pathologies rénales : causes, symptômes, traitements et prévention.
           </p>
 
-          <div className="grid grid-cols-3 gap-0 max-w-lg mx-auto mt-16">
+          <div className="grid grid-cols-3 gap-0 max-w-xs sm:max-w-lg mx-auto mt-12 sm:mt-16">
             {[["10", "maladies couvertes"], ["50+", "symptômes décrits"], ["100%", "sources médicales"]].map(([n, l], i) => (
-              <div key={i} className={`px-8 py-4 ${i < 2 ? "border-r border-white/[0.06]" : ""}`}>
-                <p className="text-3xl font-bold gradient-text" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)" }}>{n}</p>
+              <div key={i} className={`px-4 sm:px-8 py-4 ${i < 2 ? "border-r border-white/[0.06]" : ""}`}>
+                <p className="text-2xl sm:text-3xl font-bold gradient-text" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)" }}>{n}</p>
                 <p className="text-xs mt-1" style={{ color: "#64748B" }}>{l}</p>
               </div>
             ))}
@@ -189,11 +189,11 @@ export default function MaladiesHub() {
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-20 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           {/* Search + filters */}
-          <div className="flex flex-col md:flex-row gap-4 mb-16">
-            <div className="relative flex-1 max-w-md">
+          <div className="flex flex-col md:flex-row gap-4 mb-12 md:mb-16">
+            <div className="relative flex-1 max-w-full md:max-w-md">
               <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: "#64748B" }} />
               <input
                 type="text"
@@ -243,7 +243,7 @@ export default function MaladiesHub() {
                 >
                   <Link
                     href={m.href}
-                    className="block rounded-[20px] p-10 transition-all duration-300 group"
+                    className="block rounded-[20px] p-6 sm:p-10 transition-all duration-300 group"
                     style={{ background: "#0F172A", border: "1px solid rgba(255,255,255,0.06)" }}
                     onMouseEnter={(e) => {
                       (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,201,255,0.25)";
@@ -254,19 +254,19 @@ export default function MaladiesHub() {
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                     }}
                   >
-                    <div className="flex items-start gap-5 mb-5">
+                    <div className="flex items-start gap-4 mb-5">
                       <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(0,201,255,0.08)", color: "#00C9FF" }}>
                         {m.icon}
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <span className="text-xs font-medium px-2.5 py-1 rounded-full" style={{ color: m.badgeColor, background: `${m.badgeColor}15`, border: `1px solid ${m.badgeColor}30` }}>
                           {m.badge}
                         </span>
-                        <h3 className="mt-2 text-lg font-bold" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}>{m.titre}</h3>
+                        <h3 className="mt-2 text-base sm:text-lg font-bold" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}>{m.titre}</h3>
                       </div>
                     </div>
                     <p className="mb-5 text-sm" style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7 }}>{m.desc}</p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
                       <span className="text-xs" style={{ color: "#475569" }}>📊 {m.prevalence}</span>
                       <span className="flex items-center gap-1.5 text-sm font-medium" style={{ color: "#00C9FF" }}>
                         Découvrir <ArrowRightIcon className="w-4 h-4" />

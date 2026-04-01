@@ -14,7 +14,7 @@ export default function GlowCard({ children, className = "", href }: GlowCardPro
     <motion.div
       whileHover={{ y: -4, borderColor: "rgba(0,201,255,0.3)" }}
       transition={{ duration: 0.3 }}
-      className={`rounded-[20px] p-10 ${className}`}
+      className={`rounded-[20px] p-5 sm:p-10 ${className}`}
       style={{
         background: "#0F172A",
         border: "1px solid rgba(255,255,255,0.06)",

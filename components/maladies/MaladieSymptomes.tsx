@@ -22,7 +22,7 @@ const niveauConfig = {
 
 export default function MaladieSymptomes({ symptomes }: MaladieSymptomesProps) {
   return (
-    <section className="py-32 px-6" style={{ background: "#080D18" }}>
+    <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge="SIGNES CLINIQUES"
@@ -40,7 +40,7 @@ export default function MaladieSymptomes({ symptomes }: MaladieSymptomesProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-[20px] p-8"
+                className="rounded-[20px] p-5 sm:p-8"
                 style={{ background: "#0F172A", border: "1px solid rgba(255,255,255,0.06)" }}
               >
                 <div className="flex items-start justify-between mb-4">

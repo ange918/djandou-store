@@ -86,7 +86,7 @@ export default function PreventionPage() {
   return (
     <>
       <section
-        className="relative pt-40 pb-24 px-6 text-center"
+        className="relative pt-32 md:pt-40 pb-16 md:pb-24 px-6 text-center"
         style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.06) 0%, #0A0F1E 60%)" }}
       >
         <div className="max-w-3xl mx-auto">
@@ -103,11 +103,11 @@ export default function PreventionPage() {
         </div>
       </section>
 
-      <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="CHECKLIST" title="Mes bonnes pratiques" subtitle="Cochez les habitudes que vous appliquez déjà. Identifiez les points d'amélioration." />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2">
               <div className="flex items-center justify-between mb-6">
                 <p className="text-sm" style={{ color: "#94A3B8" }}>Progression</p>
@@ -126,7 +126,7 @@ export default function PreventionPage() {
                   <motion.button
                     key={i}
                     onClick={() => toggle(i)}
-                    className="w-full flex items-center gap-4 p-5 rounded-xl text-left"
+                    className="w-full flex items-center gap-4 p-4 sm:p-5 rounded-xl text-left"
                     style={{
                       background: checked[i] ? "rgba(16,185,129,0.06)" : "rgba(255,255,255,0.02)",
                       border: `1px solid ${checked[i] ? "rgba(16,185,129,0.25)" : "rgba(255,255,255,0.06)"}`,
@@ -144,7 +144,7 @@ export default function PreventionPage() {
             </div>
 
             <div
-              className="rounded-[20px] p-8 h-fit sticky top-28"
+              className="rounded-[20px] p-6 sm:p-8 h-fit lg:sticky lg:top-28"
               style={{ background: "#0F172A", border: "1px solid rgba(255,255,255,0.06)" }}
             >
               <h4 className="text-lg font-bold mb-6" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}>Votre score</h4>
@@ -162,7 +162,7 @@ export default function PreventionPage() {
         </div>
       </section>
 
-      <section className="py-32 px-6" style={{ background: "#080D18" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="RISQUES" title="Facteurs de risque" subtitle="Identifiez les facteurs qui exposent davantage certaines personnes aux maladies rénales." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

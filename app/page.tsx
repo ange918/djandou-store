@@ -150,7 +150,7 @@ export default function Home() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-6 py-40 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 py-28 lg:py-40 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center relative z-10 w-full">
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -174,7 +174,7 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                 fontWeight: 900,
-                fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+                fontSize: "clamp(2rem, 6vw, 4.5rem)",
                 lineHeight: 1.1,
                 color: "#F8FAFC",
               }}
@@ -234,15 +234,15 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Kidney Illustration */}
+          {/* Kidney Illustration — hidden on small screens */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex justify-center items-center"
+            className="hidden lg:flex justify-center items-center"
           >
-            <div className="relative animate-pulse-kidney">
-              <svg width="520" height="440" viewBox="0 0 520 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative w-full max-w-md">
+              <svg viewBox="0 0 520 440" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Left kidney */}
                 <g opacity="0.9">
                   <path d="M120 160 C80 160 50 190 50 230 C50 310 95 370 140 370 C165 370 175 345 170 310 C168 295 155 285 150 265 C145 240 160 220 155 200 C150 180 145 160 120 160Z" stroke="#00C9FF" strokeWidth="2" fill="rgba(0,201,255,0.04)" strokeLinecap="round"/>
@@ -296,10 +296,10 @@ export default function Home() {
       </section>
 
       {/* ─── STATS ─── */}
-      <section className="py-32 px-6" style={{ background: "#080D18" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-5xl mx-auto">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-0"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-0"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
@@ -309,10 +309,10 @@ export default function Home() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className={`text-center px-12 py-8 ${i < stats.length - 1 ? "md:border-r border-white/[0.06]" : ""}`}
+                className={`text-center px-6 py-8 md:px-12 ${i < stats.length - 1 ? "sm:border-r border-b sm:border-b-0 border-white/[0.06]" : ""}`}
               >
                 <p
-                  className="text-5xl font-bold mb-4"
+                  className="text-4xl sm:text-5xl font-bold mb-4"
                   style={{
                     fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                     background: "linear-gradient(135deg, #00C9FF, #0066FF)",
@@ -336,7 +336,7 @@ export default function Home() {
       </section>
 
       {/* ─── MALADIES ─── */}
-      <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             badge="PATHOLOGIES"
@@ -347,17 +347,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {maladies.map((m, i) => (
               <GlowCard key={i} href={m.href}>
-                <div className="flex items-start gap-5 mb-6">
+                <div className="flex items-start gap-4 mb-5">
                   <div
                     className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
                     style={{ background: "rgba(0,201,255,0.08)", color: "#00C9FF" }}
                   >
                     {m.icon}
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2 mb-1">
                       <h3
-                        className="text-lg font-bold leading-tight"
+                        className="text-base sm:text-lg font-bold leading-tight"
                         style={{
                           fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                           color: "#F8FAFC",
@@ -367,7 +367,7 @@ export default function Home() {
                         {m.titre}
                       </h3>
                       <span
-                        className="text-xs font-medium px-2.5 py-1 rounded-full ml-3 flex-shrink-0"
+                        className="text-xs font-medium px-2.5 py-1 rounded-full flex-shrink-0"
                         style={{
                           color: m.badgeColor,
                           background: `${m.badgeColor}15`,
@@ -379,7 +379,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <p className="mb-6" style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.925rem" }}>
+                <p className="mb-5" style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.925rem" }}>
                   {m.desc}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-medium" style={{ color: "#00C9FF" }}>
@@ -392,7 +392,7 @@ export default function Home() {
       </section>
 
       {/* ─── QUIZ CTA ─── */}
-      <section className="py-32 px-6" style={{ background: "#080D18" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -417,7 +417,7 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                 fontWeight: 700,
-                fontSize: "clamp(2rem, 4vw, 2.75rem)",
+                fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
                 lineHeight: 1.2,
                 color: "#F8FAFC",
               }}
@@ -435,7 +435,7 @@ export default function Home() {
 
             <Link
               href="/outils"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-white transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-full font-medium text-white transition-all duration-200 hover:scale-105"
               style={{
                 background: "linear-gradient(135deg, #00C9FF, #0066FF)",
                 fontFamily: "var(--font-poppins, Poppins, sans-serif)",
@@ -451,7 +451,7 @@ export default function Home() {
       </section>
 
       {/* ─── 3 GESTES ESSENTIELS ─── */}
-      <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+      <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             badge="PRÉVENTION"
@@ -467,11 +467,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className={`px-12 py-12 text-center ${i < gestes.length - 1 ? "md:border-r border-white/[0.06]" : ""}`}
+                className={`px-6 py-10 md:px-12 md:py-12 text-center ${i < gestes.length - 1 ? "md:border-r border-b md:border-b-0 border-white/[0.06]" : ""}`}
               >
                 <div className="flex justify-center mb-8">{g.icon}</div>
                 <h3
-                  className="text-xl font-bold mb-6"
+                  className="text-lg sm:text-xl font-bold mb-6"
                   style={{
                     fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                     color: "#F8FAFC",

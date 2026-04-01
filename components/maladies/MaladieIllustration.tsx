@@ -31,13 +31,13 @@ export default function MaladieIllustration({
   const [activeZone, setActiveZone] = useState<string | null>(null);
 
   return (
-    <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+    <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader badge="ILLUSTRATION" title={title} subtitle={subtitle} />
 
-        <div className="relative flex justify-center mb-12">
-          <div className="relative">
-            <svg width="700" height="450" viewBox="0 0 700 450" className="max-w-full">
+        <div className="relative flex justify-center mb-12 overflow-x-auto">
+          <div className="relative min-w-0">
+            <svg width="700" height="450" viewBox="0 0 700 450" className="max-w-full h-auto">
               {svgContent}
               {zones.map((zone) => (
                 <circle

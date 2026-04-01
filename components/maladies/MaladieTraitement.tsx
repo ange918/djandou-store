@@ -22,7 +22,7 @@ const typeConfig = {
 
 export default function MaladieTraitement({ traitements }: MaladieTraitementProps) {
   return (
-    <section className="py-32 px-6" style={{ background: "#0A0F1E" }}>
+    <section className="py-16 md:py-32 px-6" style={{ background: "#0A0F1E" }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge="PRISE EN CHARGE"
@@ -30,7 +30,7 @@ export default function MaladieTraitement({ traitements }: MaladieTraitementProp
           subtitle="Les traitements disponibles varient selon le stade et la cause de la maladie."
         />
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {traitements.map((t, i) => {
             const cfg = typeConfig[t.type];
             return (
@@ -40,12 +40,12 @@ export default function MaladieTraitement({ traitements }: MaladieTraitementProp
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex gap-8 items-start"
+                className="relative flex gap-4 sm:gap-8 items-start"
               >
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center"
+                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
                   style={{ background: "rgba(0,201,255,0.05)", border: "1px solid rgba(0,201,255,0.15)" }}>
                   <span
-                    className="font-bold text-2xl"
+                    className="font-bold text-lg sm:text-2xl"
                     style={{
                       fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
                       color: "rgba(0,201,255,0.3)",
@@ -56,18 +56,18 @@ export default function MaladieTraitement({ traitements }: MaladieTraitementProp
                 </div>
 
                 <div
-                  className="flex-1 rounded-[20px] p-8"
+                  className="flex-1 rounded-[20px] p-5 sm:p-8"
                   style={{ background: "#0F172A", border: "1px solid rgba(255,255,255,0.06)" }}
                 >
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                     <h3
-                      className="text-xl font-bold"
+                      className="text-base sm:text-xl font-bold"
                       style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}
                     >
                       {t.titre}
                     </h3>
                     <span
-                      className="text-xs font-medium px-3 py-1 rounded-full"
+                      className="self-start text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap"
                       style={{ color: cfg.color, background: cfg.bg, border: `1px solid ${cfg.color}33` }}
                     >
                       {t.type}

@@ -27,7 +27,7 @@ export default function MaladiePrevention({ items, populations, maladie }: Malad
   const score = checked.filter(Boolean).length;
 
   return (
-    <section className="py-32 px-6" style={{ background: "#080D18" }}>
+    <section className="py-16 md:py-32 px-6" style={{ background: "#080D18" }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge="PRÉVENTION"
@@ -35,11 +35,11 @@ export default function MaladiePrevention({ items, populations, maladie }: Malad
           subtitle="Évaluez vos habitudes de prévention et identifiez les points à améliorer."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
             <div className="flex items-center justify-between mb-8">
               <h3
-                className="text-xl font-bold"
+                className="text-lg sm:text-xl font-bold"
                 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}
               >
                 Ma checklist prévention
@@ -66,7 +66,7 @@ export default function MaladiePrevention({ items, populations, maladie }: Malad
                 <motion.button
                   key={i}
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center gap-4 p-5 rounded-xl text-left transition-all duration-200"
+                  className="w-full flex items-center gap-4 p-4 sm:p-5 rounded-xl text-left transition-all duration-200"
                   style={{
                     background: checked[i] ? "rgba(16,185,129,0.08)" : "rgba(255,255,255,0.02)",
                     border: `1px solid ${checked[i] ? "rgba(16,185,129,0.3)" : "rgba(255,255,255,0.06)"}`,
@@ -90,7 +90,7 @@ export default function MaladiePrevention({ items, populations, maladie }: Malad
                     style={{
                       color: checked[i] ? "#10B981" : "#94A3B8",
                       fontWeight: 300,
-                      fontSize: "0.95rem",
+                      fontSize: "0.9rem",
                     }}
                   >
                     {item.label}
@@ -101,13 +101,13 @@ export default function MaladiePrevention({ items, populations, maladie }: Malad
           </div>
 
           <div
-            className="rounded-[20px] p-10"
+            className="rounded-[20px] p-5 sm:p-10"
             style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)" }}
           >
             <div className="flex items-center gap-3 mb-8">
               <ShieldExclamationIcon className="w-7 h-7" style={{ color: "#EF4444" }} />
               <h3
-                className="text-xl font-bold"
+                className="text-lg sm:text-xl font-bold"
                 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}
               >
                 Populations à risque
