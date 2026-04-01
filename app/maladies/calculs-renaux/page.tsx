@@ -45,7 +45,7 @@ const populations = [
 ];
 
 const IllustrationCalculs = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#8B5CF6" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Calculs rénaux — Voies urinaires</text>
     <path d="M130 60 C90 60 55 95 55 145 C55 235 115 310 165 310 C192 310 200 285 196 255 C194 238 178 228 173 205 C166 175 183 153 178 128 C170 100 168 60 130 60Z"
       fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.6)" strokeWidth="2" />

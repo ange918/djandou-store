@@ -45,7 +45,7 @@ const populations = [
 ];
 
 const Illustration = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#EF4444" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Artériole rénale — HTA</text>
     {/* Artériole normale (gauche) */}
     <path d="M80 120 C80 120 80 250 80 280" stroke="#00C9FF" strokeWidth="20" strokeLinecap="round" fill="none" opacity="0.6"/>

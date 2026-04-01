@@ -95,9 +95,11 @@ export default function MaladieHero({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="hidden lg:flex items-center justify-center"
+          className="flex items-center justify-center w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-none"
         >
-          {illustration}
+          <div className="w-full overflow-x-auto flex justify-center">
+            {illustration}
+          </div>
         </motion.div>
       </div>
     </section>

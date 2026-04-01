@@ -45,7 +45,7 @@ const populations = [
 ];
 
 const Illustration = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#10B981" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Voies urinaires — Ascension bactérienne</text>
     {/* Rein gauche */}
     <path d="M120 50 C80 50 50 80 50 120 C50 210 105 280 150 280 C177 280 185 255 181 225 C179 208 165 198 160 175 C153 145 168 123 163 98 C155 70 153 50 120 50Z"

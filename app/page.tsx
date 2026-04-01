@@ -13,6 +13,8 @@ import {
   UserGroupIcon,
   ArrowRightIcon,
   SparklesIcon,
+  ArrowPathIcon,
+  ScaleIcon,
 } from "@heroicons/react/24/outline";
 import SectionHeader from "@/components/ui/SectionHeader";
 import GlowCard from "@/components/ui/GlowCard";
@@ -234,62 +236,67 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Kidney Illustration — hidden on small screens */}
+          {/* Kidney function icon cluster — visible on all screens */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="hidden lg:flex justify-center items-center"
+            className="flex justify-center items-center mt-4 lg:mt-0"
           >
-            <div className="relative w-full max-w-md">
-              <svg viewBox="0 0 520 440" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Left kidney */}
-                <g opacity="0.9">
-                  <path d="M120 160 C80 160 50 190 50 230 C50 310 95 370 140 370 C165 370 175 345 170 310 C168 295 155 285 150 265 C145 240 160 220 155 200 C150 180 145 160 120 160Z" stroke="#00C9FF" strokeWidth="2" fill="rgba(0,201,255,0.04)" strokeLinecap="round"/>
-                  <path d="M120 160 C140 158 160 165 165 185 C170 205 155 225 160 250 C165 270 178 282 178 305 C180 340 168 375 145 378 C170 385 200 360 200 310 C200 250 175 200 155 175 C145 163 133 158 120 160Z" fill="rgba(0,201,255,0.03)" stroke="rgba(0,201,255,0.3)" strokeWidth="1"/>
-                  {/* Pelvis */}
-                  <ellipse cx="120" cy="265" rx="25" ry="35" stroke="rgba(0,201,255,0.5)" strokeWidth="1.5" fill="none"/>
-                  {/* Ureter */}
-                  <path d="M130 300 C132 330 135 360 138 390" stroke="rgba(0,201,255,0.4)" strokeWidth="1.5" strokeDasharray="4 3"/>
-                  {/* Cortex line */}
-                  <path d="M75 215 C90 205 110 200 130 205" stroke="rgba(0,201,255,0.25)" strokeWidth="1" strokeDasharray="3 3"/>
-                </g>
+            <div className="relative w-full max-w-xs sm:max-w-sm">
+              {/* Background glow */}
+              <div
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background: "radial-gradient(circle, rgba(0,201,255,0.08) 0%, transparent 70%)",
+                  filter: "blur(20px)",
+                }}
+              />
 
-                {/* Right kidney */}
-                <g opacity="0.9">
-                  <path d="M400 160 C440 160 470 190 470 230 C470 310 425 370 380 370 C355 370 345 345 350 310 C352 295 365 285 370 265 C375 240 360 220 365 200 C370 180 375 160 400 160Z" stroke="#00C9FF" strokeWidth="2" fill="rgba(0,201,255,0.04)" strokeLinecap="round"/>
-                  <ellipse cx="400" cy="265" rx="25" ry="35" stroke="rgba(0,201,255,0.5)" strokeWidth="1.5" fill="none"/>
-                  <path d="M390 300 C388 330 385 360 382 390" stroke="rgba(0,201,255,0.4)" strokeWidth="1.5" strokeDasharray="4 3"/>
-                </g>
+              {/* Center badge */}
+              <div className="flex justify-center mb-5">
+                <div
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(0,201,255,0.2), rgba(0,102,255,0.15))",
+                    border: "1px solid rgba(0,201,255,0.35)",
+                  }}
+                >
+                  <BeakerIcon className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: "#00C9FF" }} />
+                </div>
+              </div>
 
-                {/* Aorta */}
-                <line x1="260" y1="120" x2="260" y2="400" stroke="rgba(0,201,255,0.2)" strokeWidth="3" strokeDasharray="6 4"/>
-                {/* Renal arteries */}
-                <path d="M260 220 C220 218 180 225 155 240" stroke="rgba(0,201,255,0.4)" strokeWidth="1.5"/>
-                <path d="M260 220 C300 218 340 225 365 240" stroke="rgba(0,201,255,0.4)" strokeWidth="1.5"/>
-
-                {/* Floating labels */}
-                <g>
-                  <rect x="40" y="175" width="65" height="22" rx="11" fill="rgba(0,201,255,0.1)" stroke="rgba(0,201,255,0.3)" strokeWidth="1"/>
-                  <text x="72" y="190" textAnchor="middle" fill="#00C9FF" fontSize="9" fontFamily="Poppins,sans-serif">Cortex</text>
-                </g>
-                <g>
-                  <rect x="60" y="250" width="65" height="22" rx="11" fill="rgba(0,201,255,0.1)" stroke="rgba(0,201,255,0.3)" strokeWidth="1"/>
-                  <text x="93" y="265" textAnchor="middle" fill="#00C9FF" fontSize="9" fontFamily="Poppins,sans-serif">Médulla</text>
-                </g>
-                <g>
-                  <rect x="200" y="190" width="70" height="22" rx="11" fill="rgba(0,201,255,0.1)" stroke="rgba(0,201,255,0.3)" strokeWidth="1"/>
-                  <text x="235" y="205" textAnchor="middle" fill="#00C9FF" fontSize="9" fontFamily="Poppins,sans-serif">Néphron</text>
-                </g>
-                <g>
-                  <rect x="250" y="240" width="90" height="22" rx="11" fill="rgba(0,201,255,0.1)" stroke="rgba(0,201,255,0.3)" strokeWidth="1"/>
-                  <text x="295" y="255" textAnchor="middle" fill="#00C9FF" fontSize="9" fontFamily="Poppins,sans-serif">Artère rénale</text>
-                </g>
-                <g>
-                  <rect x="395" y="295" width="65" height="22" rx="11" fill="rgba(0,201,255,0.1)" stroke="rgba(0,201,255,0.3)" strokeWidth="1"/>
-                  <text x="428" y="310" textAnchor="middle" fill="#00C9FF" fontSize="9" fontFamily="Poppins,sans-serif">Bassinet</text>
-                </g>
-              </svg>
+              {/* 2×3 function grid */}
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { icon: <ArrowPathIcon className="w-5 h-5" />, label: "Filtration" },
+                  { icon: <HeartIcon className="w-5 h-5" />, label: "Pression" },
+                  { icon: <ShieldCheckIcon className="w-5 h-5" />, label: "Protection" },
+                  { icon: <ScaleIcon className="w-5 h-5" />, label: "Équilibre" },
+                  { icon: <SparklesIcon className="w-5 h-5" />, label: "Hormones" },
+                  { icon: <EyeIcon className="w-5 h-5" />, label: "Détection" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + i * 0.08 }}
+                    className="flex flex-col items-center gap-2 py-4 px-2 rounded-xl"
+                    style={{
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(0,201,255,0.12)",
+                    }}
+                  >
+                    <span style={{ color: "#00C9FF" }}>{item.icon}</span>
+                    <span
+                      className="text-xs text-center"
+                      style={{ color: "#64748B", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}
+                    >
+                      {item.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

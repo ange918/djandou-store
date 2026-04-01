@@ -44,7 +44,7 @@ const populations = [
 ];
 
 const Illustration = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#06B6D4" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Polykystose — Kystes progressifs</text>
     {/* Rein polykystique */}
     <ellipse cx="200" cy="190" rx="140" ry="100" fill="rgba(6,182,212,0.04)" stroke="rgba(6,182,212,0.4)" strokeWidth="2" />

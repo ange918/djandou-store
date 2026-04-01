@@ -44,7 +44,7 @@ const populations = [
 ];
 
 const Illustration = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#3B82F6" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Néphron — Segments tubulaires</text>
     {/* Glomérule */}
     <circle cx="120" cy="80" r="30" fill="rgba(59,130,246,0.08)" stroke="#3B82F6" strokeWidth="1.5" />

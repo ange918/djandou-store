@@ -59,7 +59,7 @@ const populations = [
 ];
 
 const IllustrationIRA = () => (
-  <svg width="500" height="380" viewBox="0 0 500 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 500 380" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none" xmlns="http://www.w3.org/2000/svg">
     <text x="250" y="30" textAnchor="middle" fill="#EF4444" fontSize="14" fontFamily="Poppins,sans-serif" fontWeight="500">
       IRA — Rein en état de choc
     </text>

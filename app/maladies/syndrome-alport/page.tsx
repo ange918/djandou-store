@@ -44,7 +44,7 @@ const populations = [
 ];
 
 const Illustration = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#6366F1" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Syndrome d'Alport — Atteintes multiples</text>
     {/* Rein */}
     <ellipse cx="120" cy="160" rx="70" ry="100" fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.4)" strokeWidth="1.5" />

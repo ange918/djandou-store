@@ -45,7 +45,7 @@ const populations = [
 ];
 
 const Illustration = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#F59E0B" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Néphropathie diabétique — Glomérule</text>
     <circle cx="240" cy="185" r="100" fill="rgba(245,158,11,0.04)" stroke="rgba(245,158,11,0.3)" strokeWidth="1.5" />
     <circle cx="240" cy="185" r="65" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />

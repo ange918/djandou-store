@@ -43,7 +43,7 @@ const populations = [
 ];
 
 const IllustrationGlomeru = () => (
-  <svg width="480" height="360" viewBox="0 0 480 360" fill="none">
+  <svg viewBox="0 0 480 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none">
     <text x="240" y="25" textAnchor="middle" fill="#EC4899" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">Glomérule enflammé</text>
     {/* Capsule de Bowman */}
     <circle cx="240" cy="185" r="100" fill="rgba(236,72,153,0.04)" stroke="rgba(236,72,153,0.3)" strokeWidth="1.5" />

@@ -59,7 +59,7 @@ const populations = [
 ];
 
 const IllustrationIRC = () => (
-  <svg width="500" height="360" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 500 360" fill="none" className="w-full h-auto max-w-sm mx-auto lg:max-w-none" xmlns="http://www.w3.org/2000/svg">
     <text x="250" y="25" textAnchor="middle" fill="#F97316" fontSize="13" fontFamily="Poppins,sans-serif" fontWeight="500">
       5 stades de l'IRC — Dégradation progressive
     </text>
