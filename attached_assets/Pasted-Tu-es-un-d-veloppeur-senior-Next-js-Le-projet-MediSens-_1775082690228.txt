@@ -1,0 +1,278 @@
+Tu es un développeur senior Next.js. Le projet MediSens est une plateforme médicale de sensibilisation. Un site /reins existe déjà dans app/reins/. Ne touche pas à ce dossier.
+
+Ta mission : créer UNIQUEMENT la page d'accueil de MediSens (app/page.tsx) + la Navbar globale + le Footer global.
+
+Stack : Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, GSAP (ScrollTrigger), @heroicons/react, polices Unbounded (titres) + Poppins (corps).
+
+---
+
+🎨 DESIGN SYSTEM MEDISENS
+
+Palette :
+- Background : #050810
+- Surface : #0A0F1E
+- Cards : #0D1526
+- Border : rgba(255,255,255,0.06)
+- Accent primaire : #00C9FF
+- Accent secondaire : #0066FF
+- Texte principal : #F8FAFC
+- Texte secondaire : #64748B
+- Gradient brand : linear-gradient(135deg, #00C9FF, #0066FF)
+- Danger : #EF4444
+- Succès : #10B981
+
+Typographie :
+- Titres : Unbounded, weights 700/900
+- Corps : Poppins, weights 300/400/500
+- line-height corps : 1.8
+- line-height titres : 1.1
+- Taille minimum corps : 16px
+
+AÉRATION MAXIMALE :
+- py-32 minimum par section
+- p-10 minimum dans les cards
+- max-w-2xl sur les paragraphes
+- gap-8 minimum entre cards
+- Jamais plus de 3 éléments par ligne
+- Sections alternées : #050810 / #080D18
+
+---
+
+📁 FICHIERS À CRÉER
+
+app/
+├── layout.tsx        ← fonts + metadata globale MediSens
+├── page.tsx          ← page d'accueil MediSens
+
+components/
+├── layout/
+│   ├── NavbarMediSens.tsx
+│   └── FooterMediSens.tsx
+├── home/
+│   ├── Hero.tsx
+│   ├── Pourquoi.tsx
+│   ├── Statistiques.tsx
+│   ├── OrganesGrid.tsx
+│   └── Newsletter.tsx
+
+---
+
+📄 NAVBAR (NavbarMediSens.tsx)
+
+- Logo : "MediSens" en Unbounded + icône Heroicons HeartIcon cyan
+- Liens : Accueil | Reins | Cœur | Poumons | Foie | Cerveau | Diabète | Os | Peau
+- Reins → /reins (actif, site existant)
+- Cœur → /coeur (coming soon)
+- Tous les autres → /[organe] (coming soon)
+- bg transparent → backdrop-blur-xl bg-black/50 au scroll
+- Liens espacés gap-8, Poppins 500, #64748B → #F8FAFC au hover
+- Lien actif : underline cyan animé
+- Hauteur h-20
+- Hamburger Framer Motion sur mobile
+
+---
+
+📄 HERO (Hero.tsx)
+
+- min-height 100vh, centré verticalement
+- Fond : radial-gradient(ellipse at 30% 50%, #001833 0%, #050810 65%) + grain overlay opacity 0.03
+- Layout 2 colonnes desktop (texte gauche, illustration droite)
+
+Colonne texte :
+- Badge "PLATEFORME MÉDICALE" cyan uppercase Poppins 500 letterspacing wide
+- H1 Unbounded 900, 4.5rem :
+  "La santé expliquée.
+  Simplement."
+- Paragraphe Poppins 300, max-w-lg, #64748B :
+  "MediSens est une plateforme de sensibilisation médicale gratuite. Comprendre les maladies, reconnaître les symptômes, agir pour prévenir. Pour les patients, les familles et les professionnels de santé en France et en Afrique francophone."
+- mt-12 avant boutons
+- 2 CTA :
+  * "Explorer les organes" → scroll vers OrganesGrid (bg gradient cyan, px-8 py-4 rounded-full)
+  * "Commencer avec les Reins" → /reins (border white/20, px-8 py-4 rounded-full)
+- gap-4 entre boutons
+
+Colonne illustration :
+- SVG animé : silhouette corps humain avec organes mis en évidence (cœur, reins, poumons, cerveau, foie)
+- Chaque organe pulse doucement à tour de rôle (Framer Motion, stagger 0.8s)
+- Organes cliquables → redirigent vers leur section
+- Labels flottants animés : "Cerveau", "Cœur", "Poumons", "Reins", "Foie"
+
+Animation GSAP au chargement : gsap.from() stagger 0.15s, y:40, opacity:0
+
+---
+
+📄 POURQUOI MEDISENS (Pourquoi.tsx) — bg #080D18
+
+SectionHeader :
+- Badge : "NOTRE MISSION"
+- H2 : "Pourquoi MediSens existe"
+- Sous-titre : "Des millions de personnes ignorent les signaux d'alerte de leur corps. MediSens change ça."
+
+3 colonnes très aérées (gap-12) :
+1. Heroicon EyeIcon (48px cyan)
+   Titre : "Comprendre"
+   Texte : "Des explications médicales claires, vulgarisées, accessibles à tous. Sans jargon inutile."
+
+2. Heroicon ShieldCheckIcon (48px cyan)
+   Titre : "Prévenir"
+   Texte : "La prévention sauve des vies. Chaque section offre des conseils concrets adaptés à votre profil."
+
+3. Heroicon HeartIcon (48px cyan)
+   Titre : "Agir"
+   Texte : "Reconnaître les symptômes à temps peut faire la différence. MediSens vous guide vers les bons gestes."
+
+Framer Motion whileInView fadeInUp stagger 0.15s
+
+---
+
+📄 STATISTIQUES (Statistiques.tsx) — bg #050810
+
+SectionHeader :
+- Badge : "CHIFFRES CLÉS"
+- H2 : "Des millions de vies concernées"
+- Sous-titre : "Ces maladies touchent des centaines de millions de personnes. La sensibilisation est une urgence."
+
+Grid 2x3 de stats (gap-10) :
+Chaque stat : grand chiffre Unbounded 900 gradient cyan + label Poppins 300 + description courte
+
+1. "17M" → Hypertendus en France
+2. "80 000" → Infarctus par an en France
+3. "190 000" → AVC par an en France
+4. "91 875" → Patients IRC terminale en France
+5. "1,4Md" → Hypertendus dans le monde
+6. "64M" → Personnes atteintes d'IC dans le monde
+
+Compteurs animés useCountUp au scroll (Framer Motion whileInView)
+
+---
+
+📄 ORGANES GRID (OrganesGrid.tsx) — bg #080D18
+
+SectionHeader :
+- Badge : "NOS VOLETS"
+- H2 : "Choisissez un organe"
+- Sous-titre : "Chaque volet est un site complet dédié aux maladies d'un organe ou système."
+
+Grid 4 colonnes desktop, 2 tablette, 1 mobile (gap-6) :
+
+8 cards (GlowCard p-10) :
+
+1. REINS
+   - Heroicon : BeakerIcon cyan
+   - Badge vert : "DISPONIBLE"
+   - Titre : "Reins"
+   - Texte : "IRC, IRA, calculs, glomérulonéphrites, infections urinaires et plus."
+   - CTA : "Explorer →" → /reins
+   - Border cyan au hover
+
+2. CŒUR
+   - Heroicon : HeartIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Cœur"
+   - Texte : "HTA, infarctus, insuffisance cardiaque, AVC et maladies cardiovasculaires."
+   - CTA désactivé : "En préparation"
+
+3. POUMONS
+   - Heroicon : CloudIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Poumons"
+   - Texte : "Asthme, BPCO, pneumonie, cancer du poumon, insuffisance respiratoire."
+   - CTA désactivé
+
+4. FOIE
+   - Heroicon : CircleStackIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Foie"
+   - Texte : "Hépatites, cirrhose, stéatose, cancer du foie, insuffisance hépatique."
+   - CTA désactivé
+
+5. CERVEAU
+   - Heroicon : CpuChipIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Cerveau"
+   - Texte : "Alzheimer, Parkinson, épilepsie, migraine, sclérose en plaques."
+   - CTA désactivé
+
+6. DIABÈTE
+   - Heroicon : ChartBarIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Diabète"
+   - Texte : "Diabète type 1 et 2, complications, glycémie, insuline, prévention."
+   - CTA désactivé
+
+7. OS & ARTICULATIONS
+   - Heroicon : WrenchScrewdriverIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Os & Articulations"
+   - Texte : "Arthrose, ostéoporose, polyarthrite, fractures, rhumatismes."
+   - CTA désactivé
+
+8. PEAU
+   - Heroicon : SparklesIcon
+   - Badge orange : "BIENTÔT"
+   - Titre : "Peau"
+   - Texte : "Eczéma, psoriasis, mélanome, acné, dermatoses chroniques."
+   - CTA désactivé
+
+Framer Motion whileInView stagger 0.08s sur les cards
+
+---
+
+📄 NEWSLETTER / CTA FINAL — bg #050810
+
+Section centrée max-w-2xl mx-auto py-32 :
+- Badge : "RESTEZ INFORMÉ"
+- H2 : "Soyez alerté à chaque nouveau volet"
+- Texte : "Chaque mois, un nouvel organe. Inscrivez-vous pour être notifié dès la mise en ligne."
+- Input email (useState) + bouton "M'inscrire" gradient cyan
+- Disclaimer : "Aucun spam. Désabonnement libre."
+- Animation Framer Motion fadeInUp
+
+---
+
+📄 FOOTER (FooterMediSens.tsx)
+
+- Logo MediSens + tagline "Comprendre pour mieux vivre"
+- 3 colonnes :
+  * Liens rapides : Accueil | Reins | À propos
+  * Sources : HAS | Ameli | INSERM | OMS | France Rein
+  * Contact : contact@medisens.fr
+- Disclaimer médical : "MediSens est un site d'information. Il ne remplace pas un avis médical."
+- Copyright : "© 2025 MediSens. Tous droits réservés."
+
+---
+
+⚙️ CONFIGURATION
+
+package.json — installer :
+- gsap
+- framer-motion
+- @heroicons/react
+
+app/layout.tsx :
+- Fonts via next/font/google : Unbounded + Poppins
+- Metadata : title "MediSens — La santé expliquée simplement"
+- Description : "Plateforme de sensibilisation médicale gratuite en français..."
+- NavbarMediSens + FooterMediSens wrappent les children
+
+globals.css :
+- Scrollbar custom cyan
+- Variables CSS palette
+- Keyframes : fadeInUp, pulse-organ, glowPulse
+
+lib/gsap.ts :
+- gsap.registerPlugin(ScrollTrigger)
+
+---
+
+🚀 INSTRUCTIONS FINALES
+
+1. npm install gsap framer-motion @heroicons/react
+2. "use client" sur tous les composants avec hooks
+3. GSAP : useEffect + cleanup ctx.revert()
+4. Framer Motion : const variants: Variants = {}
+5. NE PAS TOUCHER au dossier app/reins/ — il existe déjà
+6. Toutes les données inline
+7. Site 100% en français
+8. Mobile-first responsive
+9. Aération maximale : py-32 sections, p-10 cards, max-w-2xl textes

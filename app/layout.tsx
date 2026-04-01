@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Unbounded, Poppins, Montserrat } from "next/font/google";
+import { Unbounded, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import ScrollProgress from "@/components/ui/ScrollProgress";
+import NavbarMediSens from "@/components/layout/NavbarMediSens";
+import FooterMediSens from "@/components/layout/FooterMediSens";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -19,17 +18,10 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["600"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "ReinSanté — Santé Rénale",
+  title: "MediSens — La santé expliquée simplement",
   description:
-    "Informations complètes sur la santé rénale, les maladies des reins, la prévention et les outils de dépistage en français.",
+    "Plateforme de sensibilisation médicale gratuite en français. Comprendre les maladies, reconnaître les symptômes, agir pour prévenir. Pour les patients, les familles et les professionnels de santé.",
 };
 
 export default function RootLayout({
@@ -38,12 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${unbounded.variable} ${poppins.variable} ${montserrat.variable}`}>
-      <body className="bg-[#0A0F1E] text-[#F8FAFC] font-poppins antialiased">
-        <ScrollProgress />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+    <html lang="fr" className={`${unbounded.variable} ${poppins.variable}`}>
+      <body className="bg-[#050810] text-[#F8FAFC] font-poppins antialiased">
+        <NavbarMediSens />
+        <main className="pt-20">{children}</main>
+        <FooterMediSens />
       </body>
     </html>
   );
