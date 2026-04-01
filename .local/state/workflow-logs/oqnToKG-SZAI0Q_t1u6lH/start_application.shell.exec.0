@@ -1,0 +1,27 @@
+
+> djjj@0.1.0 dev
+> next dev -p 5000 -H 0.0.0.0
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 1003ms
+[33m[1m⚠[22m[39m Cross origin request detected from 0775e14e-4cd9-4531-8ec0-ee43af9c78ef-00-3nj6b24cqmszz.worf.replit.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / [32m200[39m in 3.1s[2m (compile: 2.7s, render: 401ms)[22m
+ GET / [32m200[39m in 3.0s[2m (compile: 2.8s, render: 144ms)[22m
+ GET / [32m200[39m in 2.0s[2m (compile: 1864ms, render: 166ms)[22m
+ GET / [32m200[39m in 194ms[2m (compile: 102ms, render: 92ms)[22m
+ GET /maladies [32m200[39m in 226ms[2m (compile: 207ms, render: 20ms)[22m
+ GET /maladies [32m200[39m in 20ms[2m (compile: 3ms, render: 17ms)[22m
+ GET /maladies/insuffisance-renale-aigue [32m200[39m in 1216ms[2m (compile: 1195ms, render: 22ms)[22m
+ GET /maladies/insuffisance-renale-aigue [32m200[39m in 368ms[2m (compile: 339ms, render: 29ms)[22m
+ GET /alimentation [32m200[39m in 1817ms[2m (compile: 1540ms, render: 277ms)[22m
+ GET /prevention [32m200[39m in 598ms[2m (compile: 557ms, render: 40ms)[22m
+ GET /symptomes [32m200[39m in 446ms[2m (compile: 428ms, render: 18ms)[22m
+ GET /comprendre [32m200[39m in 990ms[2m (compile: 972ms, render: 19ms)[22m
+ GET /outils [32m200[39m in 452ms[2m (compile: 429ms, render: 23ms)[22m
+[32m[1m✓[22m[39m Compiled in 421ms
+[32m[1m✓[22m[39m Compiled in 79ms
