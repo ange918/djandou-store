@@ -1,0 +1,48 @@
+
+> djjj@0.1.0 dev
+> next dev -p 5000 -H 0.0.0.0
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 659ms
+[33m[1m⚠[22m[39m Blocked cross-origin request from ceffbe66-0971-4971-9c7c-9369189f7194-00-1gac012ek4s8e.picard.replit.dev to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /coeur/maladies/hypertension [32m200[39m in 1755ms[2m (compile: 1697ms, render: 58ms)[22m
+ GET /coeur/maladies/hypertension [32m200[39m in 21ms[2m (compile: 5ms, render: 16ms)[22m
+ GET / [32m200[39m in 311ms[2m (compile: 68ms, render: 243ms)[22m
+ GET /coeur/maladies/insuffisance-cardiaque [32m200[39m in 478ms[2m (compile: 461ms, render: 16ms)[22m
+ GET /coeur/maladies/insuffisance-cardiaque [32m200[39m in 123ms[2m (compile: 5ms, render: 118ms)[22m
+ GET /coeur/maladies/insuffisance-cardiaque [32m200[39m in 86ms[2m (compile: 4ms, render: 82ms)[22m
+ GET /coeur/maladies/avc [32m200[39m in 362ms[2m (compile: 341ms, render: 22ms)[22m
+ GET /coeur/maladies/avc [32m200[39m in 23ms[2m (compile: 4ms, render: 19ms)[22m
+ GET / [32m200[39m in 252ms[2m (compile: 83ms, render: 169ms)[22m
+ GET /coeur/maladies/avc [32m200[39m in 279ms[2m (compile: 69ms, render: 210ms)[22m
+ GET /coeur/maladies/hypertension [32m200[39m in 100ms[2m (compile: 71ms, render: 29ms)[22m
+ GET /coeur/maladies/insuffisance-cardiaque [32m200[39m in 114ms[2m (compile: 82ms, render: 32ms)[22m
+ GET / [32m200[39m in 235ms[2m (compile: 69ms, render: 166ms)[22m
+ GET /contact [32m200[39m in 373ms[2m (compile: 356ms, render: 17ms)[22m
+ GET /coeur/maladies/insuffisance-cardiaque [32m200[39m in 124ms[2m (compile: 4ms, render: 121ms)[22m
+ GET /contact [32m200[39m in 53ms[2m (compile: 3ms, render: 50ms)[22m
+ GET / [32m200[39m in 21ms[2m (compile: 6ms, render: 15ms)[22m
+[32m[1m✓[22m[39m Compiled in 72ms
+ GET /poumons [33m404[39m in 415ms[2m (compile: 387ms, render: 28ms)[22m
+ GET /poumons [33m404[39m in 168ms[2m (compile: 4ms, render: 164ms)[22m
+ GET / [32m200[39m in 242ms[2m (compile: 62ms, render: 179ms)[22m
+ GET /contact [32m200[39m in 213ms[2m (compile: 67ms, render: 146ms)[22m
+ GET /reins [32m200[39m in 398ms[2m (compile: 384ms, render: 13ms)[22m
+ GET /coeur [32m200[39m in 43ms[2m (compile: 29ms, render: 14ms)[22m
+ GET /coeur [32m200[39m in 15ms[2m (compile: 3ms, render: 12ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 6ms, render: 15ms)[22m
+ GET /reins [32m200[39m in 14ms[2m (compile: 3ms, render: 11ms)[22m
+ GET /coeur [32m200[39m in 80ms[2m (compile: 3ms, render: 77ms)[22m
+ GET /coeur [32m200[39m in 16ms[2m (compile: 3ms, render: 13ms)[22m
+ GET /coeur [32m200[39m in 54ms[2m (compile: 3ms, render: 51ms)[22m
+ GET /coeur [32m200[39m in 57ms[2m (compile: 3ms, render: 53ms)[22m
+ GET /coeur [32m200[39m in 57ms[2m (compile: 3ms, render: 54ms)[22m
+ GET /coeur [32m200[39m in 63ms[2m (compile: 4ms, render: 60ms)[22m
+ GET /coeur [32m200[39m in 62ms[2m (compile: 4ms, render: 57ms)[22m
+ GET /coeur [32m200[39m in 247ms[2m (compile: 84ms, render: 163ms)[22m
+ GET /coeur [32m200[39m in 61ms[2m (compile: 3ms, render: 58ms)[22m

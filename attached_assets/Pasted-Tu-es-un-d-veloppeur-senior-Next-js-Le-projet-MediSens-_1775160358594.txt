@@ -1,0 +1,259 @@
+Tu es un développeur senior Next.js. Le projet MediSens existe déjà.
+Ta mission : créer UNIQUEMENT la page app/urgences/page.tsx.
+Ne touche à rien d'autre.
+
+Stack : Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, @heroicons/react, Unbounded + Poppins.
+
+---
+
+📄 PAGE URGENCES (app/urgences/page.tsx)
+
+metadata :
+title: "Numéros d'urgence dans le monde | MediSens"
+description: "Trouvez rapidement le numéro d'urgence médicale de n'importe quel pays. SAMU, ambulance, pompiers — tous les numéros d'urgence internationaux."
+
+---
+
+🎨 DESIGN
+
+Même design system MediSens :
+- Background : #050810
+- Surface : #0A0F1E
+- Cards : #0D1526
+- Accent urgence : #EF4444 (rouge — toute cette page est rouge)
+- Gradient : linear-gradient(135deg, #EF4444, #B91C1C)
+- Texte principal : #F8FAFC
+- Texte secondaire : #64748B
+- Aération : py-32 sections, p-8 cards, gap-6
+
+---
+
+📄 STRUCTURE DE LA PAGE
+
+SECTION 1 — HERO
+
+- Badge "URGENCES MONDIALES" rouge
+- H1 Unbounded 900 : "Numéros d'urgence"
+- Sous-titre Poppins 300 max-w-xl :
+  "Trouvez en quelques secondes le numéro d'urgence médicale du pays où vous vous trouvez. Disponible pour tous les pays du monde."
+- Icône Heroicon PhoneIcon rouge animée (pulse)
+- Encadré rouge bien visible :
+  "⚠️ En cas d'urgence vitale, appelez immédiatement les secours. Ne perdez pas de temps."
+
+SECTION 2 — BARRE DE RECHERCHE (sticky sous le hero)
+
+- Input de recherche (useState) :
+  * Placeholder : "Rechercher un pays... (ex: France, Bénin, Canada)"
+  * Icône Heroicon MagnifyingGlassIcon à gauche
+  * Fond #0D1526, border rouge au focus
+  * Recherche en temps réel sur nom du pays (filter instantané)
+  * Poppins 500, grande taille
+- Filtres par région (Framer Motion layout animation) :
+  * Tous | Afrique | Europe | Amériques | Asie | Océanie
+  * Boutons pills, actif = fond rouge
+
+SECTION 3 — NUMÉROS PAR RÉGION
+
+Organisé par continent, chaque région est un accordéon (Framer Motion AnimatePresence) :
+
+Pour chaque pays : une card (p-8, GlowCard) avec :
+- Drapeau emoji du pays
+- Nom du pays (Unbounded 700)
+- Grid 3 colonnes :
+  * 🚑 Urgences médicales / SAMU
+  * 🚒 Pompiers
+  * 👮 Police
+- Numéro en grand (Unbounded 900 rouge)
+- Bouton "Appeler" (tel: link) sur mobile
+
+---
+
+📋 DONNÉES COMPLÈTES — TOUS LES PAYS DU MONDE
+
+Crée un fichier lib/urgences-data.ts avec toutes ces données :
+
+const URGENCES_DATA = [
+
+// ━━━ AFRIQUE ━━━
+
+// Afrique de l'Ouest
+{ pays: "Bénin", region: "Afrique", drapeau: "🇧🇯", medical: "161", pompiers: "118", police: "117" },
+{ pays: "Sénégal", region: "Afrique", drapeau: "🇸🇳", medical: "15", pompiers: "18", police: "17" },
+{ pays: "Côte d'Ivoire", region: "Afrique", drapeau: "🇨🇮", medical: "185", pompiers: "180", police: "111" },
+{ pays: "Mali", region: "Afrique", drapeau: "🇲🇱", medical: "15", pompiers: "18", police: "17" },
+{ pays: "Burkina Faso", region: "Afrique", drapeau: "🇧🇫", medical: "112", pompiers: "18", police: "17" },
+{ pays: "Niger", region: "Afrique", drapeau: "🇳🇪", medical: "15", pompiers: "18", police: "17" },
+{ pays: "Guinée", region: "Afrique", drapeau: "🇬🇳", medical: "628", pompiers: "18", police: "17" },
+{ pays: "Togo", region: "Afrique", drapeau: "🇹🇬", medical: "8200", pompiers: "118", police: "117" },
+{ pays: "Ghana", region: "Afrique", drapeau: "🇬🇭", medical: "193", pompiers: "192", police: "191" },
+{ pays: "Nigeria", region: "Afrique", drapeau: "🇳🇬", medical: "199", pompiers: "199", police: "199" },
+{ pays: "Cameroun", region: "Afrique", drapeau: "🇨🇲", medical: "15", pompiers: "118", police: "117" },
+{ pays: "Mauritanie", region: "Afrique", drapeau: "🇲🇷", medical: "101", pompiers: "118", police: "117" },
+
+// Afrique Centrale
+{ pays: "RD Congo", region: "Afrique", drapeau: "🇨🇩", medical: "12", pompiers: "118", police: "112" },
+{ pays: "Congo", region: "Afrique", drapeau: "🇨🇬", medical: "15", pompiers: "118", police: "117" },
+{ pays: "Gabon", region: "Afrique", drapeau: "🇬🇦", medical: "1300", pompiers: "18", police: "1730" },
+{ pays: "Tchad", region: "Afrique", drapeau: "🇹🇩", medical: "15", pompiers: "118", police: "117" },
+{ pays: "Centrafrique", region: "Afrique", drapeau: "🇨🇫", medical: "112", pompiers: "118", police: "117" },
+
+// Afrique de l'Est
+{ pays: "Kenya", region: "Afrique", drapeau: "🇰🇪", medical: "999", pompiers: "999", police: "999" },
+{ pays: "Éthiopie", region: "Afrique", drapeau: "🇪🇹", medical: "907", pompiers: "939", police: "991" },
+{ pays: "Tanzanie", region: "Afrique", drapeau: "🇹🇿", medical: "112", pompiers: "115", police: "111" },
+{ pays: "Rwanda", region: "Afrique", drapeau: "🇷🇼", medical: "912", pompiers: "111", police: "113" },
+{ pays: "Ouganda", region: "Afrique", drapeau: "🇺🇬", medical: "999", pompiers: "999", police: "999" },
+{ pays: "Madagascar", region: "Afrique", drapeau: "🇲🇬", medical: "117", pompiers: "118", police: "117" },
+{ pays: "Djibouti", region: "Afrique", drapeau: "🇩🇯", medical: "351351", pompiers: "18", police: "17" },
+{ pays: "Comores", region: "Afrique", drapeau: "🇰🇲", medical: "772", pompiers: "18", police: "17" },
+
+// Afrique du Nord
+{ pays: "Maroc", region: "Afrique", drapeau: "🇲🇦", medical: "15", pompiers: "15", police: "19" },
+{ pays: "Algérie", region: "Afrique", drapeau: "🇩🇿", medical: "14", pompiers: "14", police: "17" },
+{ pays: "Tunisie", region: "Afrique", drapeau: "🇹🇳", medical: "190", pompiers: "198", police: "197" },
+{ pays: "Libye", region: "Afrique", drapeau: "🇱🇾", medical: "1515", pompiers: "1515", police: "1515" },
+{ pays: "Égypte", region: "Afrique", drapeau: "🇪🇬", medical: "123", pompiers: "180", police: "122" },
+
+// Afrique Australe
+{ pays: "Afrique du Sud", region: "Afrique", drapeau: "🇿🇦", medical: "10177", pompiers: "10111", police: "10111" },
+{ pays: "Zimbabwe", region: "Afrique", drapeau: "🇿🇼", medical: "994", pompiers: "993", police: "995" },
+{ pays: "Zambie", region: "Afrique", drapeau: "🇿🇲", medical: "991", pompiers: "993", police: "999" },
+{ pays: "Angola", region: "Afrique", drapeau: "🇦🇴", medical: "112", pompiers: "115", police: "113" },
+{ pays: "Mozambique", region: "Afrique", drapeau: "🇲🇿", medical: "117", pompiers: "198", police: "119" },
+
+// ━━━ EUROPE ━━━
+
+{ pays: "France", region: "Europe", drapeau: "🇫🇷", medical: "15 (SAMU)", pompiers: "18", police: "17", extra: "Urgences européennes : 112" },
+{ pays: "Belgique", region: "Europe", drapeau: "🇧🇪", medical: "100", pompiers: "100", police: "101" },
+{ pays: "Suisse", region: "Europe", drapeau: "🇨🇭", medical: "144", pompiers: "118", police: "117" },
+{ pays: "Luxembourg", region: "Europe", drapeau: "🇱🇺", medical: "112", pompiers: "112", police: "113" },
+{ pays: "Allemagne", region: "Europe", drapeau: "🇩🇪", medical: "112", pompiers: "112", police: "110" },
+{ pays: "Espagne", region: "Europe", drapeau: "🇪🇸", medical: "112", pompiers: "112", police: "091" },
+{ pays: "Italie", region: "Europe", drapeau: "🇮🇹", medical: "118", pompiers: "115", police: "113" },
+{ pays: "Portugal", region: "Europe", drapeau: "🇵🇹", medical: "112", pompiers: "112", police: "112" },
+{ pays: "Royaume-Uni", region: "Europe", drapeau: "🇬🇧", medical: "999", pompiers: "999", police: "999" },
+{ pays: "Pays-Bas", region: "Europe", drapeau: "🇳🇱", medical: "112", pompiers: "112", police: "112" },
+{ pays: "Suède", region: "Europe", drapeau: "🇸🇪", medical: "112", pompiers: "112", police: "112" },
+{ pays: "Norvège", region: "Europe", drapeau: "🇳🇴", medical: "113", pompiers: "110", police: "112" },
+{ pays: "Danemark", region: "Europe", drapeau: "🇩🇰", medical: "112", pompiers: "112", police: "114" },
+{ pays: "Finlande", region: "Europe", drapeau: "🇫🇮", medical: "112", pompiers: "112", police: "112" },
+{ pays: "Pologne", region: "Europe", drapeau: "🇵🇱", medical: "112", pompiers: "998", police: "997" },
+{ pays: "Russie", region: "Europe", drapeau: "🇷🇺", medical: "103", pompiers: "101", police: "102" },
+{ pays: "Ukraine", region: "Europe", drapeau: "🇺🇦", medical: "103", pompiers: "101", police: "102" },
+{ pays: "Grèce", region: "Europe", drapeau: "🇬🇷", medical: "166", pompiers: "199", police: "100" },
+{ pays: "Turquie", region: "Europe", drapeau: "🇹🇷", medical: "112", pompiers: "110", police: "155" },
+
+// ━━━ AMÉRIQUES ━━━
+
+{ pays: "États-Unis", region: "Amériques", drapeau: "🇺🇸", medical: "911", pompiers: "911", police: "911" },
+{ pays: "Canada", region: "Amériques", drapeau: "🇨🇦", medical: "911", pompiers: "911", police: "911" },
+{ pays: "Mexique", region: "Amériques", drapeau: "🇲🇽", medical: "911", pompiers: "911", police: "911" },
+{ pays: "Brésil", region: "Amériques", drapeau: "🇧🇷", medical: "192", pompiers: "193", police: "190" },
+{ pays: "Argentine", region: "Amériques", drapeau: "🇦🇷", medical: "107", pompiers: "100", police: "101" },
+{ pays: "Colombie", region: "Amériques", drapeau: "🇨🇴", medical: "125", pompiers: "119", police: "123" },
+{ pays: "Chili", region: "Amériques", drapeau: "🇨🇱", medical: "131", pompiers: "132", police: "133" },
+{ pays: "Pérou", region: "Amériques", drapeau: "🇵🇪", medical: "117", pompiers: "116", police: "105" },
+{ pays: "Venezuela", region: "Amériques", drapeau: "🇻🇪", medical: "171", pompiers: "171", police: "171" },
+{ pays: "Haïti", region: "Amériques", drapeau: "🇭🇹", medical: "115", pompiers: "118", police: "114" },
+
+// ━━━ ASIE ━━━
+
+{ pays: "Chine", region: "Asie", drapeau: "🇨🇳", medical: "120", pompiers: "119", police: "110" },
+{ pays: "Japon", region: "Asie", drapeau: "🇯🇵", medical: "119", pompiers: "119", police: "110" },
+{ pays: "Inde", region: "Asie", drapeau: "🇮🇳", medical: "108", pompiers: "101", police: "100" },
+{ pays: "Corée du Sud", region: "Asie", drapeau: "🇰🇷", medical: "119", pompiers: "119", police: "112" },
+{ pays: "Indonésie", region: "Asie", drapeau: "🇮🇩", medical: "118", pompiers: "113", police: "110" },
+{ pays: "Pakistan", region: "Asie", drapeau: "🇵🇰", medical: "115", pompiers: "16", police: "15" },
+{ pays: "Bangladesh", region: "Asie", drapeau: "🇧🇩", medical: "199", pompiers: "199", police: "999" },
+{ pays: "Vietnam", region: "Asie", drapeau: "🇻🇳", medical: "115", pompiers: "114", police: "113" },
+{ pays: "Thaïlande", region: "Asie", drapeau: "🇹🇭", medical: "1669", pompiers: "199", police: "191" },
+{ pays: "Philippines", region: "Asie", drapeau: "🇵🇭", medical: "911", pompiers: "911", police: "911" },
+{ pays: "Arabie Saoudite", region: "Asie", drapeau: "🇸🇦", medical: "911", pompiers: "911", police: "911" },
+{ pays: "Émirats Arabes Unis", region: "Asie", drapeau: "🇦🇪", medical: "998", pompiers: "997", police: "999" },
+{ pays: "Israël", region: "Asie", drapeau: "🇮🇱", medical: "101", pompiers: "102", police: "100" },
+{ pays: "Iran", region: "Asie", drapeau: "🇮🇷", medical: "115", pompiers: "125", police: "110" },
+
+// ━━━ OCÉANIE ━━━
+
+{ pays: "Australie", region: "Océanie", drapeau: "🇦🇺", medical: "000", pompiers: "000", police: "000" },
+{ pays: "Nouvelle-Zélande", region: "Océanie", drapeau: "🇳🇿", medical: "111", pompiers: "111", police: "111" },
+{ pays: "Fidji", region: "Océanie", drapeau: "🇫🇯", medical: "911", pompiers: "910", police: "917" },
+
+]
+
+export default URGENCES_DATA
+
+---
+
+🧩 COMPOSANTS À CRÉER
+
+components/urgences/
+├── SearchBar.tsx
+├── RegionFilter.tsx
+├── PaysCard.tsx
+└── RegionSection.tsx
+
+PaysCard.tsx :
+- Drapeau emoji (text-4xl)
+- Nom pays Unbounded 700
+- 3 colonnes :
+  * 🚑 Médical : numéro rouge Unbounded 900 + bouton "Appeler" (href tel:)
+  * 🚒 Pompiers : numéro orange
+  * 👮 Police : numéro bleu
+- Si "extra" existe : encadré cyan avec info supplémentaire
+- Hover : border rouge glow
+- Sur mobile : bouton "Appeler" bien visible (py-3 px-6)
+
+RegionSection.tsx :
+- Titre région avec Heroicon + nombre de pays
+- Accordéon Framer Motion AnimatePresence
+- Grid 2 colonnes desktop, 1 mobile
+
+---
+
+🔍 FONCTIONNALITÉ RECHERCHE
+
+Dans page.tsx :
+const [search, setSearch] = useState('')
+const [region, setRegion] = useState('Tous')
+
+const filtered = URGENCES_DATA.filter(p =>
+  p.pays.toLowerCase().includes(search.toLowerCase()) &&
+  (region === 'Tous' || p.region === region)
+)
+
+- Si search non vide : afficher résultats à plat (pas par région)
+- Si search vide : afficher par région avec accordéons
+- Si 0 résultat : message "Aucun pays trouvé" avec Heroicon FaceFrownIcon
+
+---
+
+📱 MOBILE FIRST
+
+- Bouton "Appeler" = lien href="tel:NUMERO" → ouvre directement le téléphone
+- Cards full width sur mobile
+- Numéros en grand (facilement lisibles)
+- SearchBar sticky sous la navbar
+
+---
+
+⚙️ AJOUTER DANS LA NAVBAR MEDISENS
+
+Ajouter le lien "Urgences" dans NavbarMediSens.tsx avec :
+- Heroicon PhoneIcon rouge
+- Badge "URGENT" rouge clignotant (animate-pulse)
+- Lien → /urgences
+
+---
+
+🚀 INSTRUCTIONS FINALES
+
+1. Ne toucher à rien d'autre que app/urgences/ et components/urgences/
+2. Ajouter le lien /urgences dans la navbar existante
+3. Données dans lib/urgences-data.ts (séparé du composant)
+4. "use client" sur la page (useState pour recherche)
+5. Bouton "Appeler" fonctionnel sur mobile (tel: link)
+6. Mobile-first obligatoire
+7. Aération maximale
+8. Site 100% en français
+9. Pas de fetch externe — toutes les données inline dans urgences-data.ts

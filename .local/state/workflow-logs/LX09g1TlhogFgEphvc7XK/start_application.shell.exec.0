@@ -1,0 +1,28 @@
+
+> djjj@0.1.0 dev
+> next dev -p 5000 -H 0.0.0.0
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 688ms
+ GET / [32m200[39m in 1851ms[2m (compile: 1585ms, render: 267ms)[22m
+[33m[1m⚠[22m[39m Blocked cross-origin request from ceffbe66-0971-4971-9c7c-9369189f7194-00-1gac012ek4s8e.picard.replit.dev to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /coeur [32m200[39m in 53ms[2m (compile: 33ms, render: 20ms)[22m
+ GET /coeur [32m200[39m in 68ms[2m (compile: 4ms, render: 64ms)[22m
+ GET / [32m200[39m in 21ms[2m (compile: 5ms, render: 16ms)[22m
+ GET /reins [32m200[39m in 50ms[2m (compile: 34ms, render: 16ms)[22m
+ GET /reins [32m200[39m in 68ms[2m (compile: 3ms, render: 65ms)[22m
+ GET /outils [32m200[39m in 525ms[2m (compile: 507ms, render: 18ms)[22m
+ GET /reins [32m200[39m in 68ms[2m (compile: 4ms, render: 64ms)[22m
+ GET /coeur [32m200[39m in 23ms[2m (compile: 9ms, render: 15ms)[22m
+ GET / [32m200[39m in 82ms[2m (compile: 7ms, render: 75ms)[22m
+ GET /coeur [32m200[39m in 117ms[2m (compile: 88ms, render: 30ms)[22m
+ GET /coeur [32m200[39m in 163ms[2m (compile: 3ms, render: 159ms)[22m
+ GET /coeur [32m200[39m in 287ms[2m (compile: 77ms, render: 210ms)[22m
+ GET /coeur [32m200[39m in 71ms[2m (compile: 4ms, render: 67ms)[22m
+ GET /coeur [32m200[39m in 67ms[2m (compile: 6ms, render: 60ms)[22m
+ GET /coeur [32m200[39m in 70ms[2m (compile: 4ms, render: 65ms)[22m
