@@ -4,14 +4,9 @@ import { motion, type Variants } from "framer-motion";
 import { EyeIcon, ShieldCheckIcon, HeartIcon } from "@heroicons/react/24/outline";
 import SectionHeader from "@/components/ui/SectionHeader";
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.2 } },
 };
 
 const cards = [
@@ -19,16 +14,19 @@ const cards = [
     icon: EyeIcon,
     title: "Comprendre",
     text: "Des explications médicales claires, vulgarisées, accessibles à tous. Sans jargon inutile.",
+    direction: -1,
   },
   {
     icon: ShieldCheckIcon,
     title: "Prévenir",
     text: "La prévention sauve des vies. Chaque section offre des conseils concrets adaptés à votre profil.",
+    direction: 0,
   },
   {
     icon: HeartIcon,
     title: "Agir",
     text: "Reconnaître les symptômes à temps peut faire la différence. MediSens vous guide vers les bons gestes.",
+    direction: 1,
   },
 ];
 
@@ -51,22 +49,47 @@ export default function Pourquoi() {
         >
           {cards.map((card) => {
             const Icon = card.icon;
+            const cardVariant: Variants = {
+              hidden: {
+                opacity: 0,
+                y: card.direction === 0 ? 60 : 40,
+                x: card.direction !== 0 ? card.direction * 40 : 0,
+                filter: "blur(8px)",
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                filter: "blur(0px)",
+                transition: { duration: 0.7, ease: "easeOut" },
+              },
+            };
+
             return (
               <motion.div
                 key={card.title}
-                variants={cardVariants}
-                className="p-10 rounded-2xl flex flex-col"
+                variants={cardVariant}
+                whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.25 } }}
+                className="p-10 rounded-2xl flex flex-col relative overflow-hidden cursor-default"
                 style={{
                   background: "#0D1526",
                   border: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
-                <div
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ background: "radial-gradient(circle at 10% 10%, rgba(0,201,255,0.06) 0%, transparent 65%)" }}
+                />
+                <motion.div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 flex-shrink-0"
                   style={{ background: "rgba(0,201,255,0.08)" }}
+                  whileHover={{ rotate: [0, -8, 8, 0], transition: { duration: 0.5 } }}
                 >
                   <Icon className="w-8 h-8" style={{ color: "#00C9FF" }} />
-                </div>
+                </motion.div>
                 <h3
                   className="text-xl font-bold mb-5"
                   style={{

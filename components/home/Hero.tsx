@@ -9,12 +9,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.18 } },
 };
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 50, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } },
 };
 
 const organs = [
@@ -56,6 +56,14 @@ export default function Hero() {
           opacity: 0.03,
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
+      />
+
+      {/* Ambient glow */}
+      <motion.div
+        className="absolute pointer-events-none"
+        style={{ width: 600, height: 600, top: "10%", left: "-10%", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,201,255,0.06) 0%, transparent 70%)" }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-40 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -118,35 +126,39 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeInUp} className="hero-gsap flex flex-wrap gap-4 mt-12">
-            <a
+            <motion.a
               href="#organes"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm text-white font-medium transition-all duration-200 hover:opacity-90 hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm text-white font-medium transition-all duration-200"
               style={{
                 background: "linear-gradient(135deg, #00C9FF, #0066FF)",
                 fontFamily: "var(--font-poppins, Poppins, sans-serif)",
               }}
             >
               Explorer les organes
-            </a>
-            <Link
-              href="/reins"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5"
-              style={{
-                border: "1px solid rgba(255,255,255,0.2)",
-                color: "#F8FAFC",
-                fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-              }}
-            >
-              Commencer avec les Reins
-            </Link>
+            </motion.a>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  color: "#F8FAFC",
+                  fontFamily: "var(--font-poppins, Poppins, sans-serif)",
+                }}
+              >
+                Demander conseil
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
 
         {/* Illustration column */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
+          initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1.1, delay: 0.4, ease: "easeOut" }}
           className="flex justify-center items-center"
         >
           <div className="relative w-full max-w-sm">

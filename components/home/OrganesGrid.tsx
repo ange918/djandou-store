@@ -16,13 +16,13 @@ import {
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" } },
 };
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.09 } },
 };
 
 const organes = [
@@ -105,23 +105,38 @@ export default function OrganesGrid() {
             const Icon = organe.icon;
             const CardWrapper = organe.available ? Link : "div";
             return (
-              <motion.div key={organe.title} variants={cardVariants}>
+              <motion.div
+                key={organe.title}
+                variants={cardVariants}
+                whileHover={organe.available ? { scale: 1.04, y: -6 } : { scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
                 <CardWrapper
                   href={organe.available ? organe.href : undefined as never}
-                  className={`group block p-10 rounded-2xl h-full transition-all duration-300 ${organe.available ? "hover:border-[#00C9FF]/40 cursor-pointer" : "cursor-default"}`}
+                  className={`group block p-10 rounded-2xl h-full transition-all duration-300 relative overflow-hidden ${organe.available ? "hover:border-[#00C9FF]/40 cursor-pointer" : "cursor-default"}`}
                   style={{
                     background: "#0D1526",
                     border: `1px solid ${organe.available ? "rgba(0,201,255,0.15)" : "rgba(255,255,255,0.06)"}`,
                   }}
                 >
-                  <div className="flex flex-col gap-5">
+                  {organe.available && (
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ background: "radial-gradient(circle at 20% 20%, rgba(0,201,255,0.07) 0%, transparent 70%)" }}
+                    />
+                  )}
+                  <div className="flex flex-col gap-5 relative z-10">
                     <div className="flex items-start justify-between gap-3">
-                      <div
+                      <motion.div
                         className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                         style={{ background: "rgba(0,201,255,0.08)" }}
+                        whileHover={{ rotate: organe.available ? [0, -10, 10, 0] : 0, transition: { duration: 0.4 } }}
                       >
                         <Icon className="w-7 h-7" style={{ color: "#00C9FF" }} />
-                      </div>
+                      </motion.div>
                       {organe.available ? (
                         <span
                           className="text-[10px] font-medium px-2.5 py-1 rounded-full flex-shrink-0 mt-1"
