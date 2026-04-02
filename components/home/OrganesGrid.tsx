@@ -37,7 +37,7 @@ const organes = [
     icon: HeartIcon,
     title: "Cœur",
     text: "HTA, infarctus, insuffisance cardiaque, AVC et maladies cardiovasculaires.",
-    available: false,
+    available: true,
     href: "/coeur",
   },
   {

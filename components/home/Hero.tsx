@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
+import { MagnifyingGlassIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -119,6 +120,7 @@ export default function Hero() {
                 fontFamily: "var(--font-poppins, Poppins, sans-serif)",
               }}
             >
+              <MagnifyingGlassIcon className="w-4 h-4" />
               Explorer les organes
             </motion.a>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
@@ -131,6 +133,7 @@ export default function Hero() {
                   fontFamily: "var(--font-poppins, Poppins, sans-serif)",
                 }}
               >
+                <ChatBubbleLeftRightIcon className="w-4 h-4" />
                 Demander conseil
               </Link>
             </motion.div>
