@@ -50,7 +50,7 @@ export default function Hero() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-40 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-28 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Text column */}
         <motion.div
           ref={textRef}
