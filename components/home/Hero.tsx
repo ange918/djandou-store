@@ -1,11 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const containerVariants: Variants = {
   hidden: {},
@@ -27,20 +24,6 @@ const organs = [
 
 export default function Hero() {
   const textRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!textRef.current) return;
-    const ctx = gsap.context(() => {
-      gsap.from(".hero-gsap", {
-        opacity: 0,
-        y: 40,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    }, textRef);
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
