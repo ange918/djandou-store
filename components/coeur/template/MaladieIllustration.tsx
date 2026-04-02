@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Zone {
   id: string;
@@ -24,30 +21,17 @@ interface MaladieIllustrationProps {
 
 export default function MaladieIllustration({ title, subtitle, svg, zones, legende }: MaladieIllustrationProps) {
   const [activeZone, setActiveZone] = useState<Zone | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const ctx = gsap.context(() => {
-      gsap.from(".illus-element", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-    }, ref);
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section className="py-32 px-6" style={{ background: "#050810" }}>
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h2
             style={{
               fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
@@ -64,17 +48,27 @@ export default function MaladieIllustration({ title, subtitle, svg, zones, legen
               {subtitle}
             </p>
           )}
-        </div>
+        </motion.div>
 
-        <div ref={ref} className="illus-element relative flex justify-center items-center mb-10">
+        <motion.div
+          className="relative flex justify-center items-center mb-10"
+          initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <div className="relative w-full max-w-2xl">
             {svg}
 
-            {/* Hoverable zones */}
-            {zones.map((zone) => (
-              <button
+            {zones.map((zone, i) => (
+              <motion.button
                 key={zone.id}
-                className="absolute w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-125"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.4, ease: "backOut" }}
+                whileHover={{ scale: 1.3 }}
+                className="absolute w-8 h-8 rounded-full flex items-center justify-center"
                 style={{
                   left: `${zone.x}%`,
                   top: `${zone.y}%`,
@@ -88,10 +82,9 @@ export default function MaladieIllustration({ title, subtitle, svg, zones, legen
                 onClick={() => setActiveZone(activeZone?.id === zone.id ? null : zone)}
               >
                 <span style={{ color: "#EF4444", fontSize: "10px", fontWeight: 700 }}>+</span>
-              </button>
+              </motion.button>
             ))}
 
-            {/* Tooltip */}
             <AnimatePresence>
               {activeZone && (
                 <motion.div
@@ -119,20 +112,33 @@ export default function MaladieIllustration({ title, subtitle, svg, zones, legen
               )}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
 
         {zones.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <motion.div
+            className="flex flex-wrap justify-center gap-3 mb-8"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             {zones.map((z) => (
               <span key={z.id} className="text-xs px-3 py-1.5 rounded-full" style={{ color: "#EF4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
                 + {z.label}
               </span>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {legende && legende.length > 0 && (
-          <div className="max-w-2xl mx-auto p-6 rounded-2xl" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
+          <motion.div
+            className="max-w-2xl mx-auto p-6 rounded-2xl"
+            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}
+          >
             <p className="text-xs font-medium tracking-wider uppercase mb-4" style={{ color: "#64748B", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
               Légende
             </p>
@@ -143,7 +149,7 @@ export default function MaladieIllustration({ title, subtitle, svg, zones, legen
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

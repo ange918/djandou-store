@@ -25,13 +25,13 @@ const typeConfig: Record<TraitementType, { color: string; bg: string; border: st
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, x: -40, filter: "blur(6px)" },
+  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" } },
 };
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 export default function MaladieTraitement({ traitements }: MaladieTraitementProps) {
@@ -53,9 +53,17 @@ export default function MaladieTraitement({ traitements }: MaladieTraitementProp
               <motion.div
                 key={t.step}
                 variants={itemVariants}
+                whileHover={{ x: 6, transition: { duration: 0.2 } }}
                 className="relative flex gap-6 items-start p-8 rounded-2xl"
                 style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}
               >
+                <motion.div
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ background: "radial-gradient(circle at 5% 50%, rgba(239,68,68,0.04) 0%, transparent 60%)" }}
+                />
                 <div
                   className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center"
                   style={{ background: "rgba(239,68,68,0.06)" }}
@@ -72,7 +80,7 @@ export default function MaladieTraitement({ traitements }: MaladieTraitementProp
                   </span>
                 </div>
 
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 relative z-10">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <h4
                       style={{

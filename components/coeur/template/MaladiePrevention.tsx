@@ -12,8 +12,8 @@ interface MaladiePreventionProps {
 }
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 export default function MaladiePrevention({ maladie, checklist, populationsRisque }: MaladiePreventionProps) {
@@ -48,9 +48,15 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
             <span style={{ fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500, color: "#F8FAFC", fontSize: "0.95rem" }}>
               Votre score de prévention
             </span>
-            <span style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#EF4444", fontSize: "1.2rem" }}>
+            <motion.span
+              key={score}
+              initial={{ scale: 1.3, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#EF4444", fontSize: "1.2rem" }}
+            >
               {score}/{total}
-            </span>
+            </motion.span>
           </div>
           <div className="w-full rounded-full h-3 overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
             <motion.div
@@ -75,15 +81,17 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
             return (
               <motion.button
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: i * 0.05, duration: 0.5 }}
+                whileHover={{ x: 4 }}
                 onClick={() => toggle(i)}
-                className="flex items-center gap-4 p-5 rounded-2xl text-left transition-all duration-200 w-full"
+                className="flex items-center gap-4 p-5 rounded-2xl text-left w-full"
                 style={{
                   background: isChecked ? "rgba(239,68,68,0.06)" : "#0D1526",
                   border: `1px solid ${isChecked ? "rgba(239,68,68,0.3)" : "rgba(255,255,255,0.06)"}`,
+                  transition: "background 0.2s, border-color 0.2s",
                 }}
               >
                 <motion.div
@@ -126,9 +134,10 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
 
         {populationsRisque.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
             className="p-8 rounded-2xl"
             style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.2)" }}
           >
@@ -140,12 +149,19 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
             </div>
             <ul className="flex flex-col gap-2">
               {populationsRisque.map((p, i) => (
-                <li key={i} className="flex items-start gap-3">
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                  className="flex items-start gap-3"
+                >
                   <span style={{ color: "#EF4444", flexShrink: 0, marginTop: "2px" }}>•</span>
                   <span style={{ fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 300, fontSize: "0.92rem", color: "#94A3B8", lineHeight: 1.7 }}>
                     {p}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { motion, type Variants } from "framer-motion";
-import { gsap } from "@/lib/gsap";
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.18 } },
 };
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 50, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } },
 };
 
 interface MaladieHeroProps {
@@ -24,25 +23,10 @@ interface MaladieHeroProps {
 }
 
 export default function MaladieHero({ gradient, badge, badgeType, title, description, illustration }: MaladieHeroProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const ctx = gsap.context(() => {
-      gsap.from(".hero-item", {
-        opacity: 0,
-        y: 40,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    }, ref);
-    return () => ctx.revert();
-  }, []);
-
   const badgeColor = badgeType === "URGENCE" ? "#EF4444" : "#F97316";
   const badgeBg = badgeType === "URGENCE" ? "rgba(239,68,68,0.1)" : "rgba(249,115,22,0.1)";
   const badgeBorder = badgeType === "URGENCE" ? "rgba(239,68,68,0.3)" : "rgba(249,115,22,0.3)";
+  const glowColor = badgeType === "URGENCE" ? "rgba(239,68,68,0.07)" : "rgba(249,115,22,0.07)";
 
   return (
     <section
@@ -57,9 +41,16 @@ export default function MaladieHero({ gradient, badge, badgeType, title, descrip
         }}
       />
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-36 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <motion.div
+        className="absolute pointer-events-none"
+        style={{ width: 600, height: 600, top: "0%", left: "-5%", borderRadius: "50%", background: `radial-gradient(circle, ${glowColor} 0%, transparent 70%)` }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-36 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          <motion.div variants={fadeInUp} className="hero-item flex items-center gap-3 mb-8 flex-wrap">
+          <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-8 flex-wrap">
             <span
               className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-[0.2em] uppercase"
               style={{ color: "#EF4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}
@@ -76,7 +67,6 @@ export default function MaladieHero({ gradient, badge, badgeType, title, descrip
 
           <motion.h1
             variants={fadeInUp}
-            className="hero-item"
             style={{
               fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
               fontWeight: 900,
@@ -90,7 +80,7 @@ export default function MaladieHero({ gradient, badge, badgeType, title, descrip
 
           <motion.p
             variants={fadeInUp}
-            className="hero-item mt-8 max-w-lg"
+            className="mt-8 max-w-lg"
             style={{
               fontFamily: "var(--font-poppins, Poppins, sans-serif)",
               fontWeight: 300,
@@ -104,9 +94,9 @@ export default function MaladieHero({ gradient, badge, badgeType, title, descrip
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
+          initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1.1, delay: 0.5, ease: "easeOut" }}
           className="flex justify-center items-center"
         >
           {illustration}

@@ -17,13 +17,18 @@ interface MaladieSymptomesProps {
 }
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" } },
 };
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.09 } },
+};
+
+const sectionFade: Variants = {
+  hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" | "modere" | "surveillance" }) {
@@ -37,10 +42,18 @@ function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" |
   return (
     <motion.div
       variants={cardVariants}
-      className="p-8 rounded-2xl"
+      whileHover={{ scale: 1.03, y: -4, transition: { duration: 0.2 } }}
+      className="p-8 rounded-2xl relative overflow-hidden"
       style={{ background: "#0D1526", border: `1px solid ${border}` }}
     >
-      <div className="flex items-start gap-4 mb-4">
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        style={{ background: `radial-gradient(circle at 10% 10%, ${bg} 0%, transparent 70%)` }}
+      />
+      <div className="flex items-start gap-4 mb-4 relative z-10">
         <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
           <Icon className="w-5 h-5" style={{ color }} />
         </div>
@@ -59,7 +72,7 @@ function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" |
           </span>
         </div>
       </div>
-      <p style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
+      <p className="relative z-10" style={{ color: "#64748B", fontWeight: 300, lineHeight: 1.7, fontSize: "0.9rem", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
         {symptome.detail}
       </p>
     </motion.div>
@@ -73,7 +86,13 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
         <SectionHeader badge="SYMPTÔMES" title="Reconnaître les symptômes" subtitle="Savoir identifier les signes d'alerte peut sauver des vies. Ne jamais ignorer les symptômes urgents." />
 
         {urgents.length > 0 && (
-          <div className="mb-10">
+          <motion.div
+            className="mb-10"
+            variants={sectionFade}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px flex-1" style={{ background: "rgba(239,68,68,0.2)" }} />
               <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full" style={{ color: "#EF4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
@@ -84,11 +103,17 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
             <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
               {urgents.map((s, i) => <SymptomeCard key={i} symptome={s} type="urgent" />)}
             </motion.div>
-          </div>
+          </motion.div>
         )}
 
         {moderes.length > 0 && (
-          <div className="mb-10">
+          <motion.div
+            className="mb-10"
+            variants={sectionFade}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px flex-1" style={{ background: "rgba(249,115,22,0.2)" }} />
               <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full" style={{ color: "#F97316", background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
@@ -99,11 +124,16 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
             <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
               {moderes.map((s, i) => <SymptomeCard key={i} symptome={s} type="modere" />)}
             </motion.div>
-          </div>
+          </motion.div>
         )}
 
         {surveillance.length > 0 && (
-          <div>
+          <motion.div
+            variants={sectionFade}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px flex-1" style={{ background: "rgba(59,130,246,0.2)" }} />
               <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full" style={{ color: "#3B82F6", background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
@@ -114,14 +144,15 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
             <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}>
               {surveillance.map((s, i) => <SymptomeCard key={i} symptome={s} type="surveillance" />)}
             </motion.div>
-          </div>
+          </motion.div>
         )}
 
         {note && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mt-10 p-6 rounded-2xl"
             style={{ background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.2)" }}
           >
