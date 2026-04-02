@@ -11,6 +11,12 @@ import {
   UsersIcon,
   GlobeAltIcon,
   ChartBarIcon,
+  ClipboardDocumentCheckIcon,
+  FireIcon,
+  ShieldCheckIcon,
+  BeakerIcon,
+  PhoneIcon,
+  SunIcon,
 } from "@heroicons/react/24/outline";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -61,6 +67,45 @@ const maladies = [
     desc: "Interruption brutale de la circulation cérébrale. 190 000 cas par an. Chaque minute compte.",
     badge: "URGENCE",
     badgeColor: "#EF4444",
+  },
+];
+
+const essentiels = [
+  {
+    icon: ArrowTrendingUpIcon,
+    titre: "Contrôlez votre tension",
+    desc: "Mesurez votre pression artérielle régulièrement. Objectif : moins de 140/90 mmHg. En cas d'HTA, surveillez-la quotidiennement.",
+    color: "#EF4444",
+  },
+  {
+    icon: FireIcon,
+    titre: "Bougez chaque jour",
+    desc: "30 minutes d'activité modérée par jour suffisent pour réduire de 35 % le risque d'événement cardiovasculaire.",
+    color: "#F97316",
+  },
+  {
+    icon: BeakerIcon,
+    titre: "Alimentation cardio-protectrice",
+    desc: "Moins de sel, moins de graisses saturées, plus de légumes, fruits, légumineuses et oméga-3. Le régime méditerranéen est le mieux documenté.",
+    color: "#10B981",
+  },
+  {
+    icon: ShieldCheckIcon,
+    titre: "Stoppez le tabac",
+    desc: "Fumer double le risque d'infarctus. Après 1 an d'arrêt, le risque cardiovasculaire est déjà divisé par deux.",
+    color: "#8B5CF6",
+  },
+  {
+    icon: ClipboardDocumentCheckIcon,
+    titre: "Suivez vos traitements",
+    desc: "Ne jamais interrompre un antihypertenseur ou un anticoagulant sans avis médical. L'observance est essentielle à l'efficacité.",
+    color: "#00C9FF",
+  },
+  {
+    icon: SunIcon,
+    titre: "Gérez le stress",
+    desc: "Le stress chronique élève durablement la tension artérielle. Sommeil, respiration, activité physique : des solutions simples et efficaces.",
+    color: "#F59E0B",
   },
 ];
 
@@ -279,6 +324,103 @@ export default function CoeurPage() {
                 </motion.div>
               );
             })}
+          </motion.div>
+        </div>
+      </section>
+      {/* ─── GESTION ESSENTIELS ─── */}
+      <section className="py-32 px-6" style={{ background: "#080D18" }}>
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            badge="GESTION ESSENTIELS"
+            title="Les fondamentaux au quotidien"
+            subtitle="Des gestes simples, validés scientifiquement, pour prendre soin de votre cœur chaque jour."
+          />
+
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            {essentiels.map((e, i) => {
+              const Icon = e.icon;
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.2 } }}
+                  className="p-10 rounded-2xl flex flex-col gap-5 relative overflow-hidden"
+                  style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}
+                >
+                  <motion.div
+                    className="absolute inset-0 pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ background: `radial-gradient(circle at 15% 15%, ${e.color}10 0%, transparent 70%)` }}
+                  />
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${e.color}12` }}
+                  >
+                    <Icon className="w-7 h-7" style={{ color: e.color }} />
+                  </div>
+                  <div>
+                    <h3
+                      className="text-lg font-bold mb-3"
+                      style={{
+                        fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
+                        fontWeight: 700,
+                        color: "#F8FAFC",
+                      }}
+                    >
+                      {e.titre}
+                    </h3>
+                    <p
+                      className="text-sm"
+                      style={{
+                        fontFamily: "var(--font-poppins, Poppins, sans-serif)",
+                        fontWeight: 300,
+                        lineHeight: 1.8,
+                        color: "#64748B",
+                      }}
+                    >
+                      {e.desc}
+                    </p>
+                  </div>
+                  <div
+                    className="h-0.5 rounded-full mt-auto"
+                    style={{ background: `linear-gradient(90deg, ${e.color}40, transparent)` }}
+                  />
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Urgence banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-12 p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6"
+            style={{ background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.2)" }}
+          >
+            <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "rgba(239,68,68,0.1)" }}>
+              <PhoneIcon className="w-7 h-7" style={{ color: "#EF4444" }} />
+            </div>
+            <div className="flex-1 text-center sm:text-left">
+              <p
+                className="font-bold mb-1"
+                style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#EF4444", fontSize: "0.9rem" }}
+              >
+                En cas de douleur thoracique, essoufflement brutal ou paralysie soudaine
+              </p>
+              <p style={{ fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 300, color: "#94A3B8", fontSize: "0.9rem", lineHeight: 1.7 }}>
+                Appelez immédiatement le <strong style={{ color: "#F8FAFC" }}>15 (SAMU)</strong>. Chaque minute compte. Ne conduisez pas vous-même.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
