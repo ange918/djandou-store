@@ -9,7 +9,7 @@ import { HeartIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "Reins", href: "/reins", active: true },
-  { label: "Cœur", href: "/coeur", soon: true },
+  { label: "Cœur", href: "/coeur", active: true },
   { label: "Poumons", href: "/poumons", soon: true },
   { label: "Foie", href: "/foie", soon: true },
   { label: "Cerveau", href: "/cerveau", soon: true },
