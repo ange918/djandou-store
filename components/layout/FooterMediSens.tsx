@@ -4,6 +4,13 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 const links = [
   { label: "Accueil", href: "/" },
   { label: "Reins", href: "/reins" },
+  { label: "Cœur", href: "/coeur" },
+  { label: "Poumons", href: "/poumons" },
+  { label: "Foie", href: "/foie" },
+  { label: "Cerveau", href: "/cerveau" },
+  { label: "Diabète", href: "/diabete" },
+  { label: "Os & Articulations", href: "/os" },
+  { label: "Peau", href: "/peau" },
   { label: "À propos", href: "/a-propos" },
 ];
 
