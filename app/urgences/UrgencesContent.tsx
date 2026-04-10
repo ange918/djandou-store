@@ -10,7 +10,7 @@ import { URGENCES_DATA, REGIONS, type Region } from "@/lib/urgences-data";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 export default function UrgencesContent() {
@@ -40,7 +40,7 @@ export default function UrgencesContent() {
       <section className="relative min-h-[50vh] flex items-center overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 50%, #1A0506 0%, #050810 65%)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.03, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }} />
 
-        <motion.div className="absolute pointer-events-none" style={{ width: 600, height: 600, top: "0%", left: "-10%", borderRadius: "50%", background: "radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%)" }} animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} />
+        <motion.div className="absolute pointer-events-none" style={{ width: 600, height: 600, top: "0%", left: "-10%", borderRadius: "50%", background: "radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%)" }} animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" as const }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" className="flex items-center gap-3 mb-8">

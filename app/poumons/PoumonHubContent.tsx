@@ -17,7 +17,7 @@ const containerVariants = {
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" as const } },
 };
 
 export default function PoumonHubContent() {
@@ -46,7 +46,7 @@ export default function PoumonHubContent() {
           className="absolute pointer-events-none"
           style={{ width: 700, height: 700, top: "-10%", left: "-10%", borderRadius: "50%", background: "radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 70%)" }}
           animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" as const }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -78,7 +78,7 @@ export default function PoumonHubContent() {
               className="w-full max-w-sm"
               style={{ filter: "drop-shadow(0 0 40px rgba(56,189,248,0.15))" }}
               animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" as const }}
             >
               <defs>
                 <linearGradient id="lungGrad" x1="0%" y1="0%" x2="100%" y2="100%">

@@ -22,7 +22,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" as const } },
 };
 
 const stagger: Variants = {
@@ -129,7 +129,7 @@ export default function CoeurPage() {
           className="absolute pointer-events-none"
           style={{ width: 600, height: 600, top: "0%", left: "-5%", borderRadius: "50%", background: "radial-gradient(circle, rgba(239,68,68,0.07) 0%, transparent 70%)" }}
           animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" as const }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-40 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -179,7 +179,7 @@ export default function CoeurPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.1, delay: 0.5, ease: "easeOut" }}
+            transition={{ duration: 1.1, delay: 0.5, ease: "easeOut" as const }}
             className="flex justify-center items-center"
           >
             <svg

@@ -14,7 +14,7 @@ interface MaladiePreventionProps {
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 export default function MaladiePrevention({ maladie, checklist, populationsRisque }: MaladiePreventionProps) {
@@ -47,7 +47,7 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
             </motion.span>
           </div>
           <div className="w-full rounded-full h-3 overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
-            <motion.div className="h-3 rounded-full" style={{ background: "linear-gradient(90deg, #38BDF8, #0284C7)" }} initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.5, ease: "easeOut" }} />
+            <motion.div className="h-3 rounded-full" style={{ background: "linear-gradient(90deg, #38BDF8, #0284C7)" }} initial={{ width: 0 }} animate={{ width: `${pct}%` }} transition={{ duration: 0.5, ease: "easeOut" as const }} />
           </div>
           <p className="mt-4 text-sm" style={{ color: "#64748B", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 300 }}>
             {pct === 0 && "Commencez à cocher les bonnes habitudes que vous avez déjà !"}

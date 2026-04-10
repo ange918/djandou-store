@@ -30,7 +30,7 @@ export default function MaladieIllustration({ title, subtitle, svg, zones, legen
           initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" as const }}
         >
           <h2
             style={{
@@ -55,7 +55,7 @@ export default function MaladieIllustration({ title, subtitle, svg, zones, legen
           initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" as const }}
         >
           <div className="relative w-full max-w-2xl">
             {svg}

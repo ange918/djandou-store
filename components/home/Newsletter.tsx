@@ -10,7 +10,7 @@ const containerVariants: Variants = {
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 35, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" as const } },
 };
 
 export default function Newsletter() {
@@ -29,7 +29,7 @@ export default function Newsletter() {
         className="absolute pointer-events-none"
         style={{ width: 700, height: 700, bottom: "-20%", right: "-10%", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,102,255,0.05) 0%, transparent 70%)" }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" as const }}
       />
       <motion.div
         className="max-w-2xl mx-auto text-center relative z-10"

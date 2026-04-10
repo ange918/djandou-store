@@ -29,7 +29,7 @@ interface MaladiePronosticProps {
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
@@ -58,7 +58,7 @@ export default function MaladiePronostic({ pronostic, pronosticDetail, complicat
               <span style={{ fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 400, color: "#94A3B8" }}>Bon</span>
             </div>
             <div className="w-full rounded-full h-4 overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
-              <motion.div className="h-4 rounded-full" style={{ background: `linear-gradient(90deg, #EF4444, ${cfg.color})` }} initial={{ width: 0 }} whileInView={{ width: `${cfg.pct}%` }} viewport={{ once: true }} transition={{ duration: 1.2, ease: "easeOut" }} />
+              <motion.div className="h-4 rounded-full" style={{ background: `linear-gradient(90deg, #EF4444, ${cfg.color})` }} initial={{ width: 0 }} whileInView={{ width: `${cfg.pct}%` }} viewport={{ once: true }} transition={{ duration: 1.2, ease: "easeOut" as const }} />
             </div>
             <p className="mt-4 text-sm" style={{ color: "#64748B", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 300 }}>
               {cfg.label} — {pronosticDetail}
@@ -84,7 +84,7 @@ export default function MaladiePronostic({ pronostic, pronosticDetail, complicat
             <div className="relative flex flex-col gap-0">
               <div className="absolute left-6 top-0 bottom-0 w-0.5" style={{ background: "linear-gradient(180deg, #EF4444, rgba(239,68,68,0.1))" }} />
               {timeline.map((t, i) => (
-                <motion.div key={i} initial={{ opacity: 0, x: -30, filter: "blur(4px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }} className="flex gap-6 items-start pb-8 last:pb-0">
+                <motion.div key={i} initial={{ opacity: 0, x: -30, filter: "blur(4px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" as const }} className="flex gap-6 items-start pb-8 last:pb-0">
                   <div className="relative flex-shrink-0 z-10 w-12 h-12 rounded-full border-2 flex items-center justify-center" style={{ background: "#050810", borderColor: "#EF4444" }}>
                     <span style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 900, color: "#EF4444", fontSize: "0.65rem" }}>{t.time}</span>
                   </div>

@@ -61,7 +61,7 @@ export default function Pourquoi() {
                 y: 0,
                 x: 0,
                 filter: "blur(0px)",
-                transition: { duration: 0.7, ease: "easeOut" },
+                transition: { duration: 0.7, ease: "easeOut" as const },
               },
             };
 

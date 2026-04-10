@@ -19,12 +19,12 @@ interface MaladieSymptomesProps {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" as const } },
 };
 const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } };
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" | "modere" | "surveillance" }) {

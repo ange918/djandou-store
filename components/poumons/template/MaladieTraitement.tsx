@@ -27,7 +27,7 @@ const typeConfig: Record<TraitementType, { color: string; bg: string; border: st
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, x: -40, filter: "blur(6px)" },
-  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" } },
+  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" as const } },
 };
 const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } };
 

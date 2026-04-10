@@ -12,7 +12,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" as const } },
 };
 const container: Variants = {
   hidden: {},
@@ -130,7 +130,7 @@ export default function HTAContent() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader badge="ÉTIOLOGIE" title="Causes et facteurs de risque" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <motion.div initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.65, ease: "easeOut" }} whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.2 } }} className="p-10 rounded-2xl relative overflow-hidden" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
+            <motion.div initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.65, ease: "easeOut" as const }} whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.2 } }} className="p-10 rounded-2xl relative overflow-hidden" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
               <div className="flex items-center gap-3 mb-8">
                 <BiCheckCircle className="w-6 h-6" style={{ color: "#EF4444" }} />
                 <h3 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.95rem" }}>Causes directes</h3>
@@ -151,7 +151,7 @@ export default function HTAContent() {
               ))}
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }} whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.2 } }} className="p-10 rounded-2xl relative overflow-hidden" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
+            <motion.div initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.65, ease: "easeOut" as const, delay: 0.1 }} whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.2 } }} className="p-10 rounded-2xl relative overflow-hidden" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
               <div className="flex items-center gap-3 mb-8">
                 <BiError className="w-6 h-6" style={{ color: "#F97316" }} />
                 <h3 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.95rem" }}>Facteurs de risque</h3>
@@ -186,7 +186,7 @@ export default function HTAContent() {
           <div className="relative flex flex-col gap-0">
             <div className="absolute left-6 top-0 bottom-0 w-0.5" style={{ background: "linear-gradient(180deg, #EF4444, rgba(239,68,68,0.1))" }} />
             {diagnosticSteps.map((step, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -30, filter: "blur(4px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.55, ease: "easeOut", delay: i * 0.1 }} className="flex gap-6 items-start pb-8 last:pb-0">
+              <motion.div key={i} initial={{ opacity: 0, x: -30, filter: "blur(4px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.55, ease: "easeOut" as const, delay: i * 0.1 }} className="flex gap-6 items-start pb-8 last:pb-0">
                 <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full border-2 flex items-center justify-center" style={{ background: "#080D18", borderColor: "#EF4444" }}>
                   <span style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 900, color: "#EF4444", fontSize: "0.85rem" }}>{step.num}</span>
                 </div>

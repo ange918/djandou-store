@@ -6,7 +6,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: "easeOut" as const } },
 };
 
 const container: Variants = {

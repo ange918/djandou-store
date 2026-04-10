@@ -7,7 +7,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" as const } },
 };
 
 const container: Variants = {
