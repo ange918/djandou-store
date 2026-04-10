@@ -1,0 +1,100 @@
+export interface PaysUrgence {
+  pays: string;
+  region: "Afrique" | "Europe" | "Amériques" | "Asie" | "Océanie";
+  drapeau: string;
+  medical: string;
+  pompiers: string;
+  police: string;
+  extra?: string;
+}
+
+export const URGENCES_DATA: PaysUrgence[] = [
+  { pays: "Bénin", region: "Afrique", drapeau: "🇧🇯", medical: "161", pompiers: "118", police: "117" },
+  { pays: "Sénégal", region: "Afrique", drapeau: "🇸🇳", medical: "15", pompiers: "18", police: "17" },
+  { pays: "Côte d'Ivoire", region: "Afrique", drapeau: "🇨🇮", medical: "185", pompiers: "180", police: "111" },
+  { pays: "Mali", region: "Afrique", drapeau: "🇲🇱", medical: "15", pompiers: "18", police: "17" },
+  { pays: "Burkina Faso", region: "Afrique", drapeau: "🇧🇫", medical: "112", pompiers: "18", police: "17" },
+  { pays: "Niger", region: "Afrique", drapeau: "🇳🇪", medical: "15", pompiers: "18", police: "17" },
+  { pays: "Guinée", region: "Afrique", drapeau: "🇬🇳", medical: "628", pompiers: "18", police: "17" },
+  { pays: "Togo", region: "Afrique", drapeau: "🇹🇬", medical: "8200", pompiers: "118", police: "117" },
+  { pays: "Ghana", region: "Afrique", drapeau: "🇬🇭", medical: "193", pompiers: "192", police: "191" },
+  { pays: "Nigeria", region: "Afrique", drapeau: "🇳🇬", medical: "199", pompiers: "199", police: "199" },
+  { pays: "Cameroun", region: "Afrique", drapeau: "🇨🇲", medical: "15", pompiers: "118", police: "117" },
+  { pays: "Mauritanie", region: "Afrique", drapeau: "🇲🇷", medical: "101", pompiers: "118", police: "117" },
+  { pays: "RD Congo", region: "Afrique", drapeau: "🇨🇩", medical: "12", pompiers: "118", police: "112" },
+  { pays: "Congo", region: "Afrique", drapeau: "🇨🇬", medical: "15", pompiers: "118", police: "117" },
+  { pays: "Gabon", region: "Afrique", drapeau: "🇬🇦", medical: "1300", pompiers: "18", police: "1730" },
+  { pays: "Tchad", region: "Afrique", drapeau: "🇹🇩", medical: "15", pompiers: "118", police: "117" },
+  { pays: "Centrafrique", region: "Afrique", drapeau: "🇨🇫", medical: "112", pompiers: "118", police: "117" },
+  { pays: "Kenya", region: "Afrique", drapeau: "🇰🇪", medical: "999", pompiers: "999", police: "999" },
+  { pays: "Éthiopie", region: "Afrique", drapeau: "🇪🇹", medical: "907", pompiers: "939", police: "991" },
+  { pays: "Tanzanie", region: "Afrique", drapeau: "🇹🇿", medical: "112", pompiers: "115", police: "111" },
+  { pays: "Rwanda", region: "Afrique", drapeau: "🇷🇼", medical: "912", pompiers: "111", police: "113" },
+  { pays: "Ouganda", region: "Afrique", drapeau: "🇺🇬", medical: "999", pompiers: "999", police: "999" },
+  { pays: "Madagascar", region: "Afrique", drapeau: "🇲🇬", medical: "117", pompiers: "118", police: "117" },
+  { pays: "Djibouti", region: "Afrique", drapeau: "🇩🇯", medical: "351351", pompiers: "18", police: "17" },
+  { pays: "Comores", region: "Afrique", drapeau: "🇰🇲", medical: "772", pompiers: "18", police: "17" },
+  { pays: "Maroc", region: "Afrique", drapeau: "🇲🇦", medical: "15", pompiers: "15", police: "19" },
+  { pays: "Algérie", region: "Afrique", drapeau: "🇩🇿", medical: "14", pompiers: "14", police: "17" },
+  { pays: "Tunisie", region: "Afrique", drapeau: "🇹🇳", medical: "190", pompiers: "198", police: "197" },
+  { pays: "Libye", region: "Afrique", drapeau: "🇱🇾", medical: "1515", pompiers: "1515", police: "1515" },
+  { pays: "Égypte", region: "Afrique", drapeau: "🇪🇬", medical: "123", pompiers: "180", police: "122" },
+  { pays: "Afrique du Sud", region: "Afrique", drapeau: "🇿🇦", medical: "10177", pompiers: "10111", police: "10111" },
+  { pays: "Zimbabwe", region: "Afrique", drapeau: "🇿🇼", medical: "994", pompiers: "993", police: "995" },
+  { pays: "Zambie", region: "Afrique", drapeau: "🇿🇲", medical: "991", pompiers: "993", police: "999" },
+  { pays: "Angola", region: "Afrique", drapeau: "🇦🇴", medical: "112", pompiers: "115", police: "113" },
+  { pays: "Mozambique", region: "Afrique", drapeau: "🇲🇿", medical: "117", pompiers: "198", police: "119" },
+
+  { pays: "France", region: "Europe", drapeau: "🇫🇷", medical: "15", pompiers: "18", police: "17", extra: "Numéro européen : 112" },
+  { pays: "Belgique", region: "Europe", drapeau: "🇧🇪", medical: "100", pompiers: "100", police: "101" },
+  { pays: "Suisse", region: "Europe", drapeau: "🇨🇭", medical: "144", pompiers: "118", police: "117" },
+  { pays: "Luxembourg", region: "Europe", drapeau: "🇱🇺", medical: "112", pompiers: "112", police: "113" },
+  { pays: "Allemagne", region: "Europe", drapeau: "🇩🇪", medical: "112", pompiers: "112", police: "110" },
+  { pays: "Espagne", region: "Europe", drapeau: "🇪🇸", medical: "112", pompiers: "112", police: "091" },
+  { pays: "Italie", region: "Europe", drapeau: "🇮🇹", medical: "118", pompiers: "115", police: "113" },
+  { pays: "Portugal", region: "Europe", drapeau: "🇵🇹", medical: "112", pompiers: "112", police: "112" },
+  { pays: "Royaume-Uni", region: "Europe", drapeau: "🇬🇧", medical: "999", pompiers: "999", police: "999" },
+  { pays: "Pays-Bas", region: "Europe", drapeau: "🇳🇱", medical: "112", pompiers: "112", police: "112" },
+  { pays: "Suède", region: "Europe", drapeau: "🇸🇪", medical: "112", pompiers: "112", police: "112" },
+  { pays: "Norvège", region: "Europe", drapeau: "🇳🇴", medical: "113", pompiers: "110", police: "112" },
+  { pays: "Danemark", region: "Europe", drapeau: "🇩🇰", medical: "112", pompiers: "112", police: "114" },
+  { pays: "Finlande", region: "Europe", drapeau: "🇫🇮", medical: "112", pompiers: "112", police: "112" },
+  { pays: "Pologne", region: "Europe", drapeau: "🇵🇱", medical: "112", pompiers: "998", police: "997" },
+  { pays: "Russie", region: "Europe", drapeau: "🇷🇺", medical: "103", pompiers: "101", police: "102" },
+  { pays: "Ukraine", region: "Europe", drapeau: "🇺🇦", medical: "103", pompiers: "101", police: "102" },
+  { pays: "Grèce", region: "Europe", drapeau: "🇬🇷", medical: "166", pompiers: "199", police: "100" },
+  { pays: "Turquie", region: "Europe", drapeau: "🇹🇷", medical: "112", pompiers: "110", police: "155" },
+
+  { pays: "États-Unis", region: "Amériques", drapeau: "🇺🇸", medical: "911", pompiers: "911", police: "911" },
+  { pays: "Canada", region: "Amériques", drapeau: "🇨🇦", medical: "911", pompiers: "911", police: "911" },
+  { pays: "Mexique", region: "Amériques", drapeau: "🇲🇽", medical: "911", pompiers: "911", police: "911" },
+  { pays: "Brésil", region: "Amériques", drapeau: "🇧🇷", medical: "192", pompiers: "193", police: "190" },
+  { pays: "Argentine", region: "Amériques", drapeau: "🇦🇷", medical: "107", pompiers: "100", police: "101" },
+  { pays: "Colombie", region: "Amériques", drapeau: "🇨🇴", medical: "125", pompiers: "119", police: "123" },
+  { pays: "Chili", region: "Amériques", drapeau: "🇨🇱", medical: "131", pompiers: "132", police: "133" },
+  { pays: "Pérou", region: "Amériques", drapeau: "🇵🇪", medical: "117", pompiers: "116", police: "105" },
+  { pays: "Venezuela", region: "Amériques", drapeau: "🇻🇪", medical: "171", pompiers: "171", police: "171" },
+  { pays: "Haïti", region: "Amériques", drapeau: "🇭🇹", medical: "115", pompiers: "118", police: "114" },
+
+  { pays: "Chine", region: "Asie", drapeau: "🇨🇳", medical: "120", pompiers: "119", police: "110" },
+  { pays: "Japon", region: "Asie", drapeau: "🇯🇵", medical: "119", pompiers: "119", police: "110" },
+  { pays: "Inde", region: "Asie", drapeau: "🇮🇳", medical: "108", pompiers: "101", police: "100" },
+  { pays: "Corée du Sud", region: "Asie", drapeau: "🇰🇷", medical: "119", pompiers: "119", police: "112" },
+  { pays: "Indonésie", region: "Asie", drapeau: "🇮🇩", medical: "118", pompiers: "113", police: "110" },
+  { pays: "Pakistan", region: "Asie", drapeau: "🇵🇰", medical: "115", pompiers: "16", police: "15" },
+  { pays: "Bangladesh", region: "Asie", drapeau: "🇧🇩", medical: "199", pompiers: "199", police: "999" },
+  { pays: "Vietnam", region: "Asie", drapeau: "🇻🇳", medical: "115", pompiers: "114", police: "113" },
+  { pays: "Thaïlande", region: "Asie", drapeau: "🇹🇭", medical: "1669", pompiers: "199", police: "191" },
+  { pays: "Philippines", region: "Asie", drapeau: "🇵🇭", medical: "911", pompiers: "911", police: "911" },
+  { pays: "Arabie Saoudite", region: "Asie", drapeau: "🇸🇦", medical: "911", pompiers: "911", police: "911" },
+  { pays: "Émirats Arabes Unis", region: "Asie", drapeau: "🇦🇪", medical: "998", pompiers: "997", police: "999" },
+  { pays: "Israël", region: "Asie", drapeau: "🇮🇱", medical: "101", pompiers: "102", police: "100" },
+  { pays: "Iran", region: "Asie", drapeau: "🇮🇷", medical: "115", pompiers: "125", police: "110" },
+
+  { pays: "Australie", region: "Océanie", drapeau: "🇦🇺", medical: "000", pompiers: "000", police: "000" },
+  { pays: "Nouvelle-Zélande", region: "Océanie", drapeau: "🇳🇿", medical: "111", pompiers: "111", police: "111" },
+  { pays: "Fidji", region: "Océanie", drapeau: "🇫🇯", medical: "911", pompiers: "910", police: "917" },
+];
+
+export const REGIONS = ["Tous", "Afrique", "Europe", "Amériques", "Asie", "Océanie"] as const;
+export type Region = typeof REGIONS[number];

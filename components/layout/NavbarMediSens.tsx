@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { HeartIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, Bars3Icon, XMarkIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
-  { label: "Reins", href: "/reins", active: true },
-  { label: "Cœur", href: "/coeur", active: true },
-  { label: "Poumons", href: "/poumons", soon: true },
+  { label: "Reins", href: "/reins" },
+  { label: "Cœur", href: "/coeur" },
+  { label: "Poumons", href: "/poumons" },
   { label: "Foie", href: "/foie", soon: true },
   { label: "Cerveau", href: "/cerveau", soon: true },
   { label: "Diabète", href: "/diabete", soon: true },
@@ -61,7 +61,7 @@ export default function NavbarMediSens() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
@@ -97,6 +97,17 @@ export default function NavbarMediSens() {
                 </Link>
               );
             })}
+            <Link
+              href="/urgences"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:bg-red-500/10"
+              style={{ color: "#EF4444", border: "1px solid rgba(239,68,68,0.3)", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500 }}
+            >
+              <PhoneIcon className="w-3.5 h-3.5 animate-pulse" />
+              Urgences
+              <span className="text-[9px] px-1.5 py-0.5 rounded-full animate-pulse" style={{ color: "#EF4444", background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.25)" }}>
+                URGENT
+              </span>
+            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -163,6 +174,21 @@ export default function NavbarMediSens() {
                   </motion.div>
                 );
               })}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: navLinks.length * 0.05 }}>
+                <Link
+                  href="/urgences"
+                  className="flex items-center justify-between py-3 px-4 rounded-xl transition-colors duration-200"
+                  style={{ color: "#EF4444", background: pathname === "/urgences" ? "rgba(239,68,68,0.06)" : "transparent", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500, fontSize: "0.95rem" }}
+                >
+                  <span className="flex items-center gap-2">
+                    <PhoneIcon className="w-4 h-4 animate-pulse" />
+                    Urgences
+                  </span>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full animate-pulse" style={{ color: "#EF4444", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)" }}>
+                    URGENT
+                  </span>
+                </Link>
+              </motion.div>
             </nav>
           </motion.div>
         )}
