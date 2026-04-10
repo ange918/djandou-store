@@ -7,7 +7,7 @@ import MaladieTraitement from "@/components/coeur/template/MaladieTraitement";
 import MaladiePrevention from "@/components/coeur/template/MaladiePrevention";
 import MaladiePronostic from "@/components/coeur/template/MaladiePronostic";
 import { motion, type Variants } from "framer-motion";
-import { UsersIcon, ExclamationTriangleIcon, ArrowTrendingDownIcon, CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
+import { BiGroup, BiErrorAlt, BiTrendingDown, BiCheckCircle, BiError } from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const cardVariants: Variants = { hidden: { opacity: 0, y: 40, filter: "blur(6px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" } } };
@@ -66,9 +66,9 @@ export default function ICContent() {
           <SectionHeader badge="VUE D'ENSEMBLE" title="L'insuffisance cardiaque en chiffres" />
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8" variants={container} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {[
-              { icon: UsersIcon, titre: "Prévalence", texte: "1,38M en France · 64M dans le monde · 120 000 nouveaux cas par an en France" },
-              { icon: ExclamationTriangleIcon, titre: "Causes", texte: "Cardiopathie ischémique post-IDM (1re cause) · HTA prolongée · Cardiomyopathie dilatée" },
-              { icon: ArrowTrendingDownIcon, titre: "Pronostic", texte: "Sévère : mortalité 30-40% à 1 an en IC avancée. 50% de survie à 5 ans (stade III-IV)" },
+              { icon: BiGroup, titre: "Prévalence", texte: "1,38M en France · 64M dans le monde · 120 000 nouveaux cas par an en France" },
+              { icon: BiErrorAlt, titre: "Causes", texte: "Cardiopathie ischémique post-IDM (1re cause) · HTA prolongée · Cardiomyopathie dilatée" },
+              { icon: BiTrendingDown, titre: "Pronostic", texte: "Sévère : mortalité 30-40% à 1 an en IC avancée. 50% de survie à 5 ans (stade III-IV)" },
             ].map((c, i) => {
               const Icon = c.icon;
               return (
@@ -125,7 +125,7 @@ export default function ICContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.65, ease: "easeOut" }} whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.2 } }} className="p-10 rounded-2xl relative overflow-hidden" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
               <div className="flex items-center gap-3 mb-8">
-                <CheckCircleIcon className="w-6 h-6" style={{ color: "#EF4444" }} />
+                <BiCheckCircle className="w-6 h-6" style={{ color: "#EF4444" }} />
                 <h3 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.95rem" }}>Causes directes</h3>
               </div>
               {[
@@ -147,7 +147,7 @@ export default function ICContent() {
 
             <motion.div initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }} whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.2 } }} className="p-10 rounded-2xl relative overflow-hidden" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
               <div className="flex items-center gap-3 mb-8">
-                <ExclamationCircleIcon className="w-6 h-6" style={{ color: "#F97316" }} />
+                <BiError className="w-6 h-6" style={{ color: "#F97316" }} />
                 <h3 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.95rem" }}>Facteurs de risque</h3>
               </div>
               {[

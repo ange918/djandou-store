@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion, type Variants, AnimatePresence } from "framer-motion";
-import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
+import { BiShieldX } from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 interface MaladiePreventionProps {
   maladie: string;
@@ -34,7 +35,9 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
   return (
     <section className="py-32 px-6" style={{ background: "#080D18" }}>
       <div className="max-w-4xl mx-auto">
-        <SectionHeader badge="PRÉVENTION" title={`Prévenir ${maladie}`} subtitle="Adoptez ces habitudes pour réduire significativement votre risque. Cochez ce que vous faites déjà." />
+        <SectionReveal>
+          <SectionHeader badge="PRÉVENTION" title={`Prévenir ${maladie}`} subtitle="Adoptez ces habitudes pour réduire significativement votre risque. Cochez ce que vous faites déjà." />
+        </SectionReveal>
 
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-12 p-8 rounded-2xl" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="flex items-center justify-between mb-6">
@@ -98,7 +101,7 @@ export default function MaladiePrevention({ maladie, checklist, populationsRisqu
             style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)" }}
           >
             <div className="flex items-center gap-3 mb-5">
-              <ShieldExclamationIcon className="w-6 h-6 flex-shrink-0" style={{ color: "#38BDF8" }} />
+              <BiShieldX size={24} style={{ color: "#38BDF8", flexShrink: 0 }} />
               <h4 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.95rem" }}>Populations à risque</h4>
             </div>
             <ul className="flex flex-col gap-2">

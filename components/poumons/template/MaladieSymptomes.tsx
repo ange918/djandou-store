@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { ExclamationCircleIcon, ExclamationTriangleIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
+import { BiError, BiErrorAlt, BiInfoCircle } from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 interface Symptome {
   nom: string;
@@ -28,11 +29,11 @@ const sectionFade: Variants = {
 
 function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" | "modere" | "surveillance" }) {
   const configs = {
-    urgent: { color: "#EF4444", bg: "rgba(239,68,68,0.08)", border: "rgba(239,68,68,0.2)", badge: "🔴 Urgent", icon: ExclamationCircleIcon },
-    modere: { color: "#F97316", bg: "rgba(249,115,22,0.08)", border: "rgba(249,115,22,0.2)", badge: "🟠 Modéré", icon: ExclamationTriangleIcon },
-    surveillance: { color: "#3B82F6", bg: "rgba(59,130,246,0.08)", border: "rgba(59,130,246,0.2)", badge: "🔵 À surveiller", icon: InformationCircleIcon },
+    urgent: { color: "#EF4444", bg: "rgba(239,68,68,0.08)", border: "rgba(239,68,68,0.2)", badge: "🔴 Urgent", Icon: BiError },
+    modere: { color: "#F97316", bg: "rgba(249,115,22,0.08)", border: "rgba(249,115,22,0.2)", badge: "🟠 Modéré", Icon: BiErrorAlt },
+    surveillance: { color: "#3B82F6", bg: "rgba(59,130,246,0.08)", border: "rgba(59,130,246,0.2)", badge: "🔵 À surveiller", Icon: BiInfoCircle },
   };
-  const { color, bg, border, badge, icon: Icon } = configs[type];
+  const { color, bg, border, badge, Icon } = configs[type];
 
   return (
     <motion.div
@@ -44,7 +45,7 @@ function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" |
       <motion.div className="absolute inset-0 pointer-events-none" initial={{ opacity: 0 }} whileHover={{ opacity: 1 }} transition={{ duration: 0.3 }} style={{ background: `radial-gradient(circle at 10% 10%, ${bg} 0%, transparent 70%)` }} />
       <div className="flex items-start gap-4 mb-4 relative z-10">
         <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
-          <Icon className="w-5 h-5" style={{ color }} />
+          <Icon size={20} style={{ color }} />
         </div>
         <div className="flex-1">
           <h4 className="text-base font-bold mb-1" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.9rem" }}>
@@ -66,7 +67,9 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
   return (
     <section className="py-32 px-6" style={{ background: "#080D18" }}>
       <div className="max-w-7xl mx-auto">
-        <SectionHeader badge="SYMPTÔMES" title="Reconnaître les symptômes" subtitle="Savoir identifier les signes d'alerte peut sauver des vies. Ne jamais ignorer les symptômes urgents." />
+        <SectionReveal>
+          <SectionHeader badge="SYMPTÔMES" title="Reconnaître les symptômes" subtitle="Savoir identifier les signes d'alerte peut sauver des vies. Ne jamais ignorer les symptômes urgents." />
+        </SectionReveal>
 
         {urgents.length > 0 && (
           <motion.div className="mb-10" variants={sectionFade} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>

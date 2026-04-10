@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneIcon } from "@heroicons/react/24/outline";
+import { BiPhone } from "react-icons/bi";
 import type { PaysUrgence } from "@/lib/urgences-data";
 
 interface PaysCardProps {
@@ -45,7 +45,7 @@ export default function PaysCard({ pays }: PaysCardProps) {
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
           style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.25)", color: "#EF4444", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}
         >
-          <PhoneIcon className="w-4 h-4" />
+          <BiPhone size={16} />
           Appeler
         </a>
       </div>

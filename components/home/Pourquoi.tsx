@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { EyeIcon, ShieldCheckIcon, HeartIcon } from "@heroicons/react/24/outline";
+import { BiShow, BiShieldAlt, BiHeart } from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const containerVariants: Variants = {
@@ -11,19 +11,19 @@ const containerVariants: Variants = {
 
 const cards = [
   {
-    icon: EyeIcon,
+    icon: BiShow,
     title: "Comprendre",
     text: "Des explications médicales claires, vulgarisées, accessibles à tous. Sans jargon inutile.",
     direction: -1,
   },
   {
-    icon: ShieldCheckIcon,
+    icon: BiShieldAlt,
     title: "Prévenir",
     text: "La prévention sauve des vies. Chaque section offre des conseils concrets adaptés à votre profil.",
     direction: 0,
   },
   {
-    icon: HeartIcon,
+    icon: BiHeart,
     title: "Agir",
     text: "Reconnaître les symptômes à temps peut faire la différence. MediSens vous guide vers les bons gestes.",
     direction: 1,

@@ -2,17 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
-import {
-  BeakerIcon,
-  HeartIcon,
-  CloudIcon,
-  CircleStackIcon,
-  CpuChipIcon,
-  ChartBarIcon,
-  WrenchScrewdriverIcon,
-  SparklesIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/24/outline";
+import { BiTestTube, BiHeart, BiCloud, BiData, BiChip, BiBarChart, BiWrench, BiStar, BiRightArrowAlt } from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const cardVariants: Variants = {
@@ -27,56 +17,56 @@ const container: Variants = {
 
 const organes = [
   {
-    icon: BeakerIcon,
+    icon: BiTestTube,
     title: "Reins",
     text: "IRC, IRA, calculs, glomérulonéphrites, infections urinaires et plus.",
     available: true,
     href: "/reins",
   },
   {
-    icon: HeartIcon,
+    icon: BiHeart,
     title: "Cœur",
     text: "HTA, infarctus, insuffisance cardiaque, AVC et maladies cardiovasculaires.",
     available: true,
     href: "/coeur",
   },
   {
-    icon: CloudIcon,
+    icon: BiCloud,
     title: "Poumons",
     text: "Asthme, BPCO, pneumonie, cancer du poumon, insuffisance respiratoire.",
-    available: false,
+    available: true,
     href: "/poumons",
   },
   {
-    icon: CircleStackIcon,
+    icon: BiData,
     title: "Foie",
     text: "Hépatites, cirrhose, stéatose, cancer du foie, insuffisance hépatique.",
     available: false,
     href: "/foie",
   },
   {
-    icon: CpuChipIcon,
+    icon: BiChip,
     title: "Cerveau",
     text: "Alzheimer, Parkinson, épilepsie, migraine, sclérose en plaques.",
     available: false,
     href: "/cerveau",
   },
   {
-    icon: ChartBarIcon,
+    icon: BiBarChart,
     title: "Diabète",
     text: "Diabète type 1 et 2, complications, glycémie, insuline, prévention.",
     available: false,
     href: "/diabete",
   },
   {
-    icon: WrenchScrewdriverIcon,
+    icon: BiWrench,
     title: "Os & Articulations",
     text: "Arthrose, ostéoporose, polyarthrite, fractures, rhumatismes.",
     available: false,
     href: "/os",
   },
   {
-    icon: SparklesIcon,
+    icon: BiStar,
     title: "Peau",
     text: "Eczéma, psoriasis, mélanome, acné, dermatoses chroniques.",
     available: false,
@@ -182,7 +172,7 @@ export default function OrganesGrid() {
                         className="flex items-center gap-2 text-sm font-medium mt-2 group-hover:gap-3 transition-all duration-200"
                         style={{ color: "#00C9FF", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}
                       >
-                        Explorer <ArrowRightIcon className="w-4 h-4" />
+                        Explorer <BiRightArrowAlt size={16} />
                       </div>
                     ) : (
                       <p

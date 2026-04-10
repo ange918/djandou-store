@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { BiHeart } from "react-icons/bi";
 
 const links = [
   { label: "Accueil", href: "/" },
@@ -35,7 +35,7 @@ export default function FooterMediSens() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <HeartIcon className="w-5 h-5" style={{ color: "#00C9FF" }} />
+              <BiHeart size={20} style={{ color: "#00C9FF" }} />
               <span
                 style={{
                   fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",

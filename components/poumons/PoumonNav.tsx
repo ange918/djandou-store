@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { CloudIcon, Bars3Icon, XMarkIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { BiCloud, BiMenu, BiX, BiArrowBack } from "react-icons/bi";
 
 const navLinks = [
   { label: "Vue d'ensemble", href: "/poumons" },
@@ -39,7 +39,7 @@ export default function PoumonNav() {
       >
         <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between gap-8">
           <Link href="/poumons" className="flex items-center gap-2.5 group flex-shrink-0">
-            <CloudIcon className="w-6 h-6 transition-transform duration-200 group-hover:scale-110" style={{ color: "#38BDF8" }} />
+            <BiCloud size={24} className="transition-transform duration-200 group-hover:scale-110" style={{ color: "#38BDF8" }} />
             <span style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, fontSize: "0.95rem", color: "#F8FAFC" }}>
               MediSens <span style={{ color: "#38BDF8" }}>/</span> <span style={{ color: "#38BDF8" }}>Poumons</span>
             </span>
@@ -76,12 +76,12 @@ export default function PoumonNav() {
             className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full text-sm transition-all duration-200 hover:bg-white/5 flex-shrink-0"
             style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#94A3B8", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 400 }}
           >
-            <ArrowLeftIcon className="w-3.5 h-3.5" />
+            <BiArrowBack size={14} />
             MediSens
           </Link>
 
           <button className="lg:hidden p-2 rounded-lg hover:bg-white/5" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
-            {mobileOpen ? <XMarkIcon className="w-6 h-6" style={{ color: "#F8FAFC" }} /> : <Bars3Icon className="w-6 h-6" style={{ color: "#F8FAFC" }} />}
+            {mobileOpen ? <BiX size={24} style={{ color: "#F8FAFC" }} /> : <BiMenu size={24} style={{ color: "#F8FAFC" }} />}
           </button>
         </div>
       </header>
@@ -113,7 +113,7 @@ export default function PoumonNav() {
               })}
               <div className="mt-4 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
                 <Link href="/" className="flex items-center gap-2 py-3 px-4 rounded-xl" style={{ color: "#64748B", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 400, fontSize: "0.9rem" }}>
-                  <ArrowLeftIcon className="w-4 h-4" />
+                  <BiArrowBack size={16} />
                   Retour à MediSens
                 </Link>
               </div>

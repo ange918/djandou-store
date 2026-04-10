@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { ExclamationCircleIcon, ExclamationTriangleIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
+import { BiError, BiErrorAlt, BiInfoCircle } from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 interface Symptome {
   nom: string;
@@ -20,12 +21,7 @@ const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
   visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: "easeOut" } },
 };
-
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
-};
-
+const container: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } };
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
   visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeOut" } },
@@ -33,11 +29,11 @@ const sectionFade: Variants = {
 
 function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" | "modere" | "surveillance" }) {
   const configs = {
-    urgent: { color: "#EF4444", bg: "rgba(239,68,68,0.08)", border: "rgba(239,68,68,0.2)", badge: "🔴 Urgent", icon: ExclamationCircleIcon },
-    modere: { color: "#F97316", bg: "rgba(249,115,22,0.08)", border: "rgba(249,115,22,0.2)", badge: "🟠 Modéré", icon: ExclamationTriangleIcon },
-    surveillance: { color: "#3B82F6", bg: "rgba(59,130,246,0.08)", border: "rgba(59,130,246,0.2)", badge: "🔵 À surveiller", icon: InformationCircleIcon },
+    urgent: { color: "#EF4444", bg: "rgba(239,68,68,0.08)", border: "rgba(239,68,68,0.2)", badge: "🔴 Urgent", Icon: BiError },
+    modere: { color: "#F97316", bg: "rgba(249,115,22,0.08)", border: "rgba(249,115,22,0.2)", badge: "🟠 Modéré", Icon: BiErrorAlt },
+    surveillance: { color: "#3B82F6", bg: "rgba(59,130,246,0.08)", border: "rgba(59,130,246,0.2)", badge: "🔵 À surveiller", Icon: BiInfoCircle },
   };
-  const { color, bg, border, badge, icon: Icon } = configs[type];
+  const { color, bg, border, badge, Icon } = configs[type];
 
   return (
     <motion.div
@@ -46,28 +42,16 @@ function SymptomeCard({ symptome, type }: { symptome: Symptome; type: "urgent" |
       className="p-8 rounded-2xl relative overflow-hidden"
       style={{ background: "#0D1526", border: `1px solid ${border}` }}
     >
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        style={{ background: `radial-gradient(circle at 10% 10%, ${bg} 0%, transparent 70%)` }}
-      />
+      <motion.div className="absolute inset-0 pointer-events-none" initial={{ opacity: 0 }} whileHover={{ opacity: 1 }} transition={{ duration: 0.3 }} style={{ background: `radial-gradient(circle at 10% 10%, ${bg} 0%, transparent 70%)` }} />
       <div className="flex items-start gap-4 mb-4 relative z-10">
         <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
-          <Icon className="w-5 h-5" style={{ color }} />
+          <Icon size={20} style={{ color }} />
         </div>
         <div className="flex-1">
-          <h4
-            className="text-base font-bold mb-1"
-            style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.9rem" }}
-          >
+          <h4 className="text-base font-bold mb-1" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#F8FAFC", fontSize: "0.9rem" }}>
             {symptome.nom}
           </h4>
-          <span
-            className="text-[10px] font-medium px-2 py-0.5 rounded-full"
-            style={{ color, background: bg, border: `1px solid ${border}`, fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}
-          >
+          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ color, background: bg, border: `1px solid ${border}`, fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
             {badge}
           </span>
         </div>
@@ -83,16 +67,12 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
   return (
     <section className="py-32 px-6" style={{ background: "#080D18" }}>
       <div className="max-w-7xl mx-auto">
-        <SectionHeader badge="SYMPTÔMES" title="Reconnaître les symptômes" subtitle="Savoir identifier les signes d'alerte peut sauver des vies. Ne jamais ignorer les symptômes urgents." />
+        <SectionReveal>
+          <SectionHeader badge="SYMPTÔMES" title="Reconnaître les symptômes" subtitle="Savoir identifier les signes d'alerte peut sauver des vies. Ne jamais ignorer les symptômes urgents." />
+        </SectionReveal>
 
         {urgents.length > 0 && (
-          <motion.div
-            className="mb-10"
-            variants={sectionFade}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-          >
+          <motion.div className="mb-10" variants={sectionFade} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px flex-1" style={{ background: "rgba(239,68,68,0.2)" }} />
               <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full" style={{ color: "#EF4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
@@ -107,13 +87,7 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
         )}
 
         {moderes.length > 0 && (
-          <motion.div
-            className="mb-10"
-            variants={sectionFade}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-          >
+          <motion.div className="mb-10" variants={sectionFade} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px flex-1" style={{ background: "rgba(249,115,22,0.2)" }} />
               <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full" style={{ color: "#F97316", background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
@@ -128,12 +102,7 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
         )}
 
         {surveillance.length > 0 && (
-          <motion.div
-            variants={sectionFade}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
-          >
+          <motion.div variants={sectionFade} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px flex-1" style={{ background: "rgba(59,130,246,0.2)" }} />
               <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full" style={{ color: "#3B82F6", background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.2)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
@@ -156,9 +125,7 @@ export default function MaladieSymptomes({ urgents, moderes, surveillance, note 
             className="mt-10 p-6 rounded-2xl"
             style={{ background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.2)" }}
           >
-            <p style={{ color: "#F8FAFC", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 400, lineHeight: 1.7, fontSize: "0.95rem" }}>
-              {note}
-            </p>
+            <p style={{ color: "#F8FAFC", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 400, lineHeight: 1.7, fontSize: "0.95rem" }}>{note}</p>
           </motion.div>
         )}
       </div>

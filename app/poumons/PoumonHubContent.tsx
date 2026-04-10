@@ -4,9 +4,10 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowsRightLeftIcon, CloudIcon, ExclamationTriangleIcon, ShieldExclamationIcon } from "@heroicons/react/24/outline";
+import { BiTransfer, BiCloud, BiErrorAlt, BiShieldX } from "react-icons/bi";
 import MaladieCard from "@/components/poumons/MaladieCard";
 import SectionHeader from "@/components/ui/SectionHeader";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,25 +86,17 @@ export default function PoumonHubContent() {
                   <stop offset="100%" stopColor="#0284C7" stopOpacity="0.4" />
                 </linearGradient>
               </defs>
-              {/* Trachée */}
               <rect x="143" y="10" width="14" height="50" rx="7" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeOpacity="0.6" />
-              {/* Bronche principale gauche */}
               <path d="M143 55 Q120 65 110 75" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeOpacity="0.6" />
-              {/* Bronche principale droite */}
               <path d="M157 55 Q180 65 190 75" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeOpacity="0.6" />
-              {/* Poumon gauche */}
               <path d="M110 75 Q70 90 60 130 Q55 165 70 185 Q85 205 110 210 Q130 215 140 200 L143 130 Z" fill="url(#lungGrad)" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.5" />
-              {/* Poumon droit */}
               <path d="M190 75 Q230 90 240 130 Q245 165 230 185 Q215 205 190 210 Q170 215 160 200 L157 130 Z" fill="url(#lungGrad)" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.5" />
-              {/* Bronchioles gauche */}
               <path d="M110 100 Q90 115 85 135" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.4" />
               <path d="M110 100 Q105 120 100 145" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.4" />
               <path d="M110 100 Q115 125 112 155" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.4" />
-              {/* Bronchioles droite */}
               <path d="M190 100 Q210 115 215 135" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.4" />
               <path d="M190 100 Q195 120 200 145" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.4" />
               <path d="M190 100 Q185 125 188 155" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.4" />
-              {/* Alvéoles */}
               {[{ cx: 80, cy: 155 }, { cx: 97, cy: 170 }, { cx: 78, cy: 178 }, { cx: 215, cy: 155 }, { cx: 200, cy: 170 }, { cx: 218, cy: 178 }].map((c, i) => (
                 <circle key={i} cx={c.cx} cy={c.cy} r="8" fill="none" stroke="#38BDF8" strokeWidth="1.5" strokeOpacity="0.35" />
               ))}
@@ -146,7 +139,9 @@ export default function PoumonHubContent() {
       {/* GRID 4 MALADIES */}
       <section className="py-32 px-6" style={{ background: "#050810" }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader badge="NOS PATHOLOGIES" title="4 maladies pulmonaires" subtitle="Chaque pathologie décryptée : mécanismes, symptômes, traitements et prévention." />
+          <SectionReveal>
+            <SectionHeader badge="NOS PATHOLOGIES" title="4 maladies pulmonaires" subtitle="Chaque pathologie décryptée : mécanismes, symptômes, traitements et prévention." />
+          </SectionReveal>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             variants={containerVariants}
@@ -157,7 +152,7 @@ export default function PoumonHubContent() {
             <motion.div variants={fadeUp}>
               <MaladieCard
                 href="/poumons/maladies/asthme"
-                icon={<ArrowsRightLeftIcon className="w-7 h-7" style={{ color: "#38BDF8" }} />}
+                icon={<BiTransfer size={28} style={{ color: "#38BDF8" }} />}
                 badge="CHRONIQUE"
                 badgeType="CHRONIQUE"
                 titre="Asthme"
@@ -167,7 +162,7 @@ export default function PoumonHubContent() {
             <motion.div variants={fadeUp}>
               <MaladieCard
                 href="/poumons/maladies/bronchite"
-                icon={<CloudIcon className="w-7 h-7" style={{ color: "#38BDF8" }} />}
+                icon={<BiCloud size={28} style={{ color: "#38BDF8" }} />}
                 badge="AIGUË / CHRONIQUE"
                 badgeType="AIGUË / CHRONIQUE"
                 titre="Bronchite"
@@ -177,7 +172,7 @@ export default function PoumonHubContent() {
             <motion.div variants={fadeUp}>
               <MaladieCard
                 href="/poumons/maladies/pneumonie"
-                icon={<ExclamationTriangleIcon className="w-7 h-7" style={{ color: "#38BDF8" }} />}
+                icon={<BiErrorAlt size={28} style={{ color: "#38BDF8" }} />}
                 badge="URGENCE"
                 badgeType="URGENCE"
                 titre="Pneumonie"
@@ -187,7 +182,7 @@ export default function PoumonHubContent() {
             <motion.div variants={fadeUp}>
               <MaladieCard
                 href="/poumons/maladies/tuberculose"
-                icon={<ShieldExclamationIcon className="w-7 h-7" style={{ color: "#38BDF8" }} />}
+                icon={<BiShieldX size={28} style={{ color: "#38BDF8" }} />}
                 badge="CONTAGIEUSE"
                 badgeType="CONTAGIEUSE"
                 titre="Tuberculose"

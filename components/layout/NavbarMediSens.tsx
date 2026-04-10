@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { HeartIcon, Bars3Icon, XMarkIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { BiHeart, BiMenu, BiX, BiPhone } from "react-icons/bi";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
@@ -44,23 +44,13 @@ export default function NavbarMediSens() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <HeartIcon className="w-6 h-6 transition-transform duration-200 group-hover:scale-110" style={{ color: "#00C9FF" }} />
-            <span
-              style={{
-                fontFamily: "var(--font-unbounded, Unbounded, sans-serif)",
-                fontWeight: 700,
-                fontSize: "1.1rem",
-                color: "#F8FAFC",
-                letterSpacing: "-0.01em",
-              }}
-            >
+            <BiHeart size={24} className="transition-transform duration-200 group-hover:scale-110" style={{ color: "#00C9FF" }} />
+            <span style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, fontSize: "1.1rem", color: "#F8FAFC", letterSpacing: "-0.01em" }}>
               MediSens
             </span>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
@@ -69,20 +59,13 @@ export default function NavbarMediSens() {
                   key={link.href}
                   href={link.href}
                   className="relative text-sm transition-colors duration-200"
-                  style={{
-                    fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                    fontWeight: 500,
-                    color: isActive ? "#F8FAFC" : "#64748B",
-                  }}
+                  style={{ fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500, color: isActive ? "#F8FAFC" : "#64748B" }}
                   onMouseEnter={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.color = "#F8FAFC"; }}
                   onMouseLeave={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.color = "#64748B"; }}
                 >
                   {link.label}
                   {link.soon && (
-                    <span
-                      className="ml-1.5 text-[9px] px-1.5 py-0.5 rounded-full align-middle"
-                      style={{ color: "#F97316", background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}
-                    >
+                    <span className="ml-1.5 text-[9px] px-1.5 py-0.5 rounded-full align-middle" style={{ color: "#F97316", background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}>
                       BIENTÔT
                     </span>
                   )}
@@ -102,7 +85,7 @@ export default function NavbarMediSens() {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:bg-red-500/10"
               style={{ color: "#EF4444", border: "1px solid rgba(239,68,68,0.3)", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500 }}
             >
-              <PhoneIcon className="w-3.5 h-3.5 animate-pulse" />
+              <BiPhone size={14} className="animate-pulse" />
               Urgences
               <span className="text-[9px] px-1.5 py-0.5 rounded-full animate-pulse" style={{ color: "#EF4444", background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.25)" }}>
                 URGENT
@@ -110,22 +93,12 @@ export default function NavbarMediSens() {
             </Link>
           </nav>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden p-2 rounded-lg transition-colors duration-200 hover:bg-white/5"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
-          >
-            {mobileOpen ? (
-              <XMarkIcon className="w-6 h-6" style={{ color: "#F8FAFC" }} />
-            ) : (
-              <Bars3Icon className="w-6 h-6" style={{ color: "#F8FAFC" }} />
-            )}
+          <button className="lg:hidden p-2 rounded-lg transition-colors duration-200 hover:bg-white/5" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+            {mobileOpen ? <BiX size={24} style={{ color: "#F8FAFC" }} /> : <BiMenu size={24} style={{ color: "#F8FAFC" }} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -134,39 +107,21 @@ export default function NavbarMediSens() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             className="fixed top-20 left-0 right-0 z-40 lg:hidden"
-            style={{
-              background: "rgba(5,8,16,0.97)",
-              backdropFilter: "blur(20px)",
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
-            }}
+            style={{ background: "rgba(5,8,16,0.97)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
           >
             <nav className="flex flex-col px-6 py-6 gap-1">
               {navLinks.map((link, i) => {
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                 return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
+                  <motion.div key={link.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
                     <Link
                       href={link.href}
                       className="flex items-center justify-between py-3 px-4 rounded-xl transition-colors duration-200"
-                      style={{
-                        color: isActive ? "#00C9FF" : "#94A3B8",
-                        background: isActive ? "rgba(0,201,255,0.06)" : "transparent",
-                        fontFamily: "var(--font-poppins, Poppins, sans-serif)",
-                        fontWeight: 500,
-                        fontSize: "0.95rem",
-                      }}
+                      style={{ color: isActive ? "#00C9FF" : "#94A3B8", background: isActive ? "rgba(0,201,255,0.06)" : "transparent", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500, fontSize: "0.95rem" }}
                     >
                       {link.label}
                       {link.soon && (
-                        <span
-                          className="text-[9px] px-1.5 py-0.5 rounded-full"
-                          style={{ color: "#F97316", background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}
-                        >
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-full" style={{ color: "#F97316", background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}>
                           BIENTÔT
                         </span>
                       )}
@@ -181,7 +136,7 @@ export default function NavbarMediSens() {
                   style={{ color: "#EF4444", background: pathname === "/urgences" ? "rgba(239,68,68,0.06)" : "transparent", fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 500, fontSize: "0.95rem" }}
                 >
                   <span className="flex items-center gap-2">
-                    <PhoneIcon className="w-4 h-4 animate-pulse" />
+                    <BiPhone size={16} className="animate-pulse" />
                     Urgences
                   </span>
                   <span className="text-[9px] px-1.5 py-0.5 rounded-full animate-pulse" style={{ color: "#EF4444", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)" }}>

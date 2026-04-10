@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { PhoneIcon } from "@heroicons/react/24/outline";
+import { BiPhone } from "react-icons/bi";
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 type PronosticLevel = "Bon" | "Modéré" | "Sévère" | "Variable";
 
@@ -46,7 +47,9 @@ export default function MaladiePronostic({ pronostic, pronosticDetail, complicat
     <>
       <section className="py-32 px-6" style={{ background: "#050810" }}>
         <div className="max-w-5xl mx-auto">
-          <SectionHeader badge="PRONOSTIC" title="Évolution et complications" subtitle="Comprendre l'évolution naturelle de la maladie et les risques associés." />
+          <SectionReveal>
+            <SectionHeader badge="PRONOSTIC" title="Évolution et complications" subtitle="Comprendre l'évolution naturelle de la maladie et les risques associés." />
+          </SectionReveal>
 
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-16 p-10 rounded-2xl" style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}>
             <div className="flex items-center justify-between mb-4">
@@ -94,7 +97,7 @@ export default function MaladiePronostic({ pronostic, pronosticDetail, complicat
           </div>
 
           <motion.div initial={{ opacity: 0, y: 20, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="p-8 rounded-2xl flex items-start gap-5" style={{ background: "rgba(239,68,68,0.08)", border: "2px solid rgba(239,68,68,0.3)" }}>
-            <PhoneIcon className="w-8 h-8 flex-shrink-0 mt-1" style={{ color: "#EF4444" }} />
+            <BiPhone size={32} style={{ color: "#EF4444", flexShrink: 0, marginTop: "4px" }} />
             <div>
               <h4 className="font-bold mb-2" style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, color: "#EF4444", fontSize: "0.9rem" }}>Quand appeler le 15 ?</h4>
               <p style={{ fontFamily: "var(--font-poppins, Poppins, sans-serif)", fontWeight: 300, color: "#F8FAFC", lineHeight: 1.7, fontSize: "0.92rem" }}>{urgenceMessage}</p>

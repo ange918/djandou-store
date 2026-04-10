@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BeakerIcon } from "@heroicons/react/24/outline";
+import { BiTestTube } from "react-icons/bi";
 
 const cols = [
   {
@@ -51,7 +51,7 @@ export default function Footer() {
               className="flex items-center gap-2 font-bold text-lg mb-6"
               style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", color: "#F8FAFC" }}
             >
-              <BeakerIcon className="w-5 h-5" style={{ color: "#00C9FF" }} />
+              <BiTestTube size={20} style={{ color: "#00C9FF" }} />
               Rein<span style={{ color: "#00C9FF" }}>Santé</span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#64748B" }}>

@@ -3,21 +3,21 @@
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import {
-  ArrowTrendingUpIcon,
-  BoltIcon,
-  HeartIcon,
-  ExclamationTriangleIcon,
-  ArrowRightIcon,
-  UsersIcon,
-  GlobeAltIcon,
-  ChartBarIcon,
-  ClipboardDocumentCheckIcon,
-  FireIcon,
-  ShieldCheckIcon,
-  BeakerIcon,
-  PhoneIcon,
-  SunIcon,
-} from "@heroicons/react/24/outline";
+  BiTrendingUp,
+  BiSolidBolt,
+  BiHeart,
+  BiErrorAlt,
+  BiRightArrowAlt,
+  BiGroup,
+  BiGlobe,
+  BiBarChart,
+  BiClipboard,
+  BiPulse,
+  BiShieldAlt,
+  BiTestTube,
+  BiPhone,
+  BiSun,
+} from "react-icons/bi";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const fadeInUp: Variants = {
@@ -38,7 +38,7 @@ const heroContainer: Variants = {
 const maladies = [
   {
     href: "/coeur/maladies/hypertension",
-    icon: ArrowTrendingUpIcon,
+    icon: BiTrendingUp,
     titre: "Hypertension artérielle",
     desc: "Élévation persistante de la pression sanguine ≥140/90 mmHg. Touche 17M de Français. Souvent silencieuse.",
     badge: "CHRONIQUE",
@@ -46,7 +46,7 @@ const maladies = [
   },
   {
     href: "/coeur/maladies/infarctus",
-    icon: BoltIcon,
+    icon: BiSolidBolt,
     titre: "Infarctus du myocarde",
     desc: "Obstruction aiguë d'une artère coronaire. 80 000 cas par an en France. Urgence absolue.",
     badge: "URGENCE",
@@ -54,7 +54,7 @@ const maladies = [
   },
   {
     href: "/coeur/maladies/insuffisance-cardiaque",
-    icon: HeartIcon,
+    icon: BiHeart,
     titre: "Insuffisance cardiaque",
     desc: "Incapacité du cœur à pomper suffisamment. 1,38M de Français. Évolution progressive.",
     badge: "CHRONIQUE",
@@ -62,7 +62,7 @@ const maladies = [
   },
   {
     href: "/coeur/maladies/avc",
-    icon: ExclamationTriangleIcon,
+    icon: BiErrorAlt,
     titre: "AVC",
     desc: "Interruption brutale de la circulation cérébrale. 190 000 cas par an. Chaque minute compte.",
     badge: "URGENCE",
@@ -72,37 +72,37 @@ const maladies = [
 
 const essentiels = [
   {
-    icon: ArrowTrendingUpIcon,
+    icon: BiTrendingUp,
     titre: "Contrôlez votre tension",
     desc: "Mesurez votre pression artérielle régulièrement. Objectif : moins de 140/90 mmHg. En cas d'HTA, surveillez-la quotidiennement.",
     color: "#EF4444",
   },
   {
-    icon: FireIcon,
+    icon: BiPulse,
     titre: "Bougez chaque jour",
     desc: "30 minutes d'activité modérée par jour suffisent pour réduire de 35 % le risque d'événement cardiovasculaire.",
     color: "#F97316",
   },
   {
-    icon: BeakerIcon,
+    icon: BiTestTube,
     titre: "Alimentation cardio-protectrice",
     desc: "Moins de sel, moins de graisses saturées, plus de légumes, fruits, légumineuses et oméga-3. Le régime méditerranéen est le mieux documenté.",
     color: "#10B981",
   },
   {
-    icon: ShieldCheckIcon,
+    icon: BiShieldAlt,
     titre: "Stoppez le tabac",
     desc: "Fumer double le risque d'infarctus. Après 1 an d'arrêt, le risque cardiovasculaire est déjà divisé par deux.",
     color: "#8B5CF6",
   },
   {
-    icon: ClipboardDocumentCheckIcon,
+    icon: BiClipboard,
     titre: "Suivez vos traitements",
     desc: "Ne jamais interrompre un antihypertenseur ou un anticoagulant sans avis médical. L'observance est essentielle à l'efficacité.",
     color: "#00C9FF",
   },
   {
-    icon: SunIcon,
+    icon: BiSun,
     titre: "Gérez le stress",
     desc: "Le stress chronique élève durablement la tension artérielle. Sommeil, respiration, activité physique : des solutions simples et efficaces.",
     color: "#F59E0B",
@@ -110,9 +110,9 @@ const essentiels = [
 ];
 
 const globalStats = [
-  { value: "1,4 milliard", label: "Hypertendus dans le monde", icon: UsersIcon },
-  { value: "64 millions", label: "Personnes atteintes d'IC dans le monde", icon: GlobeAltIcon },
-  { value: "2e cause", label: "De mortalité mondiale (AVC)", icon: ChartBarIcon },
+  { value: "1,4 milliard", label: "Hypertendus dans le monde", icon: BiGroup },
+  { value: "64 millions", label: "Personnes atteintes d'IC dans le monde", icon: BiGlobe },
+  { value: "2e cause", label: "De mortalité mondiale (AVC)", icon: BiBarChart },
 ];
 
 export default function CoeurPage() {
@@ -317,7 +317,7 @@ export default function CoeurPage() {
                         {m.desc}
                       </p>
                       <div className="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all duration-200 relative z-10" style={{ color: "#EF4444", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
-                        Découvrir <ArrowRightIcon className="w-4 h-4" />
+                        Découvrir <BiRightArrowAlt className="w-4 h-4" />
                       </div>
                     </motion.div>
                   </Link>
@@ -408,7 +408,7 @@ export default function CoeurPage() {
             style={{ background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.2)" }}
           >
             <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "rgba(239,68,68,0.1)" }}>
-              <PhoneIcon className="w-7 h-7" style={{ color: "#EF4444" }} />
+              <BiPhone className="w-7 h-7" style={{ color: "#EF4444" }} />
             </div>
             <div className="flex-1 text-center sm:text-left">
               <p

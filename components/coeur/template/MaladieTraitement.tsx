@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import SectionHeader from "@/components/ui/SectionHeader";
+import SectionReveal from "@/components/ui/SectionReveal";
 
 type TraitementType = "Médicament" | "Urgence" | "Hygiène de vie" | "Dispositif";
 
@@ -38,7 +39,9 @@ export default function MaladieTraitement({ traitements }: MaladieTraitementProp
   return (
     <section className="py-32 px-6" style={{ background: "#050810" }}>
       <div className="max-w-5xl mx-auto">
-        <SectionHeader badge="TRAITEMENTS" title="Prise en charge" subtitle="Protocoles thérapeutiques validés par les recommandations de la Haute Autorité de Santé." />
+        <SectionReveal>
+          <SectionHeader badge="TRAITEMENTS" title="Prise en charge" subtitle="Protocoles thérapeutiques validés par les recommandations de la Haute Autorité de Santé." />
+        </SectionReveal>
 
         <motion.div
           className="flex flex-col gap-6"
