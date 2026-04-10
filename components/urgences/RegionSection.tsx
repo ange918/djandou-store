@@ -21,9 +21,29 @@ export default function RegionSection({ region, pays }: RegionSectionProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, fontSize: "1.1rem", color: "#F8FAFC" }}>
-          {region}
-        </h2>
+        <div className="flex items-center gap-3">
+          <div className="flex -space-x-2">
+            {pays.slice(0, 5).map((p) => {
+              const code = [...p.drapeau]
+                .map((c) => String.fromCharCode((c.codePointAt(0) ?? 0) - 0x1f1a5))
+                .join("")
+                .toLowerCase();
+              return (
+                <img
+                  key={p.pays}
+                  src={`https://flagcdn.com/w40/${code}.png`}
+                  alt={p.pays}
+                  width={24}
+                  height={16}
+                  style={{ width: 24, height: 16, objectFit: "cover", borderRadius: 3, border: "1px solid rgba(255,255,255,0.1)", flexShrink: 0 }}
+                />
+              );
+            })}
+          </div>
+          <h2 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, fontSize: "1.1rem", color: "#F8FAFC" }}>
+            {region}
+          </h2>
+        </div>
         <div className="h-px flex-1" style={{ background: "rgba(255,255,255,0.06)" }} />
         <span className="text-xs px-3 py-1 rounded-full" style={{ color: "#64748B", background: "rgba(255,255,255,0.04)", fontFamily: "var(--font-poppins, Poppins, sans-serif)" }}>
           {pays.length} pays

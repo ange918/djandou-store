@@ -8,7 +8,17 @@ interface PaysCardProps {
   pays: PaysUrgence;
 }
 
+function flagEmojiToCode(emoji: string): string {
+  return [...emoji]
+    .map((char) => String.fromCharCode((char.codePointAt(0) ?? 0) - 0x1f1a5))
+    .join("")
+    .toLowerCase();
+}
+
 export default function PaysCard({ pays }: PaysCardProps) {
+  const code = flagEmojiToCode(pays.drapeau);
+  const flagUrl = `https://flagcdn.com/w80/${code}.png`;
+
   return (
     <motion.div
       whileHover={{ y: -4, borderColor: "rgba(239,68,68,0.3)", boxShadow: "0 0 20px rgba(239,68,68,0.07)" }}
@@ -17,7 +27,22 @@ export default function PaysCard({ pays }: PaysCardProps) {
       style={{ background: "#0D1526", border: "1px solid rgba(255,255,255,0.06)" }}
     >
       <div className="flex items-center gap-3">
-        <span className="text-4xl leading-none">{pays.drapeau}</span>
+        <div className="rounded-md overflow-hidden flex-shrink-0" style={{ width: 48, height: 32, background: "#1E293B" }}>
+          <img
+            src={flagUrl}
+            alt={`Drapeau ${pays.pays}`}
+            width={48}
+            height={32}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = "none";
+              const fallback = target.nextElementSibling as HTMLElement;
+              if (fallback) fallback.style.display = "block";
+            }}
+          />
+          <span style={{ display: "none", fontSize: "1.8rem", lineHeight: "32px", textAlign: "center", width: "100%" }}>{pays.drapeau}</span>
+        </div>
         <div>
           <h3 style={{ fontFamily: "var(--font-unbounded, Unbounded, sans-serif)", fontWeight: 700, fontSize: "0.9rem", color: "#F8FAFC" }}>
             {pays.pays}
