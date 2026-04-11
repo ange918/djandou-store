@@ -1,0 +1,19 @@
+
+> djjj@0.1.0 dev
+> next dev -p 5000 -H 0.0.0.0
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 896ms
+[33m[1m⚠[22m[39m Blocked cross-origin request from 24c87833-04a2-4017-b16a-592a6eed8ee5-00-177cuale95jdd.spock.replit.dev to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / [32m200[39m in 122ms[2m (compile: 5ms, render: 117ms)[22m
+ GET / [32m200[39m in 3.0s[2m (compile: 2.5s, render: 506ms)[22m
+ GET / [32m200[39m in 123ms[2m (compile: 11ms, render: 113ms)[22m
+ GET / [32m200[39m in 85ms[2m (compile: 4ms, render: 81ms)[22m
+ GET /urgences [32m200[39m in 960ms[2m (compile: 794ms, render: 166ms)[22m
+ GET /urgences [32m200[39m in 193ms[2m (compile: 5ms, render: 188ms)[22m
+ GET / [32m200[39m in 81ms[2m (compile: 4ms, render: 77ms)[22m

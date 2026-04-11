@@ -1,0 +1,75 @@
+
+> djjj@0.1.0 dev
+> next dev -p 5000 -H 0.0.0.0
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 1794ms
+ GET / [32m200[39m in 2.3s[2m (compile: 2.0s, render: 297ms)[22m
+[31m[1m⨯[22m[39m ./app/poumons/PoumonHubContent.tsx:7:1
+Export [32mWindIcon[39m doesn't exist in target module
+[0m [90m  5 |[39m [36mimport[39m { gsap } [36mfrom[39m [32m"gsap"[39m[33m;[39m
+ [90m  6 |[39m [36mimport[39m { [33mScrollTrigger[39m } [36mfrom[39m [32m"gsap/ScrollTrigger"[39m[33m;[39m
+[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mWindIcon[39m[33m,[39m [33mCloudIcon[39m[33m,[39m [33mExclamationTriangleIcon[39m[33m,[39m [33mShieldExclamationIcon[39m } [36mfrom[39m [32m"@heroicons/react/24/outline"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  8 |[39m [36mimport[39m [33mMaladieCard[39m [36mfrom[39m [32m"@/components/poumons/MaladieCard"[39m[33m;[39m
+ [90m  9 |[39m [36mimport[39m [33mSectionHeader[39m [36mfrom[39m [32m"@/components/ui/SectionHeader"[39m[33m;[39m
+ [90m 10 |[39m[0m
+
+The export [32mWindIcon[39m was not found in module [1m[31m[project]/node_modules/@heroicons/react/24/outline/esm/index.js [app-client] (ecmascript)[39m[22m.
+Did you mean to import [32mWindowIcon[39m?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/poumons/PoumonHubContent.tsx
+    ./app/poumons/page.tsx
+
+
+
+./app/poumons/PoumonHubContent.tsx:7:1
+Export [32mWindIcon[39m doesn't exist in target module
+[0m [90m  5 |[39m [36mimport[39m { gsap } [36mfrom[39m [32m"gsap"[39m[33m;[39m
+ [90m  6 |[39m [36mimport[39m { [33mScrollTrigger[39m } [36mfrom[39m [32m"gsap/ScrollTrigger"[39m[33m;[39m
+[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mWindIcon[39m[33m,[39m [33mCloudIcon[39m[33m,[39m [33mExclamationTriangleIcon[39m[33m,[39m [33mShieldExclamationIcon[39m } [36mfrom[39m [32m"@heroicons/react/24/outline"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  8 |[39m [36mimport[39m [33mMaladieCard[39m [36mfrom[39m [32m"@/components/poumons/MaladieCard"[39m[33m;[39m
+ [90m  9 |[39m [36mimport[39m [33mSectionHeader[39m [36mfrom[39m [32m"@/components/ui/SectionHeader"[39m[33m;[39m
+ [90m 10 |[39m[0m
+
+The export [32mWindIcon[39m was not found in module [1m[31m[project]/node_modules/@heroicons/react/24/outline/esm/index.js [app-ssr] (ecmascript)[39m[22m.
+Did you mean to import [32mWindowIcon[39m?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/poumons/PoumonHubContent.tsx
+    ./app/poumons/page.tsx
+
+
+ GET /poumons [31m500[39m in 2.8s[2m (compile: 2.7s, render: 107ms)[22m
+ GET /urgences [32m200[39m in 636ms[2m (compile: 430ms, render: 206ms)[22m
+[32m[1m✓[22m[39m Compiled in 71ms
+ GET /poumons [32m200[39m in 348ms[2m (compile: 104ms, render: 244ms)[22m
+[32m[1m✓[22m[39m Compiled in 115ms
+[32m[1m✓[22m[39m Compiled in 70ms
+ GET /poumons [32m200[39m in 315ms[2m (compile: 120ms, render: 194ms)[22m
+ GET /urgences [32m200[39m in 343ms[2m (compile: 74ms, render: 269ms)[22m
+ GET /poumons/maladies/asthme [32m200[39m in 607ms[2m (compile: 498ms, render: 109ms)[22m
+ GET / [32m200[39m in 254ms[2m (compile: 67ms, render: 188ms)[22m
+[33m[1m⚠[22m[39m Blocked cross-origin request from 0c5cbc51-e161-489f-92d1-76f473f66783-00-1g7dhg7cwj6mn.picard.replit.dev to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /poumons [32m200[39m in 29ms[2m (compile: 4ms, render: 25ms)[22m
+ GET /poumons [32m200[39m in 72ms[2m (compile: 5ms, render: 67ms)[22m
+ GET /poumons/maladies/asthme [32m200[39m in 22ms[2m (compile: 4ms, render: 19ms)[22m
+ GET /poumons/maladies/tuberculose [32m200[39m in 401ms[2m (compile: 376ms, render: 25ms)[22m
+ GET /poumons/maladies/tuberculose [32m200[39m in 166ms[2m (compile: 3ms, render: 163ms)[22m
+ GET /poumons/maladies/tuberculose [32m200[39m in 102ms[2m (compile: 3ms, render: 99ms)[22m
+ GET /poumons/maladies/tuberculose [32m200[39m in 101ms[2m (compile: 2ms, render: 99ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 4ms, render: 13ms)[22m
+ GET /urgences [32m200[39m in 17ms[2m (compile: 2ms, render: 14ms)[22m
+ GET /urgences [32m200[39m in 18ms[2m (compile: 4ms, render: 15ms)[22m
+ GET /urgences [32m200[39m in 169ms[2m (compile: 3ms, render: 166ms)[22m
